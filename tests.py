@@ -1,6 +1,6 @@
 import os
 import unittest
-from defog_data import get_db
+from defog_data import get_db, dbs
 
 
 class TestDB(unittest.TestCase):
@@ -24,6 +24,9 @@ class TestDB(unittest.TestCase):
             assert(len(db_schema) > 0)
             assert("glossary" in db)
         os.chdir(test_dir)
+
+    def dbs_exist(self):
+        assert(len(dbs) == 7)
 
     # check that all the tables exist in each db
     def test_academic(self):

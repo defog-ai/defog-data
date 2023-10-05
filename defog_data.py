@@ -17,3 +17,13 @@ geography = get_db("geography")
 restaurants = get_db("restaurants")
 scholar = get_db("scholar")
 yelp = get_db("yelp")
+
+dbs = {
+    "academic": academic,
+    "advising": advising,
+    "atis": atis,
+    "geography": geography,
+    "restaurants": restaurants,
+    "scholar": scholar,
+    "yelp": yelp
+}
