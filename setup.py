@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
     name="defog-data",
@@ -6,6 +6,17 @@ setup(
     description="Static SQL and JSON files containing the data we use for evaluations",
     author="Defog",
     author_email="support@defog.ai",
-    py_modules=["defog_data", "gen_embeddings"],
-    install_requires=[],
+    packages=find_packages(),
+    package_data={
+        "": [
+            "academic/*",
+            "advising/*",
+            "atis/*",
+            "geography/*",
+            "restaurants/*",
+            "scholar/*",
+            "yelp/*",
+        ]
+    },
+    include_package_data=True,
 )

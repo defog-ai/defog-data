@@ -1,19 +1,17 @@
 # for each db_name, get all of the column names and descriptions for each table and embed them
 import os
-from defog_data import dbs
+from defog_data.metadata import dbs
 import pickle
 from sentence_transformers import SentenceTransformer
 
+# get package root directory
+root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# if the embeddings file already exists, load it
-emb_path = f"{script_dir}/dist/embeddings.pkl"
-if os.path.isfile(emb_path):
-    print(f"Loading embeddings from file {emb_path}")
-    emb, csv_descriptions = pickle.load(open(emb_path, "rb"))
-else:
-    # load model for embedding column descriptions only if not already loaded
+def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dict]:
+    """
+    For each db, generate embeddings for all of the column names and descriptions
+    """
     encoder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
     emb = {}
     csv_descriptions = {}
@@ -45,10 +43,30 @@ else:
         emb[db_name] = column_emb
         csv_descriptions[db_name] = column_descriptions_typed
         print(f"Finished embedding {db_name} {len(column_descriptions)} columns")
+    if save_emb:
+        # get directory of emb_path and create if it doesn't exist
+        emb_dir = os.path.dirname(emb_path)
+        if not os.path.exists(emb_dir):
+            os.makedirs(emb_dir)
+        with open(emb_path, "wb") as f:
+            pickle.dump((emb, csv_descriptions), f)
+            print(f"Saved embeddings to file {emb_path}")
+    return emb, csv_descriptions
 
-    with open(emb_path, "wb") as f:
-        pickle.dump((emb, csv_descriptions), f)
-        print(f"Saved embeddings to file {emb_path}")
+
+def load_embeddings(emb_path: str) -> tuple[dict, dict]:
+    """
+    Load embeddings from file if they exist, otherwise generate them and save them.
+    """
+    if os.path.isfile(emb_path):
+        print(f"Loading embeddings from file {emb_path}")
+        emb, csv_descriptions = pickle.load(open(emb_path, "rb"))
+        return emb, csv_descriptions
+    else:
+        print(f"Embeddings file {emb_path} does not exist.")
+        emb, csv_descriptions = generate_embeddings(emb_path)
+        return emb, csv_descriptions
+
 
 # entity types: list of (column, type, description) tuples
 # note that these are spacy types https://spacy.io/usage/linguistic-features#named-entities

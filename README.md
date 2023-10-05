@@ -19,19 +19,36 @@ export DBPORT=5432
 
 This is the recommended way to access the schema from the json files in a python environment. To use the python library in your code, navigate to this repository and install it using pip:
 ```sh
+pip install -r requirements.txt # get dependencies
 pip install -e .
 ```
 The `-e` allows us to edit the code in place, ie if we make changes to the code, we don't have to reinstall the package.
 
+#### Metadata
+
 Once you have it installed, you can access the json metadata of each database as a dictionary using the following code:
 ```python
-import defog_data
+import defog_data.metadata as md
 
-defog_data.academic
+md.academic
 # {'table_metadata': {'cite': [{'data_type': 'bigint',
 #    'column_name': 'cited',
 #    'column_description': ['ID of the publication being cited']},
 #    ...
+```
+
+#### Supplementary
+
+We also have column embeddings, joinable columns and special columns with named entities, split by database in [supplementary.py](defog_data/supplementary.py). To access them, use the following code:
+```python
+import defog_data.supplementary as sup
+
+# embeddings and accompanying column info in csv format
+embeddings, csv_info = sup.load_embeddings("<your path of choice>")
+# columns that can be joined on
+sup.columns_join
+# columns with named entities
+sup.columns_ner
 ```
 
 ## Organization
@@ -51,4 +68,12 @@ The json contains the metadata of the database along with the column and table d
 The test in `tests.py` just ensures that we are able to access the respective metadata for each table in each database. To run the tests, use the following command:
 ```sh
 python -m unittest tests.py
+```
+
+## Release
+
+To build for release, first bump the version in [setup.py](setup.py) and then run the following commands:
+```sh
+python setup.py sdist bdist_wheel
+twine upload dist/defog*
 ```
