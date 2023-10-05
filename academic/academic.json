@@ -240,5 +240,6 @@
                 "column_description": "Foreign key referencing the keyword table's primary key (kid)"
             }
         ]
-    }
+    },
+    "glossary": ""
 }

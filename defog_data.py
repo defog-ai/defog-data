@@ -1,8 +1,11 @@
 import json
-
+import os
 
 def get_db(db_name):
-    with open(f"{db_name}/{db_name}.json", "r") as f:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, f"{db_name}/{db_name}.json")
+    with open(file_path, "r") as f:
+
         db_schema = json.load(f)
     return db_schema
 
