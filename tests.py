@@ -1,8 +1,31 @@
+import os
 import unittest
 from defog_data import get_db
 
 
 class TestDB(unittest.TestCase):
+    def test_load_all_in_diff_dir(self):
+        # get current directory
+        test_dir = os.getcwd()
+        # cd to /tmp and attempt to load a db
+        os.chdir("/tmp")
+        all_db_names = [
+            "academic",
+            "advising",
+            "atis",
+            "geography",
+            "restaurants",
+            "scholar",
+            "yelp",
+        ]
+        for db_name in all_db_names:
+            db = get_db(db_name)
+            db_schema = db["table_metadata"]
+            assert(len(db_schema) > 0)
+            assert("glossary" in db)
+        os.chdir(test_dir)
+
+    # check that all the tables exist in each db
     def test_academic(self):
         db_name = "academic"
         db_schema = get_db(db_name)["table_metadata"]

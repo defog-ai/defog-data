@@ -164,5 +164,6 @@
                 "column_description": "The ID of the keyphrase associated with the paper."
             }
         ]
-    }
+    },
+    "glossary": ""
 }

@@ -159,5 +159,6 @@
                 "column_description": "The name of the state that shares a border with the state specified in the state_name column."
             }
         ]
-    }
+    },
+    "glossary": ""
 }
