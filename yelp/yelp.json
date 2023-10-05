@@ -1,214 +1,203 @@
 {
-    "status": "success",
     "table_metadata": {
         "tip": [
             {
                 "column_name": "year",
                 "data_type": "bigint",
-                "column_description": ["Year when the tip was created"]
+                "column_description": "Year when the tip was created"
             },
             {
                 "column_name": "tip_id",
                 "data_type": "bigint",
-                "column_description": ["Unique identifier for the tip"]
+                "column_description": "Unique identifier for the tip"
             },
             {
                 "column_name": "month",
                 "data_type": "text",
-                "column_description": ["Month when the tip was created"]
+                "column_description": "Month when the tip was created"
             },
             {
                 "column_name": "user_id",
                 "data_type": "text",
-                "column_description": ["Unique identifier for the user who created the tip"]
+                "column_description": "Unique identifier for the user who created the tip"
             },
             {
                 "column_name": "business_id",
                 "data_type": "text",
-                "column_description": ["Unique identifier for the business where the tip was created"]
+                "column_description": "Unique identifier for the business where the tip was created"
             },
             {
                 "column_name": "text",
                 "data_type": "text",
-                "column_description": ["Text content of the tip"]
+                "column_description": "Text content of the tip"
             }
         ],
         "users": [
             {
                 "data_type": "bigint",
                 "column_name": "uid",
-                "column_description": ["Unique identifier for each user"]
+                "column_description": "Unique identifier for each user"
             },
             {
                 "data_type": "text",
                 "column_name": "user_id",
-                "column_description": ["Unique user ID assigned by the system"]
+                "column_description": "Unique user ID assigned by the system"
             },
             {
                 "data_type": "text",
                 "column_name": "name",
-                "column_description": ["Name of the user"]
+                "column_description": "Name of the user"
             }
         ],
         "review": [
             {
                 "data_type": "real",
                 "column_name": "rating",
-                "column_description": ["The rating given by the user for the business, on a scale of 1 to 5."]
+                "column_description": "The rating given by the user for the business, on a scale of 1 to 5."
             },
             {
                 "data_type": "bigint",
                 "column_name": "rid",
-                "column_description": ["The unique identifier for each review."]
+                "column_description": "The unique identifier for each review."
             },
             {
                 "data_type": "bigint",
                 "column_name": "year",
-                "column_description": ["The year in which the review was posted."]
+                "column_description": "The year in which the review was posted."
             },
             {
                 "data_type": "text",
                 "column_name": "month",
-                "column_description": ["The month in which the review was posted."]
+                "column_description": "The month in which the review was posted."
             },
             {
                 "data_type": "text",
                 "column_name": "text",
-                "column_description": ["The text of the review."]
+                "column_description": "The text of the review."
             },
             {
                 "data_type": "text",
                 "column_name": "business_id",
-                "column_description": ["The unique identifier for the business being reviewed."]
+                "column_description": "The unique identifier for the business being reviewed."
             },
             {
                 "data_type": "text",
                 "column_name": "user_id",
-                "column_description": ["The unique identifier for the user who posted the review."]
+                "column_description": "The unique identifier for the user who posted the review."
             }
         ],
         "checkin": [
             {
                 "data_type": "bigint",
                 "column_name": "cid",
-                "column_description": ["Unique identifier for the daily check-in count"]
+                "column_description": "Unique identifier for the daily check-in count"
             },
             {
                 "data_type": "bigint",
                 "column_name": "count",
-                "column_description": ["Number of check-ins on the given day"]
+                "column_description": "Number of check-ins on the given day"
             },
             {
                 "data_type": "text",
                 "column_name": "business_id",
-                "column_description": ["Unique identifier for the business where the check-in occurred"]
+                "column_description": "Unique identifier for the business where the check-in occurred"
             },
             {
                 "data_type": "text",
                 "column_name": "day",
-                "column_description": ["Day of the week when the check-ins occurred"]
+                "column_description": "Day of the week when the check-ins occurred"
             }
         ],
         "business": [
             {
                 "data_type": "bigint",
                 "column_name": "review_count",
-                "column_description": ["The number of reviews for the business"]
+                "column_description": "The number of reviews for the business"
             },
             {
                 "data_type": "bigint",
                 "column_name": "is_open",
-                "column_description": ["Indicates whether the business is currently open or closed (1 for open, 0 for closed)"]
+                "column_description": "Indicates whether the business is currently open or closed (1 for open, 0 for closed)"
             },
             {
                 "data_type": "real",
                 "column_name": "rating",
-                "column_description": ["The average rating of the business"]
+                "column_description": "The average rating of the business"
             },
             {
                 "data_type": "bigint",
                 "column_name": "bid",
-                "column_description": ["The unique identifier for the business"]
+                "column_description": "The unique identifier for the business"
             },
             {
                 "data_type": "text",
                 "column_name": "city",
-                "column_description": ["The city where the business is located"]
+                "column_description": "The city where the business is located"
             },
             {
                 "data_type": "text",
                 "column_name": "latitude",
-                "column_description": ["The latitude of the business location"]
+                "column_description": "The latitude of the business location"
             },
             {
                 "data_type": "text",
                 "column_name": "longitude",
-                "column_description": ["The longitude of the business location"]
+                "column_description": "The longitude of the business location"
             },
             {
                 "data_type": "text",
                 "column_name": "state",
-                "column_description": ["The US state where the business is located. This is represented by two-letter state abbreviations."]
+                "column_description": "The US state where the business is located, represented by two-letter abbreviations (eg. 'CA', 'NV', 'NY', etc.)"
             },
             {
                 "data_type": "text",
                 "column_name": "business_id",
-                "column_description": ["The unique identifier for the business"]
+                "column_description": "The unique identifier for the business"
             },
             {
                 "data_type": "text",
                 "column_name": "name",
-                "column_description": ["The name of the business"]
+                "column_description": "The name of the business"
             },
             {
                 "data_type": "text",
                 "column_name": "full_address",
-                "column_description": ["The full address of the business"]
+                "column_description": "The full address of the business"
             }
         ],
         "category": [
             {
                 "data_type": "bigint",
                 "column_name": "id",
-                "column_description": ["Unique identifier for each category"]
+                "column_description": "Unique identifier for each category"
             },
             {
                 "data_type": "text",
                 "column_name": "business_id",
-                "column_description": ["Identifier for the business associated with the category"]
+                "column_description": "Identifier for the business associated with the category"
             },
             {
                 "data_type": "text",
                 "column_name": "category_name",
-                "column_description": ["Name of the category. Eg 'Bistro', 'Diner', 'Pizza'"]
+                "column_description": "Name of the category. Eg 'Bistro', 'Diner', 'Pizza'"
             }
         ],
         "neighbourhood": [
             {
                 "data_type": "bigint",
                 "column_name": "id",
-                "column_description": ["Unique identifier for each neighbourhood"]
+                "column_description": "Unique identifier for each neighbourhood"
             },
             {
                 "data_type": "text",
                 "column_name": "business_id",
-                "column_description": ["Identifier for each business in the neighbourhood"]
+                "column_description": "Identifier for each business in the neighbourhood"
             },
             {
                 "data_type": "text",
                 "column_name": "neighbourhood_name",
-                "column_description": ["Name of the neighbourhood where the business is located"]
+                "column_description": "Name of the neighbourhood where the business is located"
             }
         ]
-    },
-    "glossary": "This database contains information about reviews and tips left by users on different restaurants from different places.",
-    "table_descriptions": {
-        "tip": "The \"tip\" table contains information about tips created by users for businesses. It includes the year and month when the tip was created, a unique identifier for the tip, the user who created the tip, the business where the tip was created, and the text content of the tip. This table can be joined with other tables such as \"users\", \"business\", and \"review\" to gather additional information about the users, businesses, and reviews associated with the tips.",
-        "users": "The \"users\" table is used to store information about individual users. It contains a unique identifier for each user, a unique user ID assigned by the system, and the name of the user. This table can be joined with other tables such as \"tip\", \"review\", \"checkin\", \"business\" and \"neighbourhood\" to gather additional information about the users.",
-        "review": "The \"review\" table contains information about user reviews for businesses. It includes columns for the rating given by the user, the unique identifier for each review, the year and month in which the review was posted, the text of the review, the unique identifier for the business being reviewed, and the unique identifier for the user who posted the review. This table can be joined with the \"tip\", \"users\", \"checkin\", \"business\", \"category\", and \"neighbourhood\" tables.",
-        "checkin": "The \"checkin\" table is used to store information about the daily check-ins at businesses. It contains columns such as \"cid\" which is a unique identifier for the daily check-in count, \"count\" which represents the number of check-ins on a given day, \"business_id\" which is a unique identifier for the business where the check-in occurred, and \"day\" which indicates the day of the week when the check-ins occurred. This table can be joined with other tables such as \"tip\", \"users\", \"review\", \"business\", \"category\", \"neighbourhood\" to gather additional information related to the check-ins.",
-        "business": "The \"business\" table contains information about various businesses. It includes columns such as \"review_count\" (the number of reviews for the business), \"is_open\" (indicating whether the business is currently open or closed), \"rating\" (the average rating of the business), \"bid\" (the unique identifier for the business), \"city\" (the city where the business is located), \"latitude\" (the latitude of the business location), \"longitude\" (the longitude of the business location), \"state\" (the US state where the business is located), \"business_id\" (the unique identifier for the business), \"name\" (the name of the business), and \"full_address\" (the full address of the business).\n\nThis table can be joined with other tables such as \"tip\", \"users\", \"review\", \"checkin\", \"category\", and \"neighbourhood\" to gather additional information about the businesses.",
-        "category": "The \"category\" table is used to store information about different categories associated with businesses. It has a unique identifier for each category and also includes the business identifier and the name of the category. This table can be joined with other tables such as \"business\" to get additional information about the businesses associated with each category.",
-        "neighbourhood": "The \"neighbourhood\" table is used to store information about different neighbourhoods where businesses are located. It has a unique identifier for each neighbourhood and includes the name of the neighbourhood as well as the identifier for each business in that neighbourhood. This table can be joined with other tables such as \"tip\", \"users\", \"review\", \"checkin\", \"business\", \"category\", and \"neighbourhood\" to gather additional information about businesses and their activities within a specific neighbourhood."
     }
 }
