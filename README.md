@@ -1,4 +1,5 @@
 # Defog Data
+[![Build Status](https://github.com/defog-ai/defog-data/actions/workflows/main.yml/badge.svg)](https://github.com/defog-ai/defog-data/actions/workflows/main.yml)
 
 This repository contains the metadata and data of different databases that we require for various purposes, specifically testing.
 
