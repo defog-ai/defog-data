@@ -1,174 +1,163 @@
 {
-    "status": "success",
     "table_metadata": {
         "city": [
             {
                 "data_type": "bigint",
                 "column_name": "population",
-                "column_description": ["The population of the city"]
+                "column_description": "The population of the city"
             },
             {
                 "data_type": "text",
                 "column_name": "city_name",
-                "column_description": ["The name of the city"]
+                "column_description": "The name of the city"
             },
             {
                 "data_type": "text",
                 "column_name": "country_name",
-                "column_description": ["The name of the country where the city is located"]
+                "column_description": "The name of the country where the city is located"
             },
             {
                 "data_type": "text",
                 "column_name": "state_name",
-                "column_description": ["The name of the state where the city is located"]
+                "column_description": "The name of the state where the city is located"
             }
         ],
         "lake": [
             {
                 "data_type": "double precision",
                 "column_name": "area",
-                "column_description": ["The area of the lake in square kilometers"]
+                "column_description": "The area of the lake in square kilometers"
             },
             {
                 "data_type": "text",
                 "column_name": "lake_name",
-                "column_description": ["The name of the lake"]
+                "column_description": "The name of the lake"
             },
             {
                 "data_type": "text",
                 "column_name": "country_name",
-                "column_description": ["The name of the country where the lake is located"]
+                "column_description": "The name of the country where the lake is located"
             },
             {
                 "data_type": "text",
                 "column_name": "state_name",
-                "column_description": ["The name of the state where the lake is located (if applicable)"]
+                "column_description": "The name of the state where the lake is located (if applicable)"
             }
         ],
         "river": [
             {
                 "data_type": "bigint",
                 "column_name": "length",
-                "column_description": ["The length of the river in meters"]
+                "column_description": "The length of the river in meters"
             },
             {
                 "data_type": "text",
                 "column_name": "river_name",
-                "column_description": ["The name of the river. Names exclude the word 'river' e.g. 'Mississippi' instead of 'Mississippi River'"]
+                "column_description": "The name of the river. Names exclude the word 'river' e.g. 'Mississippi' instead of 'Mississippi River'"
             },
             {
                 "data_type": "text",
                 "column_name": "country_name",
-                "column_description": ["The name of the country the river flows through"]
+                "column_description": "The name of the country the river flows through"
             },
             {
                 "data_type": "text",
                 "column_name": "traverse",
-                "column_description": ["The cities or landmarks the river passes through. Comma delimited, eg `new york,albany,boston`"]
+                "column_description": "The cities or landmarks the river passes through. Comma delimited, eg `new york,albany,boston`"
             }
         ],
         "state": [
             {
                 "data_type": "bigint",
                 "column_name": "population",
-                "column_description": ["The population of the state"]
+                "column_description": "The population of the state"
             },
             {
                 "data_type": "double precision",
                 "column_name": "area",
-                "column_description": ["The area of the state in square kilometers"]
+                "column_description": "The area of the state in square kilometers"
             },
             {
                 "data_type": "double precision",
                 "column_name": "density",
-                "column_description": ["The population density of the state in people per square kilometer"]
+                "column_description": "The population density of the state in people per square kilometer"
             },
             {
                 "data_type": "text",
                 "column_name": "state_name",
-                "column_description": ["The name of the state"]
+                "column_description": "The name of the state"
             },
             {
                 "data_type": "text",
                 "column_name": "country_name",
-                "column_description": ["The name of the country the state belongs to"]
+                "column_description": "The name of the country the state belongs to"
             },
             {
                 "data_type": "text",
                 "column_name": "capital",
-                "column_description": ["The name of the capital city of the state"]
+                "column_description": "The name of the capital city of the state"
             }
         ],
         "highlow": [
             {
                 "data_type": "text",
                 "column_name": "state_name",
-                "column_description": ["The name of the state"]
+                "column_description": "The name of the state"
             },
             {
                 "data_type": "text",
                 "column_name": "highest_elevation",
-                "column_description": ["The highest elevation point in the state in meters above sea level"]
+                "column_description": "The highest elevation point in the state in meters above sea level"
             },
             {
                 "data_type": "text",
                 "column_name": "lowest_point",
-                "column_description": ["The lowest elevation point in the state"]
+                "column_description": "The lowest elevation point in the state"
             },
             {
                 "data_type": "text",
                 "column_name": "highest_point",
-                "column_description": ["The highest point in the state"]
+                "column_description": "The highest point in the state"
             },
             {
                 "data_type": "text",
                 "column_name": "lowest_elevation",
-                "column_description": ["The lowest point in the state in meters above sea level"]
+                "column_description": "The lowest point in the state in meters above sea level"
             }
         ],
         "mountain": [
             {
                 "data_type": "bigint",
                 "column_name": "mountain_altitude",
-                "column_description": ["The altitude of the mountain in meters"]
+                "column_description": "The altitude of the mountain in meters"
             },
             {
                 "data_type": "text",
                 "column_name": "mountain_name",
-                "column_description": ["The name of the mountain"]
+                "column_description": "The name of the mountain"
             },
             {
                 "data_type": "text",
                 "column_name": "country_name",
-                "column_description": ["The name of the country where the mountain is located"]
+                "column_description": "The name of the country where the mountain is located"
             },
             {
                 "data_type": "text",
                 "column_name": "state_name",
-                "column_description": ["The name of the state or province where the mountain is located (if applicable)"]
+                "column_description": "The name of the state or province where the mountain is located (if applicable)"
             }
         ],
         "border_info": [
             {
                 "data_type": "text",
                 "column_name": "state_name",
-                "column_description": ["The name of the state that shares a border with another state or country."]
+                "column_description": "The name of the state that shares a border with another state or country."
             },
             {
                 "data_type": "text",
                 "column_name": "border",
-                "column_description": ["The name of the state that shares a border with the state specified in the state_name column."]
+                "column_description": "The name of the state that shares a border with the state specified in the state_name column."
             }
         ]
-    },
-    "glossary": "",
-    "table_descriptions": {
-        "city": "The \"city\" table contains information about cities, including their population, name, country, and state. This table can be joined with other tables such as \"lake\", \"river\", \"state\", \"highlow\", \"mountain\", and \"border_info\" to gather additional information about the cities, such as their proximity to lakes, rivers, mountains, or borders.",
-        "lake": "The \"lake\" table contains information about lakes, including their area, name, country, and state (if applicable). This table can be joined with other tables such as \"city\", \"river\", \"state\", \"highlow\", \"mountain\", and \"border_info\" to gather additional information about the lakes.",
-        "river": "The \"river\" table contains information about rivers, including their length, name, the country they flow through, and the cities or landmarks they pass through. This table can be joined with other tables such as \"city\", \"lake\", \"state\", and \"mountain\" to gather additional information about the rivers.",
-        "state": "The \"state\" table contains information about different states, including their population, area, population density, state name, country name, and capital city. This table can be joined with other tables such as \"city\", \"lake\", \"river\", \"highlow\", \"mountain\", and \"border_info\" to gather additional information about the states.",
-        "highlow": "The \"highlow\" table contains information about the highest and lowest elevations and points in each state. It can be joined with the  \"city\", \"lake\", \"state\", \"mountain\", and \"border_info\" tables to retrieve additional information about each state.",
-        "mountain": "The \"mountain\" table contains information about mountains, including their altitude, name, country, and state (if applicable). This table can be joined with other tables such as \"city\", \"lake\", \"river\", \"state\", \"highlow\", and \"border_info\" to gather additional information about the mountains.",
-        "border_info": "The \"border_info\" table contains information about the borders of states. It includes the name of a state and the name of the state that shares a border with it. This table can be joined with other tables such as \"city\", \"lake\", \"state\", \"highlow\", or \"mountain\" to gather additional information about the borders."
     }
 }

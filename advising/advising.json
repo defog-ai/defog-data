@@ -1,608 +1,589 @@
 {
-    "status": "success",
     "table_metadata": {
         "gsi": [
             {
                 "data_type": "bigint",
                 "column_name": "course_offering_id",
-                "column_description": ["Unique identifier for a course offering"]
+                "column_description": "Unique identifier for a course offering"
             },
             {
                 "data_type": "bigint",
                 "column_name": "student_id",
-                "column_description": ["Unique identifier for a student enrolled in a course offering"]
+                "column_description": "Unique identifier for a student enrolled in a course offering"
             }
         ],
         "area": [
             {
                 "data_type": "bigint",
                 "column_name": "course_id",
-                "column_description": ["Unique identifier for each course"]
+                "column_description": "Unique identifier for each course"
             },
             {
                 "data_type": "text",
                 "column_name": "area",
-                "column_description": ["The area of study for each course"]
+                "column_description": "The area of study for each course"
             }
         ],
         "course": [
             {
                 "data_type": "bigint",
                 "column_name": "helpfulness_score",
-                "column_description": ["The overall helpfulness score of the course as rated by students."]
+                "column_description": "The overall helpfulness score of the course as rated by students."
             },
             {
                 "data_type": "bigint",
                 "column_name": "num_semesters",
-                "column_description": ["The number of semesters the course is offered in a year."]
+                "column_description": "The number of semesters the course is offered in a year."
             },
             {
                 "data_type": "bigint",
                 "column_name": "num_enrolled",
-                "column_description": ["The total number of students enrolled in the course."]
+                "column_description": "The total number of students enrolled in the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "num_reviews",
-                "column_description": ["The total number of reviews/ratings for the course."]
+                "column_description": "The total number of reviews/ratings for the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "clarity_score",
-                "column_description": ["The overall clarity score of the course as rated by students."]
+                "column_description": "The overall clarity score of the course as rated by students."
             },
             {
                 "data_type": "bigint",
                 "column_name": "easiness_score",
-                "column_description": ["The overall easiness score of the course as rated by students."]
+                "column_description": "The overall easiness score of the course as rated by students."
             },
             {
                 "data_type": "bigint",
                 "column_name": "course_id",
-                "column_description": ["The unique identifier for the course."]
+                "column_description": "The unique identifier for the course."
             },
             {
                 "data_type": "text",
                 "column_name": "description",
-                "column_description": ["A brief description of the course content."]
+                "column_description": "A brief description of the course content."
             },
             {
                 "data_type": "boolean",
                 "column_name": "has_projects",
-                "column_description": ["Indicates whether the course has any projects or not."]
+                "column_description": "Indicates whether the course has any projects or not."
             },
             {
                 "data_type": "boolean",
                 "column_name": "has_exams",
-                "column_description": ["Indicates whether the course has any exams or not."]
+                "column_description": "Indicates whether the course has any exams or not."
             },
             {
                 "data_type": "boolean",
                 "column_name": "has_discussion",
-                "column_description": ["Indicates whether the course has any discussion sessions or not."]
+                "column_description": "Indicates whether the course has any discussion sessions or not."
             },
             {
                 "data_type": "boolean",
                 "column_name": "has_lab",
-                "column_description": ["Indicates whether the course has any lab sessions or not."]
+                "column_description": "Indicates whether the course has any lab sessions or not."
             },
             {
                 "data_type": "text",
                 "column_name": "name",
-                "column_description": ["The name of the course."]
+                "column_description": "The name of the course."
             },
             {
                 "data_type": "text",
                 "column_name": "department",
-                "column_description": ["The department offering the course."]
+                "column_description": "The department offering the course."
             },
             {
                 "data_type": "text",
                 "column_name": "number",
-                "column_description": ["The course number/code."]
+                "column_description": "The course number/code."
             },
             {
                 "data_type": "text",
                 "column_name": "credits",
-                "column_description": ["The number of credits awarded for completing the course."]
+                "column_description": "The number of credits awarded for completing the course."
             },
             {
                 "data_type": "text",
                 "column_name": "advisory_requirement",
-                "column_description": ["Any advisory requirements for taking the course."]
+                "column_description": "Any advisory requirements for taking the course."
             },
             {
                 "data_type": "text",
                 "column_name": "enforced_requirement",
-                "column_description": ["Any enforced requirements for taking the course."]
+                "column_description": "Any enforced requirements for taking the course."
             }
         ],
         "program": [
             {
                 "data_type": "bigint",
                 "column_name": "program_id",
-                "column_description": ["Unique identifier for each program"]
+                "column_description": "Unique identifier for each program"
             },
             {
                 "data_type": "text",
                 "column_name": "name",
-                "column_description": ["Name of the program"]
+                "column_description": "Name of the program"
             },
             {
                 "data_type": "text",
                 "column_name": "college",
-                "column_description": ["Name of the college offering the program"]
+                "column_description": "Name of the college offering the program"
             },
             {
                 "data_type": "text",
                 "column_name": "introduction",
-                "column_description": ["Introduction to the program"]
+                "column_description": "Introduction to the program"
             }
         ],
         "student": [
             {
                 "data_type": "bigint",
                 "column_name": "student_id",
-                "column_description": ["Unique identifier for each student"]
+                "column_description": "Unique identifier for each student"
             },
             {
                 "data_type": "bigint",
                 "column_name": "program_id",
-                "column_description": ["Identifier for the program the student is enrolled in"]
+                "column_description": "Identifier for the program the student is enrolled in"
             },
             {
                 "data_type": "bigint",
                 "column_name": "total_credit",
-                "column_description": ["Total number of credits earned by the student"]
+                "column_description": "Total number of credits earned by the student"
             },
             {
                 "data_type": "numeric",
                 "column_name": "total_gpa",
-                "column_description": ["Cumulative GPA of the student"]
+                "column_description": "Cumulative GPA of the student"
             },
             {
                 "data_type": "date",
                 "column_name": "admit_term",
-                "column_description": ["Term in which the student was admitted. Format is YYYY-MM-DD"]
+                "column_description": "Term in which the student was admitted. Format is YYYY-MM-DD"
             },
             {
                 "data_type": "date",
                 "column_name": "predicted_graduation_semester",
-                "column_description": ["Semester in which the student is predicted to graduate. Format is YYYY-MM-DD"]
+                "column_description": "Semester in which the student is predicted to graduate. Format is YYYY-MM-DD"
             },
             {
                 "data_type": "text",
                 "column_name": "degree",
-                "column_description": ["Degree program the student is enrolled in"]
+                "column_description": "Degree program the student is enrolled in"
             },
             {
                 "data_type": "text",
                 "column_name": "entered_as",
-                "column_description": ["Status of the student when they entered the program"]
+                "column_description": "Status of the student when they entered the program"
             },
             {
                 "data_type": "text",
                 "column_name": "lastname",
-                "column_description": ["Last name of the student"]
+                "column_description": "Last name of the student"
             },
             {
                 "data_type": "text",
                 "column_name": "firstname",
-                "column_description": ["First name of the student"]
+                "column_description": "First name of the student"
             },
             {
                 "data_type": "text",
                 "column_name": "minor",
-                "column_description": ["Minor program the student is enrolled in"]
+                "column_description": "Minor program the student is enrolled in"
             },
             {
                 "data_type": "text",
                 "column_name": "declare_major",
-                "column_description": ["Major program the student declared"]
+                "column_description": "Major program the student declared"
             },
             {
                 "data_type": "text",
                 "column_name": "internship",
-                "column_description": ["Internship program the student is enrolled in"]
+                "column_description": "Internship program the student is enrolled in"
             }
         ],
         "semester": [
             {
                 "data_type": "bigint",
                 "column_name": "semester_id",
-                "column_description": ["Unique identifier for each semester"]
+                "column_description": "Unique identifier for each semester"
             },
             {
                 "data_type": "bigint",
                 "column_name": "year",
-                "column_description": ["The year in which the semester takes place"]
+                "column_description": "The year in which the semester takes place"
             },
             {
                 "data_type": "text",
                 "column_name": "semester",
-                "column_description": ["The name or identifier for the semester (e.g. Fall, Spring, Summer)"]
+                "column_description": "The name or identifier for the semester (e.g. Fall, Spring, Summer)"
             }
         ],
         "instructor": [
             {
                 "data_type": "bigint",
                 "column_name": "instructor_id",
-                "column_description": ["Unique identifier for each instructor"]
+                "column_description": "Unique identifier for each instructor"
             },
             {
                 "data_type": "text",
                 "column_name": "name",
-                "column_description": ["Name of the instructor"]
+                "column_description": "Name of the instructor"
             },
             {
                 "data_type": "text",
                 "column_name": "uniqname",
-                "column_description": ["Unique name of the instructor used for login and identification purposes"]
+                "column_description": "Unique name of the instructor used for login and identification purposes"
             }
         ],
         "program_course": [
             {
                 "data_type": "bigint",
                 "column_name": "program_id",
-                "column_description": ["The ID of the program associated with the course"]
+                "column_description": "The ID of the program associated with the course"
             },
             {
                 "data_type": "bigint",
                 "column_name": "course_id",
-                "column_description": ["The ID of the course"]
+                "column_description": "The ID of the course"
             },
             {
                 "data_type": "bigint",
                 "column_name": "workload",
-                "column_description": ["The workload of the course in hours"]
+                "column_description": "The workload of the course in hours"
             },
             {
                 "data_type": "text",
                 "column_name": "category",
-                "column_description": ["The category of the course"]
+                "column_description": "The category of the course"
             }
         ],
         "student_record": [
             {
                 "data_type": "bigint",
                 "column_name": "student_id",
-                "column_description": ["Unique identifier for each student"]
+                "column_description": "Unique identifier for each student"
             },
             {
                 "data_type": "bigint",
                 "column_name": "course_id",
-                "column_description": ["Unique identifier for each course"]
+                "column_description": "Unique identifier for each course"
             },
             {
                 "data_type": "bigint",
                 "column_name": "semester",
-                "column_description": ["The semester ID in which the course was taken"]
+                "column_description": "The semester ID in which the course was taken"
             },
             {
                 "data_type": "bigint",
                 "column_name": "offering_id",
-                "column_description": ["Unique identifier for each offering of a course"]
+                "column_description": "Unique identifier for each offering of a course"
             },
             {
                 "data_type": "text",
                 "column_name": "how",
-                "column_description": ["How the student took the course (e.g. in-person, online)"]
+                "column_description": "How the student took the course (e.g. in-person, online)"
             },
             {
                 "data_type": "text",
                 "column_name": "transfer_source",
-                "column_description": ["If the course was transferred from another institution, the name of that institution"]
+                "column_description": "If the course was transferred from another institution, the name of that institution"
             },
             {
                 "data_type": "text",
                 "column_name": "earn_credit",
-                "column_description": ["Whether the student earned credit for the course (e.g. Yes, No)"]
+                "column_description": "Whether the student earned credit for the course (e.g. Yes, No)"
             },
             {
                 "data_type": "text",
                 "column_name": "repeat_term",
-                "column_description": ["If the student repeated the course, the semester in which it was repeated"]
+                "column_description": "If the student repeated the course, the semester in which it was repeated"
             },
             {
                 "data_type": "text",
                 "column_name": "test_id",
-                "column_description": ["Unique identifier for each test taken in the course"]
+                "column_description": "Unique identifier for each test taken in the course"
             },
             {
                 "data_type": "text",
                 "column_name": "grade",
-                "column_description": ["The grade received for the course"]
+                "column_description": "The grade received for the course"
             }
         ],
         "course_offering": [
             {
                 "data_type": "bigint",
                 "column_name": "offering_id",
-                "column_description": ["Unique identifier for each course offering"]
+                "column_description": "Unique identifier for each course offering"
             },
             {
                 "data_type": "bigint",
                 "column_name": "course_id",
-                "column_description": ["Unique identifier for each course"]
+                "column_description": "Unique identifier for each course"
             },
             {
                 "data_type": "bigint",
                 "column_name": "semester",
-                "column_description": ["The semester ID in which the course is offered"]
+                "column_description": "The semester ID in which the course is offered"
             },
             {
                 "data_type": "bigint",
                 "column_name": "section_number",
-                "column_description": ["The section number of the course"]
+                "column_description": "The section number of the course"
             },
             {
                 "data_type": "time without time zone",
                 "column_name": "start_time",
-                "column_description": ["The start time of the course"]
+                "column_description": "The start time of the course"
             },
             {
                 "data_type": "time without time zone",
                 "column_name": "end_time",
-                "column_description": ["The end time of the course"]
+                "column_description": "The end time of the course"
             },
             {
                 "data_type": "text",
                 "column_name": "monday",
-                "column_description": ["The instructor's name for Monday"]
+                "column_description": "The instructor's name for Monday"
             },
             {
                 "data_type": "text",
                 "column_name": "tuesday",
-                "column_description": ["The instructor's name for Tuesday"]
+                "column_description": "The instructor's name for Tuesday"
             },
             {
                 "data_type": "text",
                 "column_name": "wednesday",
-                "column_description": ["The instructor's name for Wednesday"]
+                "column_description": "The instructor's name for Wednesday"
             },
             {
                 "data_type": "text",
                 "column_name": "thursday",
-                "column_description": ["The instructor's name for Thursday"]
+                "column_description": "The instructor's name for Thursday"
             },
             {
                 "data_type": "text",
                 "column_name": "friday",
-                "column_description": ["The instructor's name for Friday"]
+                "column_description": "The instructor's name for Friday"
             },
             {
                 "data_type": "text",
                 "column_name": "saturday",
-                "column_description": ["The instructor's name for Saturday"]
+                "column_description": "The instructor's name for Saturday"
             },
             {
                 "data_type": "text",
                 "column_name": "sunday",
-                "column_description": ["The instructor's name for Sunday"]
+                "column_description": "The instructor's name for Sunday"
             },
             {
                 "data_type": "boolean",
                 "column_name": "has_final_project",
-                "column_description": ["Indicates whether the course has a final project"]
+                "column_description": "Indicates whether the course has a final project"
             },
             {
                 "data_type": "boolean",
                 "column_name": "has_final_exam",
-                "column_description": ["Indicates whether the course has a final exam"]
+                "column_description": "Indicates whether the course has a final exam"
             },
             {
                 "data_type": "text",
                 "column_name": "textbook",
-                "column_description": ["The name of the textbook used in the course"]
+                "column_description": "The name of the textbook used in the course"
             },
             {
                 "data_type": "text",
                 "column_name": "class_address",
-                "column_description": ["The address of the classroom where the course is held"]
+                "column_description": "The address of the classroom where the course is held"
             },
             {
                 "data_type": "text",
                 "column_name": "allow_audit",
-                "column_description": ["Indicates whether auditing the course is allowed"]
+                "column_description": "Indicates whether auditing the course is allowed"
             }
         ],
         "course_tags_count": [
             {
                 "data_type": "bigint",
                 "column_name": "course_id",
-                "column_description": ["The unique identifier for each course."]
+                "column_description": "The unique identifier for each course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "clear_grading",
-                "column_description": ["Number of students who found the grading criteria clear and easy to understand."]
+                "column_description": "Number of students who found the grading criteria clear and easy to understand."
             },
             {
                 "data_type": "bigint",
                 "column_name": "pop_quiz",
-                "column_description": ["Number of pop quizzes given during the course."]
+                "column_description": "Number of pop quizzes given during the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "group_projects",
-                "column_description": ["Number of group projects assigned during the course."]
+                "column_description": "Number of group projects assigned during the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "inspirational",
-                "column_description": ["Number of students who found the course content inspirational."]
+                "column_description": "Number of students who found the course content inspirational."
             },
             {
                 "data_type": "bigint",
                 "column_name": "long_lectures",
-                "column_description": ["Number of students who found the lectures to be too long."]
+                "column_description": "Number of students who found the lectures to be too long."
             },
             {
                 "data_type": "bigint",
                 "column_name": "extra_credit",
-                "column_description": ["Number of extra credit opportunities provided during the course."]
+                "column_description": "Number of extra credit opportunities provided during the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "few_tests",
-                "column_description": ["Number of tests given during the course."]
+                "column_description": "Number of tests given during the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "good_feedback",
-                "column_description": ["Number of students who received good feedback from the instructor."]
+                "column_description": "Number of students who received good feedback from the instructor."
             },
             {
                 "data_type": "bigint",
                 "column_name": "tough_tests",
-                "column_description": ["Number of students who found the tests to be tough."]
+                "column_description": "Number of students who found the tests to be tough."
             },
             {
                 "data_type": "bigint",
                 "column_name": "heavy_papers",
-                "column_description": ["Number of papers assigned during the course."]
+                "column_description": "Number of papers assigned during the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "cares_for_students",
-                "column_description": ["Number of students who felt that the instructor cared for their well-being."]
+                "column_description": "Number of students who felt that the instructor cared for their well-being."
             },
             {
                 "data_type": "bigint",
                 "column_name": "heavy_assignments",
-                "column_description": ["Number of assignments given during the course."]
+                "column_description": "Number of assignments given during the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "respected",
-                "column_description": ["Number of students who respected the instructor."]
+                "column_description": "Number of students who respected the instructor."
             },
             {
                 "data_type": "bigint",
                 "column_name": "participation",
-                "column_description": ["Number of students who participated actively in the course."]
+                "column_description": "Number of students who participated actively in the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "heavy_reading",
-                "column_description": ["Number of reading assignments given during the course."]
+                "column_description": "Number of reading assignments given during the course."
             },
             {
                 "data_type": "bigint",
                 "column_name": "tough_grader",
-                "column_description": ["Number of students who found the instructor to be a tough grader."]
+                "column_description": "Number of students who found the instructor to be a tough grader."
             },
             {
                 "data_type": "bigint",
                 "column_name": "hilarious",
-                "column_description": ["Number of students who found the instructor to be hilarious."]
+                "column_description": "Number of students who found the instructor to be hilarious."
             },
             {
                 "data_type": "bigint",
                 "column_name": "would_take_again",
-                "column_description": ["Number of students who would take the course again."]
+                "column_description": "Number of students who would take the course again."
             },
             {
                 "data_type": "bigint",
                 "column_name": "good_lecture",
-                "column_description": ["Number of students who found the lectures to be good."]
+                "column_description": "Number of students who found the lectures to be good."
             },
             {
                 "data_type": "bigint",
                 "column_name": "no_skip",
-                "column_description": ["Number of students who did not skip any classes during the course."]
+                "column_description": "Number of students who did not skip any classes during the course."
             }
         ],
         "comment_instructor": [
             {
                 "data_type": "bigint",
                 "column_name": "instructor_id",
-                "column_description": ["Unique identifier for the instructor"]
+                "column_description": "Unique identifier for the instructor"
             },
             {
                 "data_type": "bigint",
                 "column_name": "student_id",
-                "column_description": ["Unique identifier for the student"]
+                "column_description": "Unique identifier for the student"
             },
             {
                 "data_type": "bigint",
                 "column_name": "score",
-                "column_description": ["Score given by the student to the instructor"]
+                "column_description": "Score given by the student to the instructor"
             },
             {
                 "data_type": "text",
                 "column_name": "comment_text",
-                "column_description": ["Textual comment given by the student about the instructor"]
+                "column_description": "Textual comment given by the student about the instructor"
             }
         ],
         "course_prerequisite": [
             {
                 "data_type": "bigint",
                 "column_name": "pre_course_id",
-                "column_description": ["The ID of the prerequisite course"]
+                "column_description": "The ID of the prerequisite course"
             },
             {
                 "data_type": "bigint",
                 "column_name": "course_id",
-                "column_description": ["The ID of the course that has the prerequisite"]
+                "column_description": "The ID of the course that has the prerequisite"
             }
         ],
         "offering_instructor": [
             {
                 "data_type": "bigint",
                 "column_name": "offering_instructor_id",
-                "column_description": ["Unique identifier for each offering-instructor pair"]
+                "column_description": "Unique identifier for each offering-instructor pair"
             },
             {
                 "data_type": "bigint",
                 "column_name": "offering_id",
-                "column_description": ["Foreign key referencing the offering table"]
+                "column_description": "Foreign key referencing the offering table"
             },
             {
                 "data_type": "bigint",
                 "column_name": "instructor_id",
-                "column_description": ["Foreign key referencing the instructor table"]
+                "column_description": "Foreign key referencing the instructor table"
             }
         ],
         "program_requirement": [
             {
                 "data_type": "bigint",
                 "column_name": "program_id",
-                "column_description": ["Unique identifier for a program"]
+                "column_description": "Unique identifier for a program"
             },
             {
                 "data_type": "bigint",
                 "column_name": "min_credit",
-                "column_description": ["Minimum number of credits required for the program"]
+                "column_description": "Minimum number of credits required for the program"
             },
             {
                 "data_type": "text",
                 "column_name": "category",
-                "column_description": ["Category of the program"]
+                "column_description": "Category of the program"
             },
             {
                 "data_type": "text",
                 "column_name": "additional_req",
-                "column_description": ["Additional requirements for the program, if any"]
+                "column_description": "Additional requirements for the program, if any"
             }
         ]
-    },
-    "glossary": "The comment_instructor table is a subset of offering_instructor table.",
-    "table_descriptions": {
-        "gsi": "The \"gsi\" table is used to store information about the enrollment of students in course offerings. It contains the unique identifiers for both the course offering and the student. This table can be joined with other tables such as \"course_offering\" and \"student\" to retrieve additional information about the course offerings and students involved in the enrollment process.",
-        "area": "The \"area\" table is used to store information about the area of study for each course. It has two columns: \"course_id\" which is a unique identifier for each course, and \"area\" which represents the area of study for that course. This table can be joined with the \"course\" table to get additional information about each course.",
-        "course": "The \"course\" table contains information about different courses offered by a department. It includes details such as the course's helpfulness score, clarity score, easiness score, number of semesters offered, number of students enrolled, number of reviews, course description, whether it has projects, exams, discussion sessions, or lab sessions, the course name, department, number/code, credits awarded, and any advisory or enforced requirements for taking the course.\n\nThis table can be joined with the following tables: \"gsi\", \"area\", \"program\", \"student\", \"semester\", \"instructor\", \"program_course\", \"student_record\", \"course_offering\", \"course_tags_count\", \"comment_instructor\", \"course_prerequisite\", \"offering_instructor\", and \"program_requirement\".",
-        "program": "The \"program\" table is used to store information about different academic programs offered by colleges. It contains columns such as \"program_id\" (a unique identifier for each program), \"name\" (the name of the program), \"college\" (the name of the college offering the program), and \"introduction\" (an introduction to the program). This table can be joined with other tables such as \"gsi\", \"area\", \"course\", \"student\", \"semester\", \"instructor\", \"program_course\", \"student_record\", \"course_offering\", \"course_tags_count\", \"comment_instructor\", \"course_prerequisite\", \"offering_instructor\", and \"program_requirement\" to retrieve additional information related to the programs.",
-        "student": "The \"student\" table is used to store information about students. It contains columns such as student_id, program_id, total_credit, total_gpa, admit_term, predicted_graduation_semester, degree, entered_as, lastname, firstname, minor, declare_major, and internship. This table can be joined with other tables such as \"gsi\", \"area\", \"course\", \"program\", \"semester\", \"instructor\", \"program_course\", \"student_record\", \"course_offering\", \"course_tags_count\", \"comment_instructor\", \"course_prerequisite\", \"offering_instructor\", and \"program_requirement\" to retrieve additional information about the students.",
-        "semester": "The \"semester\" table is used to store information about different semesters. It has columns for the unique identifier of each semester, the year in which the semester takes place, and the name or identifier for the semester (e.g., Fall, Spring, Summer). This table can be joined with other tables such as \"gsi\", \"area\", \"course\", \"program\", \"student\", \"instructor\", \"program_course\", \"student_record\", \"course_offering\", \"course_tags_count\", \"comment_instructor\", \"course_prerequisite\", \"offering_instructor\", and \"program_requirement\" to retrieve additional information related to specific semesters.",
-        "instructor": "The \"instructor\" table is used to store information about instructors. It contains columns such as \"instructor_id\" which is a unique identifier for each instructor, \"name\" which represents the name of the instructor, and \"uniqname\" which is a unique name used for login and identification purposes. This table can be joined with other tables such as \"course_offering\" or \"offering_instructor\" to retrieve information about the courses taught by each instructor.",
-        "program_course": "The \"program_course\" table is used to store the relationship between programs and courses. It contains the program ID and course ID columns, which represent the IDs of the program and course associated with each entry. Additionally, it includes the workload column, which represents the workload of the course in hours, and the category column, which represents the category of the course. This table can be joined with the \"program\" and \"course\" tables to retrieve additional information about the programs and courses.",
-        "student_record": "The \"student_record\" table contains information about the courses taken by students. It includes columns such as student_id, course_id, semester, offering_id, how, transfer_source, earn_credit, repeat_term, test_id, and grade. This table can be joined with other tables such as \"student\", \"course\", \"semester\", \"course_offering\", and \"instructor\" to gather additional information about the students, courses, semesters, and instructors associated with the student records.",
-        "course_offering": "The \"course_offering\" table is used to store information about the different offerings of courses. It contains columns such as \"offering_id\" and \"course_id\" which serve as unique identifiers for each course offering and course respectively. Other columns include \"semester\" which indicates the semester in which the course is offered, \"section_number\" which represents the section number of the course, and \"start_time\" and \"end_time\" which specify the start and end times of the course. The table also includes columns for the instructor's name for each day of the week, allowing for tracking of the instructor's schedule. Additional columns indicate whether the course has a final project or exam, the name of the textbook used, the address of the classroom, and whether auditing the course is allowed. \n\nThis table can be joined with the \"course\" table to retrieve information about the course itself, such as its title and description. It can also be joined with the \"semester\" table to obtain details about the specific semester in which the course is offered.",
-        "course_tags_count": "The \"course_tags_count\" table provides counts for various attributes related to a course. It includes information such as the number of students who found the grading criteria clear, the number of pop quizzes given, the number of group projects assigned, the number of students who found the course content inspirational, and more. This table can be joined with other tables such as \"course\", \"program\", \"student\", \"semester\", \"instructor\", and others to analyze and compare course attributes and student feedback.",
-        "comment_instructor": "The \"comment_instructor\" table is used to store comments and scores given by students about instructors. It has columns for the unique identifiers of the instructor and the student, as well as a score and a textual comment. This table can be joined with other tables such as \"instructor\" and \"student\" to retrieve additional information about the instructors and students involved in the comments.",
-        "course_prerequisite": "The table \"course_prerequisite\" is used to store information about the prerequisites for a course. It contains two columns: \"pre_course_id\" which represents the ID of the prerequisite course, and \"course_id\" which represents the ID of the course that has the prerequisite. This table can be joined with the \"course\" table to retrieve additional information about the courses and their prerequisites.",
-        "offering_instructor": "The \"offering_instructor\" table is used to store information about the relationship between course offerings and instructors. It contains a unique identifier for each offering-instructor pair, as well as foreign keys referencing the offering and instructor tables. This table can be joined with the \"offering\" and \"instructor\" tables to retrieve additional information about the course offerings and instructors involved.",
-        "program_requirement": "The \"program_requirement\" table is used to store information about the requirements for a program. It contains columns such as \"program_id\" which is a unique identifier for a program, \"min_credit\" which represents the minimum number of credits required for the program, \"category\" which indicates the category of the program, and \"additional_req\" which specifies any additional requirements for the program, if applicable.\n\nThis table can be joined with other tables such as \"program\" to retrieve additional details about the program, or with \"course\" to determine if specific courses are required for the program."
     }
 }
