@@ -1,0 +1,184 @@
+{
+    "status": "success",
+    "table_metadata": {
+        "cite": [
+            {
+                "data_type": "bigint",
+                "column_name": "citingpaperid",
+                "column_description": ["The ID of the paper that is doing the citing."]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "citedpaperid",
+                "column_description": ["The ID of the paper that is being cited."]
+            }
+        ],
+        "field": [
+            {
+                "data_type": "bigint",
+                "column_name": "fieldid",
+                "column_description": ["Unique identifier for each field in the table"]
+            }
+        ],
+        "paper": [
+            {
+                "data_type": "bigint",
+                "column_name": "year",
+                "column_description": ["The year the paper was published."]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "journalid",
+                "column_description": ["The ID of the journal where the paper was published."]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "venueid",
+                "column_description": ["The ID of the venue where the paper was published."]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "paperid",
+                "column_description": ["The unique ID of the paper."]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "numciting",
+                "column_description": ["The number of papers that this paper cites."]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "numcitedby",
+                "column_description": ["The number of papers that cite this paper."]
+            },
+            {
+                "data_type": "text",
+                "column_name": "title",
+                "column_description": ["The title of the paper, enclosed in double quotes if it contains commas."]
+            }
+        ],
+        "venue": [
+            {
+                "data_type": "bigint",
+                "column_name": "venueid",
+                "column_description": ["Unique identifier for each venue"]
+            },
+            {
+                "data_type": "text",
+                "column_name": "venuename",
+                "column_description": ["Name of the venue"]
+            }
+        ],
+        "author": [
+            {
+                "data_type": "bigint",
+                "column_name": "authorid",
+                "column_description": ["Unique identifier for each author"]
+            },
+            {
+                "data_type": "text",
+                "column_name": "authorname",
+                "column_description": ["Name of the author"]
+            }
+        ],
+        "writes": [
+            {
+                "data_type": "bigint",
+                "column_name": "paperid",
+                "column_description": ["The unique identifier for a paper in the writes table."]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "authorid",
+                "column_description": ["The unique identifier for an author in the writes table."]
+            }
+        ],
+        "dataset": [
+            {
+                "data_type": "bigint",
+                "column_name": "datasetid",
+                "column_description": ["Unique identifier for each dataset in the table"]
+            },
+            {
+                "data_type": "text",
+                "column_name": "datasetname",
+                "column_description": ["Name of the dataset"]
+            }
+        ],
+        "journal": [
+            {
+                "data_type": "bigint",
+                "column_name": "journalid",
+                "column_description": ["Unique identifier for each journal entry"]
+            },
+            {
+                "data_type": "text",
+                "column_name": "journalname",
+                "column_description": ["Name or title of the journal"]
+            }
+        ],
+        "keyphrase": [
+            {
+                "data_type": "bigint",
+                "column_name": "keyphraseid",
+                "column_description": ["Unique identifier for each keyphrase"]
+            },
+            {
+                "data_type": "text",
+                "column_name": "keyphrasename",
+                "column_description": ["The actual keyphrase text"]
+            }
+        ],
+        "paperfield": [
+            {
+                "data_type": "bigint",
+                "column_name": "fieldid",
+                "column_description": ["Unique identifier for each field in the table"]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "paperid",
+                "column_description": ["Unique identifier for each paper in the table"]
+            }
+        ],
+        "paperdataset": [
+            {
+                "data_type": "bigint",
+                "column_name": "paperid",
+                "column_description": ["Unique identifier for each paper in the dataset"]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "datasetid",
+                "column_description": ["Unique identifier for each dataset that the paper belongs to"]
+            }
+        ],
+        "paperkeyphrase": [
+            {
+                "data_type": "bigint",
+                "column_name": "paperid",
+                "column_description": ["The ID of the paper associated with the keyphrase."]
+            },
+            {
+                "data_type": "bigint",
+                "column_name": "keyphraseid",
+                "column_description": ["The ID of the keyphrase associated with the paper."]
+            }
+        ]
+    },
+    "glossary": "This database contains information about different academic papers, the citing relationships between them, and other properties about the paper (author, journal, field, venue, key phrases, datasets).",
+    "table_descriptions": {
+        "cite": "The \"cite\" table is used to store information about citations between papers. It contains two columns: \"citingpaperid\" and \"citedpaperid\", which represent the IDs of the papers involved in the citation. This table can be joined with other tables such as \"paper\", \"paperdataset\", \"paperfield\", \"paperkeyphrase\", or \"writes\" to retrieve additional information about the papers involved in the citation.",
+        "field": "The \"field\" table is used to store unique identifiers for each field. It can be joined with the \"paperfield\" table to retrieve additional information related to these fields.",
+        "paper": "The \"paper\" table contains information about academic papers, including the year of publication, the journal and venue where the paper was published, and various identifiers for the paper. It also includes the number of papers that this paper cites and the number of papers that cite this paper. The table also includes the title of the paper. This table can be joined with other tables such as \"cite\", \"venue\", \"writes\", \"journal\", \"paperfield\", \"paperdataset\", and \"paperkeyphrase\" to gather additional information about the paper.",
+        "venue": "The \"venue\" table is used to store information about different venues. It has a unique identifier for each venue called \"venueid\" and the name of the venue is stored in the \"venuename\" column. This table can be joined with the table \"paper\".",
+        "author": "The \"author\" table is used to store information about authors. It contains a unique identifier for each author (authorid) and the name of the author (authorname). This table can be joined with the table \"writes\".",
+        "writes": "The \"writes\" table is used to store the relationship between papers and authors. It contains the unique identifiers for both the paper and the author. This table can be joined with the \"paper\", \"cite\", \"paperdataset\", \"paperfield\", \"paperkeyphrase\", and \"author\" tables to retrieve additional information about the papers and authors involved in the writing process.",
+        "dataset": "The \"dataset\" table is used to store information about different datasets. It has a unique identifier for each dataset called \"datasetid\" and the name of the dataset stored as text in the column \"datasetname\". This table can be joined with the table \"paperdataset\".",
+        "journal": "The \"journal\" table is used to store information about journal entries. It has two columns: \"journalid\" which is a unique identifier for each journal entry, and \"journalname\" which represents the name or title of the academic journal. This table can be joined with the table \"paper\".",
+        "keyphrase": "The \"keyphrase\" table is used to store unique keyphrases along with their corresponding identifiers. It can be joined with the table \"paperkeyphrase\" to establish relationships and retrieve additional information related to these keyphrases.",
+        "paperfield": "The \"paperfield\" table is used to store the relationship between papers and fields. It contains two columns: \"fieldid\" and \"paperid\", which are unique identifiers for each field and paper, respectively. This table can be joined with the \"field\" table to retrieve additional information about the fields associated with each paper.",
+        "paperdataset": "The \"paperdataset\" table is used to store the relationship between papers and datasets. It contains two columns: \"paperid\" which is a unique identifier for each paper in the dataset, and \"datasetid\" which is a unique identifier for each dataset that the paper belongs to. This table can be joined with the \"paper\", \"dataset\", \"cite\", \"paperfield\", \"paperkeyphrase\", and \"writes\" tables to retrieve additional information about the papers and datasets.",
+        "paperkeyphrase": "The \"paperkeyphrase\" table is used to store the association between papers and keyphrases. It contains the paper ID and the keyphrase ID as columns. This table can be joined with the \"cite\", \"keyphrase\", \"paper\", \"paperdataset\", \"paperfield\", and \"writes\" tables to retrieve additional information about the paper, or with the \"keyphrase\" table to get details about the keyphrase."
+    }
+}

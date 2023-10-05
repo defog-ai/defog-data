@@ -1,0 +1,9 @@
+# Python
+defog_data.egg-info/
+__pycache__/
+.pytest_cache/
+build/
+dist/
+
+# IDE
+.vscode/
