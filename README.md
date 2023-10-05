@@ -51,6 +51,8 @@ sup.columns_join
 sup.columns_ner
 ```
 
+Note that the embeddings need to be regenerated should the underlying data get updated (eg new columns added, major version bumps). To regenerate the embeddings, you can delete the embeddings at the path specified above, and run the `load_embeddings` function again to regenerate them.
+
 ## Organization
 
 ### Databases
