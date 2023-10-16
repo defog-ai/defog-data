@@ -12,7 +12,7 @@ def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dic
     """
     For each db, generate embeddings for all of the column names and descriptions
     """
-    encoder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+    encoder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device="cpu")
     emb = {}
     csv_descriptions = {}
     for db_name, db in dbs.items():
@@ -60,7 +60,8 @@ def load_embeddings(emb_path: str) -> tuple[dict, dict]:
     """
     if os.path.isfile(emb_path):
         print(f"Loading embeddings from file {emb_path}")
-        emb, csv_descriptions = pickle.load(open(emb_path, "rb"))
+        with open(emb_path, "rb") as f:
+            emb, csv_descriptions = pickle.load(f)
         return emb, csv_descriptions
     else:
         print(f"Embeddings file {emb_path} does not exist.")
