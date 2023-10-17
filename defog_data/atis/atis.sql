@@ -401,16 +401,16 @@ ALTER TABLE public.time_zone OWNER TO postgres;
 --
 
 COPY public.aircraft (aircraft_code, aircraft_description, manufacturer, basic_type, engines, propulsion, wide_body, wing_span, length, weight, capacity, pay_load, cruising_speed, range_miles, pressurized) FROM stdin;
-B747	The Boeing 747 is a wide-body airliner.	Boeing	\N	\N	\N	\N	\N	\N	\N	10	3	300	10000	\N
-A320	The Airbus A320 is a narrow-body airliner.	Airbus	\N	\N	\N	\N	\N	\N	\N	10	4	150	12000	\N
-B737	The Boeing 737 is a narrow-body airliner.	Boeing	\N	\N	\N	\N	\N	\N	\N	10	10	350	22000	\N
-A380	The Airbus A380 is a wide-body airliner.	Airbus	\N	\N	\N	\N	\N	\N	\N	10	3	350	12000	\N
-B777	The Boeing 777 is a wide-body airliner.	Boeing	\N	\N	\N	\N	\N	\N	\N	10	3	200	10000	\N
-A330	The Airbus A330 is a wide-body airliner.	Airbus	\N	\N	\N	\N	\N	\N	\N	10	3	200	10000	\N
-B787	The Boeing 787 is a wide-body airliner.	Boeing	\N	\N	\N	\N	\N	\N	\N	10	3	200	15000	\N
-A350	The Airbus A350 is a wide-body airliner.	Airbus	\N	\N	\N	\N	\N	\N	\N	10	3	270	13000	\N
-E190	The Embraer E190 is a narrow-body airliner.	Embraer	\N	\N	\N	\N	\N	\N	\N	10	3	280	13000	\N
-CRJ200	The Bombardier CRJ200 is a regional jet.	Bombardier	\N	\N	\N	\N	\N	\N	\N	20	4	200	20000	\N
+B747	The Boeing 747 is a wide-body airliner.	Boeing	Jet	4	Jet	Yes	224	231	987000	416	60000	570	8555	Yes
+A320	The Airbus A320 is a narrow-body airliner.	Airbus	Jet	2	Jet	No	111	123	162000	240	30000	511	3300	Yes
+B737	The Boeing 737 is a narrow-body airliner.	Boeing	Jet	2	Jet	No	117	128	174200	230	35000	514	3850	Yes
+A380	The Airbus A380 is a wide-body airliner.	Airbus	Jet	4	Jet	Yes	261	238	1235000	853	140000	560	8000	Yes
+B777	The Boeing 777 is a wide-body airliner.	Boeing	Jet	2	Jet	Yes	199	242	775000	550	70000	560	8555	Yes
+A330	The Airbus A330 is a wide-body airliner.	Airbus	Jet	2	Jet	Yes	197	193	503000	440	65000	560	6350	Yes
+B787	The Boeing 787 is a wide-body airliner.	Boeing	Jet	2	Jet	Yes	197	186	485000	330	55000	593	7530	Yes
+A350	The Airbus A350 is a wide-body airliner.	Airbus	Jet	2	Jet	Yes	212	242	556000	440	70000	568	8000	Yes
+E190	The Embraer E190 is a narrow-body airliner.	Embraer	Jet	2	Jet	No	94	118	114000	114	15000	542	2400	Yes
+CRJ200	The Bombardier CRJ200 is a regional jet.	Bombardier	Jet	2	Jet	No	76	88	51000	50	6300	534	1735	Yes
 \.
 
 
@@ -465,6 +465,12 @@ NYC	JFK	70	Southeast	140
 NYC	JFK	80	Southwest	160
 NYC	JFK	90	Up	180
 NYC	JFK	100	Down	200
+LA	LAX	15	West	30
+LA	LAX	25	East	50
+DA	DAL Love Field	5	North	10
+DA	DAL Love Field	10	South	20
+SF	SFO	12	North	24
+SF	SFO	22	South	44
 \.
 
 
@@ -474,12 +480,12 @@ NYC	JFK	100	Down	200
 
 COPY public.city (city_code, city_name, state_code, country_name, time_zone_code) FROM stdin;
 NYC	New York	NY	United States	EST
-LAX	Los Angeles	CA	United States	PST
+LA	Los Angeles	CA	United States	PST
 CHI	Chicago	IL	United States	CST
-DAL	Dallas	TX	United States	CST
+DA	Dallas	TX	United States	CST
 DEN	Denver	CO	United States	MST
 ATL	Atlanta	GA	United States	EST
-SFO	San Francisco	CA	United States	PST
+SF	San Francisco	CA	United States	PST
 SEA	Seattle	WA	United States	PST
 LAS	Las Vegas	NV	United States	PST
 ORL	Orlando	FL	United States	EST
