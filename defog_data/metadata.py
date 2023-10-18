@@ -1,8 +1,9 @@
 import json
+import logging
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-print(f"script_dir: {script_dir}")
+logging.debug(f"script_dir: {script_dir}")
 
 
 def get_db(db_name):

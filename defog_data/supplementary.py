@@ -1,4 +1,5 @@
 # for each db_name, get all of the column names and descriptions for each table and embed them
+import logging
 import os
 from defog_data.metadata import dbs
 import pickle
@@ -42,7 +43,7 @@ def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dic
         column_emb = encoder.encode(column_descriptions, convert_to_tensor=True)
         emb[db_name] = column_emb
         csv_descriptions[db_name] = column_descriptions_typed
-        print(f"Finished embedding {db_name} {len(column_descriptions)} columns")
+        logging.info(f"Finished embedding {db_name} {len(column_descriptions)} columns")
     if save_emb:
         # get directory of emb_path and create if it doesn't exist
         emb_dir = os.path.dirname(emb_path)
@@ -50,7 +51,7 @@ def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dic
             os.makedirs(emb_dir)
         with open(emb_path, "wb") as f:
             pickle.dump((emb, csv_descriptions), f)
-            print(f"Saved embeddings to file {emb_path}")
+            logging.info(f"Saved embeddings to file {emb_path}")
     return emb, csv_descriptions
 
 
@@ -59,12 +60,12 @@ def load_embeddings(emb_path: str) -> tuple[dict, dict]:
     Load embeddings from file if they exist, otherwise generate them and save them.
     """
     if os.path.isfile(emb_path):
-        print(f"Loading embeddings from file {emb_path}")
+        logging.info(f"Loading embeddings from file {emb_path}")
         with open(emb_path, "rb") as f:
             emb, csv_descriptions = pickle.load(f)
         return emb, csv_descriptions
     else:
-        print(f"Embeddings file {emb_path} does not exist.")
+        logging.info(f"Embeddings file {emb_path} does not exist.")
         emb, csv_descriptions = generate_embeddings(emb_path)
         return emb, csv_descriptions
 
