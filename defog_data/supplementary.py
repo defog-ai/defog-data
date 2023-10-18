@@ -1,7 +1,6 @@
-# for each db_name, get all of the column names and descriptions for each table and embed them
+from defog_data.metadata import dbs
 import logging
 import os
-from defog_data.metadata import dbs
 import pickle
 from sentence_transformers import SentenceTransformer
 
@@ -13,7 +12,9 @@ def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dic
     """
     For each db, generate embeddings for all of the column names and descriptions
     """
-    encoder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device="cpu")
+    encoder = SentenceTransformer(
+        "sentence-transformers/all-MiniLM-L6-v2", device="cpu"
+    )
     emb = {}
     csv_descriptions = {}
     for db_name, db in dbs.items():
@@ -100,35 +101,33 @@ columns_ner = {
     },
     "atis": {
         "GPE": [
-            "city.city_code,text,The city code",
-            "city.city_name,text,The city name",
-            "city.state_code,text,The state code",
-            "city.country_name,text,The country name",
-            "state.state_code,text,The state code",
-            "state.state_name,text,The state name",
-            "state.country_name,text,The country name",
+            "airport_service.city_code,text,The city code where airport service is available",
             "airport.airport_location,text,The airport location",
             "airport.country_name,text,The country the airport is located in",
             "airport.state_code,text,The state the airport is located in",
-            "flight_stop.stop_airport,text,The 3-letter airport code for the stop",
+            "city.city_code,text,The city code",
+            "city.city_name,text,The city name",
+            "city.country_name,text,The country name",
+            "city.state_code,text,The state code",
             "ground_service.city_code,text,The city code where ground service is available",
-            "ground_service.airport_code,text,The airport code where ground service is available",
-            "airport_service.city_code,text,The city code where airport service is available",
-            "airport_service.airport_code,text,The airport code where airport service is available",
+            "state.country_name,text,The country name",
+            "state.state_code,text,The state code",
+            "state.state_name,text,The state name",
         ],
         "ORG": [
+            "airline.airline_code,text,Code assigned to airline",
+            "airline.airline_name,text,The airline's name",
+            "airport_service.airport_code,text,The airport code where airport service is available",
+            "airport.airport_code,text,The 3-letter airport code",
+            "airport.airport_name,text,The name of the airport",
+            "dual_carrier.main_airline,text,The name of the main airline operating the flight",
             "fare.fare_airline,text,The airline's name",
             "fare.from_airport,text,The 3-letter airport code for the departure location",
             "fare.to_airport,text,The 3-letter airport code for the arrival location",
             "flight.airline_code,text,Code assigned to airline",
             "flight.from_airport,text,The 3-letter airport code for the departure location",
             "flight.to_airport,text,The 3-letter airport code for the arrival location",
-            "flight.airline_flight,text,Code assigned to the flight",
-            "airline.airline_code,text,Code assigned to airline",
-            "airline.airline_name,text,The airline's name",
-            "airport.airport_name,text,The name of the airport",
-            "airport.airport_code,text,The 3-letter airport code",
-            "dual_carrier.main_airline,text,The name of the main airline operating the flight",
+            "ground_service.airport_code,text,The airport code where ground service is available",
         ],
     },
     "yelp": {
@@ -157,7 +156,6 @@ columns_ner = {
         "ORG": [
             "restaurant.name,text,The name of the restaurant",
             "restaurant.id,bigint,The ID of the restaurant",
-            "restaurant.name,text,The name of the restaurant",
         ],
         "PER": [],
     },
