@@ -179,7 +179,7 @@ columns_ner = {
         ],
         "LOC": [
             "lake.lake_name,text,The name of the lake",
-            "river.river_name,text,The name of the river",
+            "river.river_name,text,The name of the river. Names exclude the word 'river' e.g. 'Mississippi' instead of 'Mississippi River'",
             "mountain.mountain_name,text,The name of the mountain",
         ],
         "ORG": [],
