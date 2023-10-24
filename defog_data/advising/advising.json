@@ -93,7 +93,7 @@
             {
                 "data_type": "text",
                 "column_name": "department",
-                "column_description": "The department offering the course."
+                "column_description": "The department offering the course. Eg 'Mathematics', 'Physics'"
             },
             {
                 "data_type": "text",
@@ -125,7 +125,7 @@
             {
                 "data_type": "text",
                 "column_name": "name",
-                "column_description": "Name of the program"
+                "column_description": "Name of the program, Eg 'Computer Science', 'Physics'"
             },
             {
                 "data_type": "text",
