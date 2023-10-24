@@ -223,7 +223,7 @@
             {
                 "data_type": "text",
                 "column_name": "airport_location",
-                "column_description": "The location of the airport."
+                "column_description": "The location of the airport, eg 'Las Vegas', 'Chicago'"
             },
             {
                 "data_type": "text",
@@ -556,12 +556,12 @@
             {
                 "data_type": "text",
                 "column_name": "compartment",
-                "column_description": "The compartment in which the meal is served (e.g. first class, economy)"
+                "column_description": "The compartment in which the meal is served (e.g. 'First Class', 'Economy')"
             },
             {
                 "data_type": "text",
                 "column_name": "meal_description",
-                "column_description": "Detailed description of the meal served"
+                "column_description": "One of 'Breakfast', 'Lunch', 'Dinner'"
             }
         ],
         "time_interval": [

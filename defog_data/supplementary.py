@@ -102,7 +102,7 @@ columns_ner = {
     "atis": {
         "GPE": [
             "airport_service.city_code,text,The city code where airport service is available",
-            "airport.airport_location,text,The airport location",
+            "airport.airport_location,text,The location of the airport, eg 'Las Vegas', 'Chicago'",
             "airport.country_name,text,The country the airport is located in",
             "airport.state_code,text,The state the airport is located in",
             "city.city_code,text,The city code",
