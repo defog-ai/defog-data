@@ -3,6 +3,7 @@ import logging
 import os
 import pickle
 from sentence_transformers import SentenceTransformer
+import re
 
 # get package root directory
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -17,8 +18,10 @@ def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dic
     )
     emb = {}
     csv_descriptions = {}
+    glossary_emb = {}
     for db_name, db in dbs.items():
         metadata = db["table_metadata"]
+        glossary = clean_glossary(db["glossary"])
         column_descriptions = []
         column_descriptions_typed = []
         for table in metadata:
@@ -45,16 +48,39 @@ def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dic
         emb[db_name] = column_emb
         csv_descriptions[db_name] = column_descriptions_typed
         logging.info(f"Finished embedding {db_name} {len(column_descriptions)} columns")
+        if len(glossary) > 0:
+            glossary_embeddings = encoder.encode(glossary, convert_to_tensor=True)
+        else:
+            glossary_embeddings = []
+        glossary_emb[db_name] = glossary_embeddings
     if save_emb:
         # get directory of emb_path and create if it doesn't exist
         emb_dir = os.path.dirname(emb_path)
         if not os.path.exists(emb_dir):
             os.makedirs(emb_dir)
         with open(emb_path, "wb") as f:
-            pickle.dump((emb, csv_descriptions), f)
+            pickle.dump((emb, csv_descriptions, glossary_emb), f)
             logging.info(f"Saved embeddings to file {emb_path}")
-    return emb, csv_descriptions
+    return emb, csv_descriptions, glossary_emb
 
+def clean_glossary(glossary: str) -> list[str]:
+    """
+    Clean glossary by removing number bullets and periods, and making sure every line starts with a dash bullet.
+    """
+    if glossary == "":
+        return []
+    glossary = glossary.split("\n")
+    # remove empty strings
+    glossary = list(filter(None, glossary))
+    cleaned = []
+    for line in glossary:
+        # remove number bullets and periods
+        line = re.sub(r"^\d+\.?\s?", "", line)
+        # make sure every line starts with a dash bullet if it does not already
+        line = re.sub(r"^(?!-)", "- ", line)
+        cleaned.append(line)
+    glossary = cleaned
+    return glossary
 
 def load_embeddings(emb_path: str) -> tuple[dict, dict]:
     """
@@ -63,12 +89,12 @@ def load_embeddings(emb_path: str) -> tuple[dict, dict]:
     if os.path.isfile(emb_path):
         logging.info(f"Loading embeddings from file {emb_path}")
         with open(emb_path, "rb") as f:
-            emb, csv_descriptions = pickle.load(f)
-        return emb, csv_descriptions
+            emb, csv_descriptions, glossary_emb = pickle.load(f)
+        return emb, csv_descriptions, glossary_emb
     else:
         logging.info(f"Embeddings file {emb_path} does not exist.")
-        emb, csv_descriptions = generate_embeddings(emb_path)
-        return emb, csv_descriptions
+        emb, csv_descriptions, glossary_emb = generate_embeddings(emb_path)
+        return emb, csv_descriptions, glossary_emb
 
 
 # entity types: list of (column, type, description) tuples
