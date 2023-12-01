@@ -142,13 +142,13 @@ ALTER TABLE public.users OWNER TO postgres;
 --
 
 COPY public.business (bid, business_id, name, full_address, city, latitude, longitude, review_count, is_open, rating, state) FROM stdin;
-1	abc123	Joe's Pizza	123 Main St	San Francisco	37.7749295	-122.4194155	1	0	4.5	CA
-2	def456	Peter's Cafe	456 Elm St	New York	40.712776	-74.005974	2	1	4.55	NY
-3	ghi789	Anna's Diner	789 Oak St	Los Angeles	34.052235	-118.243683	2	0	2.55	CA
-4	jkl012	Mark's Bistro	012 Maple St	San Francisco	37.7749295	-122.4194155	1	1	4.8	CA
-5	mno345	Lily's Bakery	345 Walnut St	New York	40.712776	-74.005974	1	1	4.6	NY
-6	xyz123	Izza's Pizza	83 Main St	San Francisco	37.8749295	-122.5194155	1	1	0.5	CA
-7	uvw456	Sashay's Cafe	246 Elm St	New York	40.812776	-74.105974	1	1	4.0	NY
+1	abc123	Joe's Pizza	123 Main St	San Francisco	37.7749295	-122.4194155	2	0	4.55	CA
+2	def456	Peter's Cafe	456 Elm St	New York	40.712776	-74.005974	3	1	4.03	NY
+3	ghi789	Anna's Diner	789 Oak St	Los Angeles	34.052235	-118.243683	4	0	2.65	CA
+4	jkl012	Mark's Bistro	012 Maple St	San Francisco	37.7749295	-122.4194155	4	1	4.78	CA
+5	mno345	Lily's Bakery	345 Walnut St	New York	40.712776	-74.005974	3	1	4.60	NY
+6	xyz123	Izza's Pizza	83 Main St	San Francisco	37.8749295	-122.5194155	2	1	2.00	CA
+7	uvw456	Sashay's Cafe	246 Elm St	New York	40.812776	-74.105974	2	1	4.00	NY
 \.
 
 
@@ -216,6 +216,17 @@ COPY public.review (rid, business_id, user_id, rating, text, year, month) FROM s
 7	def456	2	4.9	Second visit. I'm loving it.	2021	May
 8	xyz123	3	0.5	Hate it	2021	June
 9	uvw456	4	4.0	Not bad.	2021	July
+10	abc123	5	4.6	Very goody.	2022	January
+11	def456	1	3.0	Average	2022	February
+12	ghi789	2	4.0	Not bad.	2022	March
+13	jkl012	3	4.5	Second time here.	2022	April
+14	mno345	4	4.6	Third time here.	2022	May
+15	xyz123	5	3.5	Wont come again.	2022	June
+16	uvw456	1	4.0	Quite good.	2022	July
+17	mno345	2	4.6	Superb.	2022	July
+18	jkl012	3	5.0	WOwowow.	2022	August
+19	jkl012	4	4.8	Lovin it.	2022	September
+20	ghi789	5	1.5	Worst experience ever.	2022	October
 \.
 
 
@@ -231,6 +242,20 @@ COPY public.tip (tip_id, business_id, text, user_id, likes, year, month) FROM st
 5	mno345	Their pastries are to die for.	5	\N	2021	May
 6	xyz123	Don't waste your money.	1	\N	2021	June
 7	uvw456	Not bad.	2	\N	2021	July
+8	mno345	Get the blueberry pancakes!	1	\N	2022	January
+9	abc123	Try their pepperoni pizza!	1	\N	2022	January
+10	def456	Their coffee is amazing.	2	\N	2022	February
+11	ghi789	The pancakes are delicious.	3	\N	2022	March
+12	jkl012	Highly recommend the steak.	4	\N	2022	April
+13	mno345	Their pastries are to die for.	5	\N	2022	May
+14	xyz123	Don't waste your money.	1	\N	2022	June
+15	uvw456	So-so.	2	\N	2022	July
+16	mno345	Second time having blueberry pancakes!	1	\N	2022	July
+17	jkl012	Great happy hour deals.	5	\N	2022	August
+18	jkl012	Ask for extra sauce.	3	\N	2022	September
+19	ghi789	Friendly staff.	4	\N	2022	October
+20	def456	Tasty lattes.	4	\N	2022	November
+21	abc123	Fresh ingredients.	2	\N	2022	December
 \.
 
 
