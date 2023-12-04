@@ -209,7 +209,7 @@
             {
                 "data_type": "bigint",
                 "column_name": "semester_id",
-                "column_description": "Unique identifier for each semester"
+                "column_description": "Unique identifier for each semester. Sort by this column to get the right year-semester order."
             },
             {
                 "data_type": "bigint",
