@@ -14,7 +14,7 @@ def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dic
     For each db, generate embeddings for all of the column names and descriptions
     """
     encoder = SentenceTransformer(
-        "sentence-transformers/all-MiniLM-L6-v2", device="cpu"
+        "sentence-transformers/all-MiniLM-L6-v2"
     )
     emb = {}
     csv_descriptions = {}
