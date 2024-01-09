@@ -15,6 +15,15 @@ export DBPORT=5432
 ./setup.sh
 ```
 
+#### Snowflake
+To setup the data in snowflake, you would need to have the snowflake cli installed ([instructions](https://docs.snowflake.com/en/user-guide/snowsql-install-config)), and have your credentials configured as per the [docs](https://docs.snowflake.com/en/user-guide/snowsql-config). You can then run the following command to setup the data:
+```sh
+./setup_snowflake.sh
+```
+This will create 1 database per database in the repo as before, using `public` as the default schema.
+
+Note that the same sql files work for both the postgres and snowflake databases, so you can use the same sql files to setup both databases.
+
 ### Python Library
 
 This is the recommended way to access the schema from the json files in a python environment. To use the python library in your code, navigate to this repository and install it using pip:
