@@ -120,11 +120,6 @@
                 "column_description": "Indicates whether the business is currently open or closed (1 for open, 0 for closed)"
             },
             {
-                "data_type": "real",
-                "column_name": "rating",
-                "column_description": "The average rating of the business"
-            },
-            {
                 "data_type": "bigint",
                 "column_name": "bid",
                 "column_description": "The unique identifier for the business"

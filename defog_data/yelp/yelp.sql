@@ -8,7 +8,6 @@ CREATE TABLE public.business (
     longitude text,
     review_count bigint,
     is_open bigint,
-    rating real,
     state text
 );
 
@@ -64,14 +63,14 @@ CREATE TABLE public.users (
 );
 
 
-INSERT INTO public.business (bid, business_id, name, full_address, city, latitude, longitude, review_count, is_open, rating, state) VALUES
-(1, 'abc123', 'Joe’s Pizza', '123 Main St', 'San Francisco', 37.7749295, -122.4194155, 2, 0, 4.55, 'CA'),
-(2, 'def456', 'Peter’s Cafe', '456 Elm St', 'New York', 40.712776, -74.005974, 3, 1, 4.03, 'NY'),
-(3, 'ghi789', 'Anna’s Diner', '789 Oak St', 'Los Angeles', 34.052235, -118.243683, 4, 0, 2.65, 'CA'),
-(4, 'jkl012', 'Mark’s Bistro', '012 Maple St', 'San Francisco', 37.7749295, -122.4194155, 4, 1, 4.78, 'CA'),
-(5, 'mno345', 'Lily’s Bakery', '345 Walnut St', 'New York', 40.712776, -74.005974, 3, 1, 4.60, 'NY'),
-(6, 'xyz123', 'Izza’s Pizza', '83 Main St', 'San Francisco', 37.8749295, -122.5194155, 2, 1, 2.00, 'CA'),
-(7, 'uvw456', 'Sashays Cafe', '246 Elm St', 'New York', 40.812776, -74.105974, 2, 1, 4.00, 'NY')
+INSERT INTO public.business (bid, business_id, name, full_address, city, latitude, longitude, review_count, is_open, state) VALUES
+(1, 'abc123', 'Joe’s Pizza', '123 Main St', 'San Francisco', 37.7749295, -122.4194155, 2, 0, 'CA'),
+(2, 'def456', 'Peter’s Cafe', '456 Elm St', 'New York', 40.712776, -74.005974, 3, 1, 'NY'),
+(3, 'ghi789', 'Anna’s Diner', '789 Oak St', 'Los Angeles', 34.052235, -118.243683, 4, 0, 'CA'),
+(4, 'jkl012', 'Mark’s Bistro', '012 Maple St', 'San Francisco', 37.7749295, -122.4194155, 4, 1, 'CA'),
+(5, 'mno345', 'Lily’s Bakery', '345 Walnut St', 'New York', 40.712776, -74.005974, 3, 1, 'NY'),
+(6, 'xyz123', 'Izza’s Pizza', '83 Main St', 'San Francisco', 37.8749295, -122.5194155, 2, 1, 'CA'),
+(7, 'uvw456', 'Sashays Cafe', '246 Elm St', 'New York', 40.812776, -74.105974, 2, 1, 'NY')
 ;
 
 INSERT INTO public.category (id, business_id, category_name) VALUES
@@ -80,8 +79,8 @@ INSERT INTO public.category (id, business_id, category_name) VALUES
 (3, 'ghi789', 'Diner'),
 (4, 'jkl012', 'Bistro'),
 (5, 'mno345', 'Bakery'),
-(6, 'xyz123', 'Pizza'),
-(7, 'uvw456', 'Cafe')
+(1, 'xyz123', 'Pizza'),
+(2, 'uvw456', 'Cafe')
 ;
 
 INSERT INTO public.checkin (cid, business_id, count, day) VALUES
