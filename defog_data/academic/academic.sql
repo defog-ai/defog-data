@@ -210,10 +210,10 @@ INSERT INTO public.organization (continent, homepage, name, oid) VALUES
 
 
 INSERT INTO public.publication (abstract, cid, citation_num, jid, pid, reference_num, title, year) VALUES
-('Abstract 1', 1, 4, 1, 1, 5, 'The Effects of Climate Change on Agriculture', 2020),
-('Abstract 2', 2, 2, 2, 2, 8, 'A Study on the Effects of Social Media on Mental Health', 2020),
+('Abstract 1', 1, 4, 1, 1, 0, 'The Effects of Climate Change on Agriculture', 2020),
+('Abstract 2', 2, 2, 2, 2, 1, 'A Study on the Effects of Social Media on Mental Health', 2020),
 ('Abstract 3', 3, 2, 2, 3, 2, 'Data Mining Techniques', 2021),
-('Abstract 4', 3, 1, 2, 4, 14, 'Optimizing GPU Throughput', 2021),
+('Abstract 4', 3, 1, 2, 4, 2, 'Optimizing GPU Throughput', 2021),
 ('Abstract 5', 3, 0, 4, 5, 4, 'Attention is all you need', 2021)
 ;
 
