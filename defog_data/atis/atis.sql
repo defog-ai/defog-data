@@ -363,16 +363,16 @@ INSERT INTO public.equipment_sequence (aircraft_code_sequence, aircraft_code) VA
 ;
 
 INSERT INTO public.fare (fare_id, from_airport, to_airport, fare_basis_code, fare_airline, restriction_code, one_direction_cost, round_trip_cost, round_trip_required) VALUES
-(1, 'JFK', 'LAX', 'ABC', 'AA', 'NONE', 200, 300, 'Yes'),
-(2, 'JFK', 'ORD', 'DEF', 'UA', 'NONE', 150, 280, 'No'),
-(3, 'JFK', 'ORD', 'GHI', 'DL', 'NONE', 180, 300, 'No'),
-(6, 'ORD', 'JFK', 'PQR', 'B6', 'BLACKOUT', 190, 350, 'Yes'),
-(7, 'ORD', 'JFK', 'STU', 'NK', 'NONE', 210, 400, 'Yes'),
-(8, 'ORD', 'JFK', 'VWX', 'F9', 'NONE', 230, 400, 'No'),
-(9, 'LAX', 'SFO', 'YZ', 'HA', 'NONE', 240, 400, 'No'),
-(10, 'ORD', 'LAX', 'AAA', 'VX', 'NONE', 270, 500, 'No'),
-(4, 'LAX', 'ORD', 'JKL', 'WN', 'NONE', 250, 350, 'Yes'),
-(5, 'LAX', 'ORD', 'MNO', 'AS', 'BLACKOUT', 220, 400, 'Yes')
+(1, 'ORD', 'JFK', 'ABC', 'AA', 'NONE', 200, 300, 'Yes'),
+(2, 'ORD', 'JFK', 'DEF', 'UA', 'NONE', 150, 280, 'No'),
+(3, 'ORD', 'JFK', 'GHI', 'AA', 'NONE', 180, 300, 'No'),
+(4, 'ORD', 'JFK', 'JKL', 'WN', 'NONE', 250, 350, 'Yes'),
+(5, 'ORD', 'LAX', 'MNO', 'AS', 'BLACKOUT', 220, 400, 'Yes'),
+(6, 'JFK', 'ORD', 'PQR', 'AA', 'BLACKOUT', 190, 350, 'Yes'),
+(7, 'JFK', 'ORD', 'STU', 'UA', 'NONE', 210, 400, 'Yes'),
+(8, 'JFK', 'LAX', 'VWX', 'F9', 'NONE', 230, 400, 'No'),
+(9, 'LAX', 'ORD', 'YZ', 'HA', 'NONE', 240, 400, 'No'),
+(10, 'LAX', 'ORD', 'AAA', 'VX', 'NONE', 270, 500, 'No')
 ;
 
 INSERT INTO public.fare_basis (fare_basis_code, booking_class, class_type, premium, economy, discounted, night, season, basis_days) VALUES
@@ -396,7 +396,7 @@ INSERT INTO public.flight (flight_id, flight_days, from_airport, to_airport, dep
 (5, 'fri', 'ORD', 'LAX', 1577865600, 1577869600, 'AS345', 'AS', 'AS345', 5, 'BF', 0, 0, 'AS345', 4000),
 (6, 'sat,mon', 'JFK', 'ORD', 1577872800, 1577884800, 'AA124', 'AA', 'AA123', 6, 'LN', 1, 1, 'B678', 12000),
 (7, 'sun', 'JFK', 'ORD', 1577880000, 1577883700, 'UA457', 'UA', 'UA457', 7, 'DN', 0, 0, 'UA457', 3700),
-(8, 'mon', 'JFK', 'ORD', 1577887200, 1577897200, 'F934', 'F9', 'F934', 8, 'BS', 1, 1, 'F934', 10000),
+(8, 'mon', 'JFK', 'LAX', 1577887200, 1577897200, 'F934', 'F9', 'F934', 8, 'BS', 1, 1, 'F934', 10000),
 (9, 'tue', 'LAX', 'ORD', 1577894400, 1577898400, 'HA567', 'HA', 'HA567', 9, 'LS', 0, 0, 'HA567', 4000),
 (10, 'wed,mon', 'LAX', 'ORD', 1577901600, 1577921600, 'VX890', 'VX', 'VX890', 10, 'DS', 1, 1, 'VX890', 20000)
 ;
