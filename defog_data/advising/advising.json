@@ -172,12 +172,12 @@
             {
                 "data_type": "text",
                 "column_name": "degree",
-                "column_description": "Degree program the student is enrolled in"
+                "column_description": "Degree program the student is enrolled in. Can only be 'Bachelor of Science' or 'Bachelor of Arts'."
             },
             {
                 "data_type": "text",
                 "column_name": "entered_as",
-                "column_description": "Status of the student when they entered the program"
+                "column_description": "Status of the student when they entered the program. e.g. 'Freshman', 'Transfer Student'"
             },
             {
                 "data_type": "text",
@@ -219,7 +219,7 @@
             {
                 "data_type": "text",
                 "column_name": "semester",
-                "column_description": "The name or identifier for the semester (e.g. Fall, Spring, Summer)"
+                "column_description": "The name or identifier for the semester Can only be 'Fall', 'Spring', or 'Summer'"
             }
         ],
         "instructor": [
@@ -258,7 +258,7 @@
             {
                 "data_type": "text",
                 "column_name": "category",
-                "column_description": "The category of the course"
+                "column_description": "The category of the course. Can only be 'Core' or 'Elective'."
             }
         ],
         "student_record": [
@@ -285,7 +285,7 @@
             {
                 "data_type": "text",
                 "column_name": "how",
-                "column_description": "How the student took the course (e.g. in-person, online)"
+                "column_description": "How the student took the course. Can only be 'in-person' or 'online'."
             },
             {
                 "data_type": "text",

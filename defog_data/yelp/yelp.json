@@ -14,7 +14,7 @@
             {
                 "column_name": "month",
                 "data_type": "text",
-                "column_description": "Month when the tip was created"
+                "column_description": "Month when the tip was created. Eg. 'January', 'February', etc."
             },
             {
                 "column_name": "user_id",
@@ -24,12 +24,12 @@
             {
                 "column_name": "business_id",
                 "data_type": "text",
-                "column_description": "Unique identifier for the business where the tip was created"
+                "column_description": "Unique identifier for the business where the tip was created."
             },
             {
                 "column_name": "text",
                 "data_type": "text",
-                "column_description": "Text content of the tip"
+                "column_description": "Text content of the tip. All apostrophes use ’ instead of ' to avoid SQL errors."
             }
         ],
         "users": [
@@ -68,12 +68,12 @@
             {
                 "data_type": "text",
                 "column_name": "month",
-                "column_description": "The month in which the review was posted."
+                "column_description": "The month in which the review was posted. Eg. 'January', 'February', etc."
             },
             {
                 "data_type": "text",
                 "column_name": "text",
-                "column_description": "The text of the review."
+                "column_description": "The text of the review. All apostrophes use ’ instead of ' to avoid SQL errors."
             },
             {
                 "data_type": "text",
@@ -105,7 +105,7 @@
             {
                 "data_type": "text",
                 "column_name": "day",
-                "column_description": "Day of the week when the check-ins occurred"
+                "column_description": "Day of the week when the check-ins occurred. Eg. 'Monday', 'Tuesday', etc."
             }
         ],
         "business": [
@@ -152,7 +152,7 @@
             {
                 "data_type": "text",
                 "column_name": "name",
-                "column_description": "The name of the business"
+                "column_description": "The name of the business. All apostrophes use ’ instead of ' to avoid SQL errors."
             },
             {
                 "data_type": "text",
