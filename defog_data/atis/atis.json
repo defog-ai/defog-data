@@ -14,7 +14,7 @@
             {
                 "data_type": "text",
                 "column_name": "state_code",
-                "column_description": "The code assigned to the state where the city is located"
+                "column_description": "The 2-letter code assigned to the state where the city is located. E.g. 'NY', 'CA', etc."
             },
             {
                 "data_type": "text",
@@ -36,7 +36,7 @@
             {
                 "data_type": "text",
                 "column_name": "day_name",
-                "column_description": "The name of a day of the week"
+                "column_description": "The name of a day of the week. Either 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', or 'Sunday'."
             }
         ],
         "fare": [
@@ -102,7 +102,7 @@
             {
                 "data_type": "text",
                 "column_name": "state_code",
-                "column_description": "The code representing the state"
+                "column_description": "The 2-letter code assigned to the state. E.g. 'NY', 'CA', etc."
             },
             {
                 "data_type": "text",
@@ -164,7 +164,7 @@
             {
                 "data_type": "text",
                 "column_name": "flight_days",
-                "column_description": "Days of the week the flight operates on. comma-delimited 3-letter abbreviation, eg `mon,tue,wed`"
+                "column_description": "Days of the week the flight operates on. Formatted as comma-delimited 3-letter abbreviations, e.g. `mon,tue,wed` or `tues,thurs`"
             },
             {
                 "data_type": "text",
@@ -238,7 +238,7 @@
             {
                 "data_type": "text",
                 "column_name": "time_zone_code",
-                "column_description": "The code assigned to the time zone where the airport is located."
+                "column_description": "The code assigned to the time zone where the airport is located. Either 'EST', 'CST', 'MST', or 'PST'."
             },
             {
                 "data_type": "text",
@@ -305,12 +305,12 @@
             {
                 "data_type": "text",
                 "column_name": "basic_type",
-                "column_description": "The basic type of the aircraft."
+                "column_description": "The basic type of the aircraft. Only 'Jet' is a possible value."
             },
             {
                 "data_type": "text",
                 "column_name": "propulsion",
-                "column_description": "The type of propulsion used by the aircraft."
+                "column_description": "The type of propulsion used by the aircraft. Only 'Jet' is a possible value."
             },
             {
                 "data_type": "text",
@@ -332,7 +332,7 @@
             {
                 "data_type": "text",
                 "column_name": "time_zone_code",
-                "column_description": "A short code that represents the time zone"
+                "column_description": "A short code that represents the time zone. For example, 'EST', 'CST', 'MST', or 'PST'."
             },
             {
                 "data_type": "text",
@@ -349,12 +349,12 @@
             {
                 "data_type": "text",
                 "column_name": "booking_class",
-                "column_description": "The booking class associated with the fare basis"
+                "column_description": "The booking class associated with the fare basis. Either 'First', 'Business', or 'Economy'"
             },
             {
                 "data_type": "text",
                 "column_name": "class_type",
-                "column_description": "The class type associated with the fare basis"
+                "column_description": "The class type associated with the fare basis. Either 'First Class', 'Business Class', or 'Economy Class'"
             },
             {
                 "data_type": "text",
@@ -379,7 +379,7 @@
             {
                 "data_type": "text",
                 "column_name": "season",
-                "column_description": "The season associated with the fare basis"
+                "column_description": "The season associated with the fare basis. Can only be 'Peak' or 'Regular'"
             },
             {
                 "data_type": "text",
@@ -492,7 +492,7 @@
             {
                 "data_type": "text",
                 "column_name": "application",
-                "column_description": "The type of fare application, such as one-way or round-trip."
+                "column_description": "The type of fare application. Either 'One Way' or 'Round Trip'."
             },
             {
                 "data_type": "text",
@@ -502,7 +502,7 @@
             {
                 "data_type": "text",
                 "column_name": "no_discounts",
-                "column_description": "Indicates whether the fare is eligible for discounts or promotions."
+                "column_description": "Indicates whether the fare is eligible for discounts or promotions. Either 'Yes' or 'No'."
             },
             {
                 "data_type": "text",
@@ -512,7 +512,7 @@
             {
                 "data_type": "text",
                 "column_name": "saturday_stay_required",
-                "column_description": "Indicates whether a Saturday night stay is required for the fare."
+                "column_description": "Indicates whether a Saturday night stay is required for the fare. Either 'Yes' or 'No'."
             }
         ],
         "dual_carrier": [
@@ -627,7 +627,7 @@
             {
                 "data_type": "text",
                 "column_name": "direction",
-                "column_description": "The direction of the airport from the city"
+                "column_description": "The direction of the airport from the city. Either 'North', 'South', 'East', 'West', 'Northeast', 'Northwest', 'Southeast', or 'Southwest'."
             }
         ],
         "class_of_service": [
@@ -663,12 +663,12 @@
             {
                 "data_type": "text",
                 "column_name": "compartment",
-                "column_description": "The compartment column contains the name of a compartment."
+                "column_description": "The compartment column contains the name of a compartment. Either 'First', 'Business', or 'Economy'."
             },
             {
                 "data_type": "text",
                 "column_name": "class_type",
-                "column_description": "The class_type column contains the type of a class."
+                "column_description": "The class_type column contains the type of a class. Either 'First Class', 'Business Class', or 'Economy Class'."
             }
         ],
         "equipment_sequence": [

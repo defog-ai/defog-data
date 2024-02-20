@@ -63,7 +63,7 @@
             {
                 "data_type": "text",
                 "column_name": "traverse",
-                "column_description": "The cities or landmarks the river passes through. Comma delimited, eg `new york,albany,boston`"
+                "column_description": "The cities or landmarks the river passes through. Comma delimited and in title case, eg `New York,Albany,Boston`"
             }
         ],
         "state": [
@@ -117,7 +117,7 @@
             {
                 "data_type": "text",
                 "column_name": "highest_point",
-                "column_description": "The highest point in the state"
+                "column_description": "The highest point in the state. If unknown, use 'Unnamed location'."
             },
             {
                 "data_type": "text",
