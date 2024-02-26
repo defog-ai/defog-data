@@ -193,7 +193,7 @@ columns_ner = {
             "lake.country_name,text,The name of the country where the lake is located",
             "lake.state_name,text,The name of the state where the lake is located (if applicable)",
             "river.country_name,text,The name of the country the river flows through",
-            "river.traverse, text, The cities or landmarks the river passes through. Comma delimited and in title case, eg `New York,Albany,Boston`",
+            "river.traverse,text,The cities or landmarks the river passes through. Comma delimited and in title case, eg `New York,Albany,Boston`",
             "state.state_name,text,The name of the state",
             "state.country_name,text,The name of the country the state belongs to",
             "state.capital,text,The name of the capital city of the state",
