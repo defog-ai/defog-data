@@ -24,8 +24,10 @@ scholar = get_db("scholar")
 yelp = get_db("yelp")
 
 # sql-eval-instruct datasets
+broker = get_db("broker")
 car_dealership = get_db("car_dealership")
 derm_treatment = get_db("derm_treatment")
+ewallet = get_db("ewallet")
 
 dbs = {
     # sql-eval datasets
@@ -37,6 +39,8 @@ dbs = {
     "scholar": scholar,
     "yelp": yelp,
     # sql-eval-instruct datasets
+    "broker": broker,
     "car_dealership": car_dealership,
     "derm_treatment": derm_treatment,
+    "ewallet": ewallet,
 }

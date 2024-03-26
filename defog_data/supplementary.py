@@ -63,6 +63,7 @@ def generate_embeddings(emb_path: str, save_emb: bool = True) -> tuple[dict, dic
             logging.info(f"Saved embeddings to file {emb_path}")
     return emb, csv_descriptions, glossary_emb
 
+
 def clean_glossary(glossary: str) -> list[str]:
     """
     Clean glossary by removing number bullets and periods, and making sure every line starts with a dash bullet.
@@ -81,6 +82,7 @@ def clean_glossary(glossary: str) -> list[str]:
         cleaned.append(line)
     glossary = cleaned
     return glossary
+
 
 def load_embeddings(emb_path: str) -> tuple[dict, dict]:
     """
