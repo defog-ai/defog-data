@@ -14,6 +14,8 @@ class TestDB(unittest.TestCase):
             "academic",
             "advising",
             "atis",
+            "car_dealership",
+            "derm_treatment",
             "geography",
             "restaurants",
             "scholar",
@@ -27,7 +29,7 @@ class TestDB(unittest.TestCase):
         os.chdir(test_dir)
 
     def dbs_exist(self):
-        assert len(dbs) == 7
+        assert len(dbs) == 9
 
     # check that all the tables exist in each db
     def test_academic(self):
@@ -102,6 +104,35 @@ class TestDB(unittest.TestCase):
             "code_description",
             "compartment_class",
             "equipment_sequence",
+        ]
+        self.assertEqual(list(db_schema.keys()), expected_tables)
+    
+    def test_car_dealership(self):
+        db_name = "car_dealership"
+        db_schema = get_db(db_name)["table_metadata"]
+        expected_tables = [
+            "cars",
+            "salespersons",
+            "customers",
+            "sales",
+            "inventory_snapshots",
+            "payments_received",
+            "payments_made",
+        ]
+        self.assertEqual(list(db_schema.keys()), expected_tables)
+
+    def test_derm_treatment(self):
+        db_name = "derm_treatment"
+        db_schema = get_db(db_name)["table_metadata"]
+        expected_tables = [
+            "doctors",
+            "patients",
+            "drugs",
+            "diagnoses",
+            "treatments",
+            "outcomes",
+            "adverse_events",
+            "concomitant_meds",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
 

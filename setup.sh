@@ -1,9 +1,9 @@
 set -e
 
 # get arguments
-# if $@ is empty, set it to academic advising atis geography restaurants scholar yelp
+# if $@ is empty, set it to all of our db's
 if [ -z "$@" ]; then
-    set -- academic advising atis geography restaurants scholar yelp
+    set -- academic advising atis car_dealership derm_treatment geography restaurants scholar yelp
 fi
 # $@ is all arguments passed to the script
 echo "Databases to init: $@"
