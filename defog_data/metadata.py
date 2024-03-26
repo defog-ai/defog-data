@@ -14,6 +14,7 @@ def get_db(db_name):
     return db_schema
 
 
+# sql-eval datasets
 academic = get_db("academic")
 advising = get_db("advising")
 atis = get_db("atis")
@@ -22,7 +23,12 @@ restaurants = get_db("restaurants")
 scholar = get_db("scholar")
 yelp = get_db("yelp")
 
+# sql-eval-instruct datasets
+car_dealership = get_db("car_dealership")
+derm_treatment = get_db("derm_treatment")
+
 dbs = {
+    # sql-eval datasets
     "academic": academic,
     "advising": advising,
     "atis": atis,
@@ -30,4 +36,7 @@ dbs = {
     "restaurants": restaurants,
     "scholar": scholar,
     "yelp": yelp,
+    # sql-eval-instruct datasets
+    "car_dealership": car_dealership,
+    "derm_treatment": derm_treatment,
 }

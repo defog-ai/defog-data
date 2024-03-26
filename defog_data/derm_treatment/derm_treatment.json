@@ -1,0 +1,421 @@
+{
+    "table_metadata": {
+      "doctors": [
+        {
+          "data_type": "SERIAL",
+          "column_name": "doc_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "first_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)", 
+          "column_name": "last_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "specialty",
+          "column_description": "possible values: dermatology, immunology, general"
+        },
+        {
+          "data_type": "INT",
+          "column_name": "year_reg",
+          "column_description": "year the doctor was registered and obtained license"
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "med_school_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "loc_city",
+          "column_description": ""
+        },
+        {
+          "data_type": "CHAR(2)",
+          "column_name": "loc_state",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(10)",
+          "column_name": "loc_zip",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "bd_cert_num",
+          "column_description": "board certification number"
+        }
+      ],
+      "patients": [
+        {
+          "data_type": "SERIAL",
+          "column_name": "patient_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "first_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "last_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "DATE",
+          "column_name": "date_of_birth",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(10)", 
+          "column_name": "gender",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "email",
+          "column_description": "" 
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "phone",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "addr_street",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "addr_city", 
+          "column_description": ""
+        },
+        {
+          "data_type": "CHAR(2)",
+          "column_name": "addr_state",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(10)",
+          "column_name": "addr_zip",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "ins_type",
+          "column_description": "Insurance type. Possible values: private, medicare, medicaid, uninsured"
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "ins_policy_num",
+          "column_description": "Insurance policy number"
+        },
+        {
+          "data_type": "FLOAT",
+          "column_name": "height_cm",
+          "column_description": ""
+        },
+        {
+          "data_type": "FLOAT",
+          "column_name": "weight_kg",
+          "column_description": ""  
+        }
+      ],
+      "drugs": [
+        {
+          "data_type": "SERIAL",
+          "column_name": "drug_id",
+          "column_description": "" 
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "drug_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(100)", 
+          "column_name": "manufacturer",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "drug_type",
+          "column_description": "possible values: biologic, small molecule, topical"
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "moa",
+          "column_description": "mechanism of action"
+        },
+        {
+          "data_type": "DATE",
+          "column_name": "fda_appr_dt",
+          "column_description": "FDA approval date. NULL if drug is still under trial."
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "admin_route", 
+          "column_description": "possible values: oral, injection, topical"
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "dos_amt",
+          "column_description": "recommended dosage amount"
+        },
+        {
+          "data_type": "VARCHAR(20)", 
+          "column_name": "dos_unit",
+          "column_description": "recommended dosage unit"
+        },
+        {
+          "data_type": "INT",
+          "column_name": "dos_freq_hrs",
+          "column_description": "recommended number of hours between dosages"
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "ndc",
+          "column_description": "National Drug Code"
+        }
+      ],
+      "diagnoses": [
+        {
+          "data_type": "SERIAL",
+          "column_name": "diag_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(10)", 
+          "column_name": "diag_code",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "diag_name",
+          "column_description": ""  
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "diag_desc",
+          "column_description": ""
+        }
+      ],
+      "treatments": [
+        {
+          "data_type": "SERIAL",
+          "column_name": "treatment_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "patient_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "doc_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "drug_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "diag_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "DATE",
+          "column_name": "start_dt",
+          "column_description": ""
+        },
+        {
+          "data_type": "DATE", 
+          "column_name": "end_dt", 
+          "column_description": "NULL if treatment is ongoing"
+        },
+        {
+          "data_type": "BOOLEAN",
+          "column_name": "is_placebo", 
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "tot_drug_amt",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "drug_unit",
+          "column_description": "possible values: mg, ml, g"  
+        }
+      ],
+      "outcomes": [
+        {
+          "data_type": "SERIAL", 
+          "column_name": "outcome_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "treatment_id",
+          "column_description": "" 
+        },
+        {
+          "data_type": "DATE",
+          "column_name": "assess_dt",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "day7_lesion_cnt",
+          "column_description": "lesion counts on day 7."
+        },
+        {
+          "data_type": "INT",
+          "column_name": "day30_lesion_cnt", 
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "day100_lesion_cnt",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(4,1)",
+          "column_name": "day7_pasi_score",
+          "column_description": "PASI score range 0-72"
+        },
+        {
+          "data_type": "DECIMAL(4,1)", 
+          "column_name": "day30_pasi_score",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(4,1)",
+          "column_name": "day100_pasi_score", 
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(5,2)",
+          "column_name": "day7_tewl",
+          "column_description": "in g/m^2/h"
+        },
+        {
+          "data_type": "DECIMAL(5,2)",
+          "column_name": "day30_tewl",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(5,2)",
+          "column_name": "day100_tewl",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "day7_itch_vas",
+          "column_description": "visual analog scale 0-100"
+        },
+        {
+          "data_type": "INT",
+          "column_name": "day30_itch_vas",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT", 
+          "column_name": "day100_itch_vas",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(4,1)",
+          "column_name": "day7_hfg", 
+          "column_description": "hair growth factor range 0-5"
+        },
+        {
+          "data_type": "DECIMAL(4,1)",
+          "column_name": "day30_hfg",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(4,1)",
+          "column_name": "day100_hfg",
+          "column_description": ""
+        }
+      ],
+      "adverse_events": [
+        {
+          "data_type": "SERIAL", 
+          "column_name": "id",
+          "column_description": "1 row per adverse event per treatment_id"
+        },
+        {
+          "data_type": "INT",
+          "column_name": "treatment_id", 
+          "column_description": ""
+        },
+        {
+          "data_type": "DATE",
+          "column_name": "reported_dt",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "description",
+          "column_description": ""
+        }
+      ],
+      "concomitant_meds": [
+        {
+          "data_type": "SERIAL",
+          "column_name": "id",
+          "column_description": "1 row per med per treatment_id"
+        },
+        {
+          "data_type": "INT",
+          "column_name": "treatment_id",
+          "column_description": "" 
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "med_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "start_dt",
+          "column_description": "YYYY-MM-DD"
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "end_dt",
+          "column_description": "YYYY-MM-DD NULL if still taking"
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "dose_amt", 
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "dose_unit",
+          "column_description": "possible values: mg, ml, g"
+        },
+        {
+          "data_type": "INT",
+          "column_name": "freq_hrs",
+          "column_description": ""
+        }
+      ]
+    },
+    "glossary": "- All string columns should be matched exactly unless specified otherwise\n- `patients.first_name`, `patients.last_name`, `doctors.first_name`, `doctors.last_name` can be filtered with ILIKE '%<text>%'\n- `drugs.drug_name`, `diagnoses.diag_name` should be matched case insensitively\n- day30_* will be empty if treatment has yet to progress to day 30. same for day100.\n- PASI75D30 (75% reduction in PASI score on day 30) = COUNT(CASE WHEN day30_pasi_score <= 0.25 * day0_pasi_score THEN 1 END) / COUNT(day0_pasi_score)\n- Mean change in TEWL = AVG(day30_tewl) - AVG(day0_tewl)  \n- Proportion with improved itch = COUNT(CASE WHEN day30_itch_vas < day0_itch_vas THEN 1 END) / COUNT(*)\n- Mean percent change in hair growth = AVG((day30_hfg - day0_hfg) / day0_hfg * 100)\n\nAdditional outcomes documented:\n- day0_pasi_score: Baseline PASI score before treatment \n- day0_tewl: Baseline TEWL before treatment\n- day0_itch_vas: Baseline itch VAS before treatment \n- day0_hfg: Baseline hair growth factor before treatment"
+  }
