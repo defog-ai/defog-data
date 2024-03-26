@@ -1,0 +1,503 @@
+{
+    "table_metadata": {
+      "consumer_div.users": [
+        {
+          "data_type": "BIGINT",
+          "column_name": "uid",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "username",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "email",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "phone_number",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "created_at",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "last_login_at",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "user_type",
+          "column_description": "possible values: individual, business, admin"
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "status",
+          "column_description": "possible values: active, inactive, suspended, deleted"
+        },
+        {
+          "data_type": "VARCHAR(2)",
+          "column_name": "country",
+          "column_description": "2-letter country code"
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "address_billing",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT", 
+          "column_name": "address_delivery",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "kyc_status",
+          "column_description": "possible values: pending, approved, rejected"
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "kyc_verified_at",
+          "column_description": ""
+        }
+      ],
+      "consumer_div.merchants": [
+        {
+          "data_type": "BIGINT",
+          "column_name": "mid",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "name",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "description", 
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(200)",
+          "column_name": "website_url",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(200)", 
+          "column_name": "logo_url",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "created_at",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(2)",
+          "column_name": "country",
+          "column_description": "2-letter country code"
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "state",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "city",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "postal_code",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "address",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "status",
+          "column_description": "possible values: active, inactive, suspended"
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "category",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)", 
+          "column_name": "sub_category",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "mcc",
+          "column_description": "Merchant Category Code"
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "contact_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(100)",
+          "column_name": "contact_email",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "contact_phone",
+          "column_description": ""
+        }
+      ],
+      "consumer_div.coupons": [
+        {
+          "data_type": "BIGINT",
+          "column_name": "cid",
+          "column_description": ""
+        },
+        {
+          "data_type": "BIGINT",
+          "column_name": "merchant_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "code",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "description",
+          "column_description": ""
+        },
+        {
+          "data_type": "DATE",
+          "column_name": "start_date",
+          "column_description": ""
+        },
+        {
+          "data_type": "DATE",
+          "column_name": "end_date",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "discount_type",
+          "column_description": "possible values: percentage, fixed_amount"
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "discount_value",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "min_purchase_amount",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "max_discount_amount",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "redemption_limit",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "status",
+          "column_description": "possible values: active, inactive, expired"
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "created_at",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "updated_at",
+          "column_description": ""
+        }
+      ],
+      "consumer_div.wallet_transactions_daily": [
+        {
+          "data_type": "SERIAL",
+          "column_name": "txid",
+          "column_description": ""
+        },
+        {
+          "data_type": "BIGINT",
+          "column_name": "sender_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "sender_type",
+          "column_description": "0 for user, 1 for merchant"
+        },
+        {
+          "data_type": "BIGINT",
+          "column_name": "receiver_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "receiver_type",
+          "column_description": "0 for user, 1 for merchant"
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "amount",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "status",
+          "column_description": "possible values: pending, success, failed, refunded"
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "type",
+          "column_description": "possible values: credit, debit"
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "description",
+          "column_description": ""
+        },
+        {
+          "data_type": "BIGINT",
+          "column_name": "coupon_id",
+          "column_description": "NULL if transaction doesn't involve a coupon"
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "created_at",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "completed_at",
+          "column_description": "NULL if failed"
+        },
+        {
+          "data_type": "VARCHAR(36)",
+          "column_name": "transaction_ref",
+          "column_description": "randomly generated uuid4 for users' reference"
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "gateway_name",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "gateway_ref",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "device_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "ip_address",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "user_agent",
+          "column_description": ""
+        }
+      ],
+      "consumer_div.wallet_user_balance_daily": [
+        {
+          "data_type": "BIGINT",
+          "column_name": "user_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "balance",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "updated_at",
+          "column_description": ""
+        }
+      ],
+      "consumer_div.wallet_merchant_balance_daily": [
+        {
+          "data_type": "BIGINT",
+          "column_name": "merchant_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "balance",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "updated_at",
+          "column_description": ""
+        }
+      ],
+      "consumer_div.notifications": [
+        {
+          "data_type": "SERIAL",
+          "column_name": "id",
+          "column_description": ""
+        },
+        {
+          "data_type": "INT",
+          "column_name": "user_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "message",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(50)",
+          "column_name": "type",
+          "column_description": "possible values: transaction, promotion, security, general"
+        },
+        {
+          "data_type": "VARCHAR(20)",
+          "column_name": "status",
+          "column_description": "possible values: unread, read, archived"
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "created_at",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "read_at",
+          "column_description": "NULL if not read"
+        },
+        {
+          "data_type": "VARCHAR(10)",
+          "column_name": "device_type",
+          "column_description": "possible values: mobile_app, web_app, email, sms"
+        },
+        {
+          "data_type": "VARCHAR(36)",
+          "column_name": "device_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "action_url",
+          "column_description": "can be external https or deeplink url within the app"
+        }
+      ],
+      "consumer_div.user_sessions": [
+        {
+          "data_type": "BIGINT",
+          "column_name": "user_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "session_start_ts",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "session_end_ts",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(10)",
+          "column_name": "device_type",
+          "column_description": "possible values: mobile_app, web_app, email, sms"
+        },
+        {
+          "data_type": "VARCHAR(36)",
+          "column_name": "device_id",
+          "column_description": ""
+        }
+      ],
+      "consumer_div.user_setting_snapshot": [
+        {
+          "data_type": "BIGINT",
+          "column_name": "user_id",
+          "column_description": ""
+        },
+        {
+          "data_type": "DATE",
+          "column_name": "snapshot_date",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "tx_limit_daily",
+          "column_description": ""
+        },
+        {
+          "data_type": "DECIMAL(10,2)",
+          "column_name": "tx_limit_monthly",
+          "column_description": ""
+        },
+        {
+          "data_type": "INTEGER",
+          "column_name": "membership_status",
+          "column_description": "0 for bronze, 1 for silver, 2 for gold, 3 for platinum, 4 for VIP"
+        },
+        {
+          "data_type": "VARCHAR(255)",
+          "column_name": "password_hash",
+          "column_description": ""
+        },
+        {
+          "data_type": "VARCHAR(255)",
+          "column_name": "api_key",
+          "column_description": ""
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "verified_devices",
+          "column_description": "comma separated list of device ids"
+        },
+        {
+          "data_type": "TEXT",
+          "column_name": "verified_ips",
+          "column_description": "comma separated list of IP addresses"
+        },
+        {
+          "data_type": "BOOLEAN",
+          "column_name": "mfa_enabled",
+          "column_description": ""
+        },
+        {
+          "data_type": "BOOLEAN",
+          "column_name": "marketing_opt_in",
+          "column_description": ""
+        },
+        {
+          "data_type": "TIMESTAMP",
+          "column_name": "created_at",
+          "column_description": ""
+        }
+      ]
+    },
+    "glossary": "- sender_id and receiver_id can be joined with either users.uid or merchants.mid depending on the sender_type\n- if a user applied a coupon to a purchase, there will be 2 rows in wallet_transactions_daily:\n  - 1st row where coupon_id is NULL, amount = purchase value \n  - 2nd row where coupon_id is NOT NULL, amount = coupon value applied\n  - the sender and receiver id will be the same for both rows, but they will have different txid's \n- coupons.code and wallet_transactions_daily.gateway_name should be matched case insensitively\n- Total Transaction Volume (TTV) = SUM(wallet_transactions_daily.amount)\n- Total Coupon Discount Redeemed (TCDR) = SUM(wallet_transactions_daily.amount) WHERE coupon_id IS NOT NULL\n- Session Density = COUNT(user_sessions.user_id) / COUNT(DISTINCT user_sessions.user_id)\n- Active Merchants Percentage (APM) = COUNT(DISTINCT CASE WHEN sender_type = 1 THEN wallet_transactions_daily.sender_id WHEN receiver_type = 1 THEN wallet_transactions_daily.receiver_id ELSE NULL END) / COUNT(DISTINCT merchants.mid)"
+}

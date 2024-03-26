@@ -61,37 +61,37 @@
         {
           "data_type": "SERIAL",
           "column_name": "id",
-          "column_description": "Primary key for the salespersons table"
+          "column_description": "Unique identifier for each salesperson"
         },
         {
           "data_type": "TEXT",
           "column_name": "first_name",
-          "column_description": "First name of the salesperson"
+          "column_description": ""
         },
         {
           "data_type": "TEXT",
           "column_name": "last_name",
-          "column_description": "Last name of the salesperson"
+          "column_description": ""
         },
         {
           "data_type": "VARCHAR(255)",
           "column_name": "email",
-          "column_description": "Email address of the salesperson"
+          "column_description": ""
         },
         {
           "data_type": "VARCHAR(20)",
           "column_name": "phone",
-          "column_description": "Phone number of the salesperson"
+          "column_description": ""
         },
         {
           "data_type": "DATE",
           "column_name": "hire_date",
-          "column_description": "Date when the salesperson was hired"
+          "column_description": ""
         },
         {
           "data_type": "DATE",
           "column_name": "termination_date",
-          "column_description": "Date when the salesperson's employment was terminated"
+          "column_description": ""
         },
         {
           "data_type": "TIMESTAMP",
@@ -108,42 +108,42 @@
         {
           "data_type": "TEXT",
           "column_name": "first_name",
-          "column_description": "First name of the customer"
+          "column_description": ""
         },
         {
           "data_type": "TEXT",
           "column_name": "last_name",
-          "column_description": "Last name of the customer"
+          "column_description": ""
         },
         {
           "data_type": "VARCHAR(255)",
           "column_name": "email",
-          "column_description": "Email address of the customer"
+          "column_description": ""
         },
         {
           "data_type": "VARCHAR(20)",
           "column_name": "phone",
-          "column_description": "Phone number of the customer"
+          "column_description": ""
         },
         {
           "data_type": "TEXT",
           "column_name": "address",
-          "column_description": "Address of the customer"
+          "column_description": ""
         },
         {
           "data_type": "TEXT",
           "column_name": "city",
-          "column_description": "City of the customer"
+          "column_description": ""
         },
         {
           "data_type": "TEXT",
           "column_name": "state",
-          "column_description": "State of the customer"
+          "column_description": ""
         },
         {
           "data_type": "VARCHAR(10)",
           "column_name": "zip_code",
-          "column_description": "ZIP code of the customer"
+          "column_description": ""
         },
         {
           "data_type": "TIMESTAMP",
@@ -155,7 +155,7 @@
         {
           "data_type": "SERIAL",
           "column_name": "id",
-          "column_description": "Primary key for the sales table"
+          "column_description": "Primary key that uniquely identifies each sale"
         },
         {
           "data_type": "INTEGER",
@@ -219,7 +219,7 @@
         {
           "data_type": "SERIAL",
           "column_name": "id",
-          "column_description": "Primary key for the payments_received table"
+          "column_description": "Uniquely identifies each payment received record"
         },
         {
           "data_type": "INTEGER",
@@ -229,12 +229,12 @@
         {
           "data_type": "DATE",
           "column_name": "payment_date",
-          "column_description": "Date when the payment was received"
+          "column_description": "Date when the payment was received. Can take place after the sale date, or in installments."
         },
         {
           "data_type": "NUMERIC(10, 2)",
           "column_name": "payment_amount",
-          "column_description": "Amount of the payment received"
+          "column_description": "Amount of the payment received. Can be less than the sale price if the payment is made in installments."
         },
         {
           "data_type": "TEXT",

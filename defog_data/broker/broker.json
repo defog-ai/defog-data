@@ -1,0 +1,228 @@
+{
+    "table_metadata": {
+      "sbCustomer": [
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbCustId",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(100)",
+          "column_name": "sbCustName",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(100)", 
+          "column_name": "sbCustEmail",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbCustPhone",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(200)",
+          "column_name": "sbCustAddress1",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(200)",
+          "column_name": "sbCustAddress2",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(50)",
+          "column_name": "sbCustCity",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbCustState",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(50)",
+          "column_name": "sbCustCountry",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbCustPostalCode",
+          "column_description": ""
+        },
+        {
+          "data_type": "date",
+          "column_name": "sbCustJoinDate",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbCustStatus",
+          "column_description": "possible values: active, inactive, suspended, closed"
+        }
+      ],
+      "sbTicker": [
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbTickerId",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(10)",
+          "column_name": "sbTickerSymbol",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(100)",
+          "column_name": "sbTickerName",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbTickerType",
+          "column_description": "possible values: stock, etf, mutualfund"
+        },
+        {
+          "data_type": "varchar(50)",
+          "column_name": "sbTickerExchange",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(10)",
+          "column_name": "sbTickerCurrency",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbTickerDb2x",
+          "column_description": "2 letter exchange code"
+        },
+        {
+          "data_type": "boolean",
+          "column_name": "sbTickerIsActive",
+          "column_description": ""
+        }
+      ],
+      "sbDailyPrice": [
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbDpTickerId",
+          "column_description": ""
+        },
+        {
+          "data_type": "date",
+          "column_name": "sbDpDate",
+          "column_description": ""
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbDpOpen",
+          "column_description": ""
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbDpHigh",
+          "column_description": ""
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbDpLow",
+          "column_description": ""
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbDpClose",
+          "column_description": ""
+        },
+        {
+          "data_type": "bigint",
+          "column_name": "sbDpVolume",
+          "column_description": ""
+        },
+        {
+          "data_type": "bigint",
+          "column_name": "sbDpEpochMs",
+          "column_description": "epoch milliseconds for timestamp"
+        },
+        {
+          "data_type": "varchar(50)",
+          "column_name": "sbDpSource",
+          "column_description": ""
+        }
+      ],
+      "sbTransaction": [
+        {
+          "data_type": "varchar(50)",
+          "column_name": "sbTxId",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)", 
+          "column_name": "sbTxCustId",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbTxTickerId",
+          "column_description": ""
+        },
+        {
+          "data_type": "timestamp",
+          "column_name": "sbTxDateTime",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(20)",
+          "column_name": "sbTxType",
+          "column_description": "possible values: buy, sell"
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbTxShares",
+          "column_description": ""
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbTxPrice",
+          "column_description": ""
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbTxAmount",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(10)",
+          "column_name": "sbTxCcy",
+          "column_description": "transaction currency"
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbTxTax",
+          "column_description": ""  
+        },
+        {
+          "data_type": "numeric(10,2)",
+          "column_name": "sbTxCommission",
+          "column_description": ""
+        },
+        {
+          "data_type": "varchar(10)",
+          "column_name": "sbTxKpx",
+          "column_description": "internal code"
+        },
+        {
+          "data_type": "varchar(25)",
+          "column_name": "sbTxDateStr",
+          "column_description": "date as string in yyyyMMdd HH:mm:ss format"
+        },
+        {
+          "data_type": "varchar(10)",
+          "column_name": "sbTxStatus",
+          "column_description": "possible values: success, fail, pending"
+        }
+      ]
+    },
+    "glossary": "- sbTicker can be joined to sbDailyPrice on sbTickerId\n- sbCustomer can be joined to sbTransaction on sbCustId\n- sbTicker can be joined to sbTransaction on sbTickerId\n- ADV (Average Daily Volume) for a ticker = AVG(sbDpVolume) from sbDailyPrice table for that ticker\n- ATH (All Time High) price for a ticker = MAX(sbDpHigh) from sbDailyPrice table for that ticker\n- ATP (Average Transaction Price) for a customer = SUM(sbTxAmount)/SUM(sbTxShares) from sbTransaction table for that customer\n- NCT (Net Commission Total) = SUM(sbTxCommission) from sbTransaction table"
+  }

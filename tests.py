@@ -14,8 +14,10 @@ class TestDB(unittest.TestCase):
             "academic",
             "advising",
             "atis",
+            "broker",
             "car_dealership",
             "derm_treatment",
+            "ewallet",
             "geography",
             "restaurants",
             "scholar",
@@ -29,7 +31,7 @@ class TestDB(unittest.TestCase):
         os.chdir(test_dir)
 
     def dbs_exist(self):
-        assert len(dbs) == 9
+        assert len(dbs) == 11
 
     # check that all the tables exist in each db
     def test_academic(self):
@@ -53,6 +55,8 @@ class TestDB(unittest.TestCase):
             "publication_keyword",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 42)
 
     def test_advising(self):
         db_name = "advising"
@@ -75,6 +79,8 @@ class TestDB(unittest.TestCase):
             "program_requirement",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 111)
 
     def test_atis(self):
         db_name = "atis"
@@ -106,7 +112,31 @@ class TestDB(unittest.TestCase):
             "equipment_sequence",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
-    
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 127)
+
+    def test_broker(self):
+        db_name = "broker"
+        db_schema = get_db(db_name)["table_metadata"]
+        expected_tables = [
+            "sbCustomer",
+            "sbTicker",
+            "sbDailyPrice",
+            "sbTransaction",
+        ]
+        self.assertEqual(list(db_schema.keys()), expected_tables)
+        glossary = get_db(db_name)["glossary"]
+        expected_glossary = """- sbTicker can be joined to sbDailyPrice on sbTickerId
+- sbCustomer can be joined to sbTransaction on sbCustId
+- sbTicker can be joined to sbTransaction on sbTickerId
+- ADV (Average Daily Volume) for a ticker = AVG(sbDpVolume) from sbDailyPrice table for that ticker
+- ATH (All Time High) price for a ticker = MAX(sbDpHigh) from sbDailyPrice table for that ticker
+- ATP (Average Transaction Price) for a customer = SUM(sbTxAmount)/SUM(sbTxShares) from sbTransaction table for that customer
+- NCT (Net Commission Total) = SUM(sbTxCommission) from sbTransaction table"""
+        self.assertEqual(glossary, expected_glossary)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 43)
+
     def test_car_dealership(self):
         db_name = "car_dealership"
         db_schema = get_db(db_name)["table_metadata"]
@@ -120,6 +150,8 @@ class TestDB(unittest.TestCase):
             "payments_made",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 56)
 
     def test_derm_treatment(self):
         db_name = "derm_treatment"
@@ -135,6 +167,38 @@ class TestDB(unittest.TestCase):
             "concomitant_meds",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 80)
+
+    def test_ewallet(self):
+        db_name = "ewallet"
+        db_schema = get_db(db_name)["table_metadata"]
+        expected_tables = [
+            "consumer_div.users",
+            "consumer_div.merchants",
+            "consumer_div.coupons",
+            "consumer_div.wallet_transactions_daily",
+            "consumer_div.wallet_user_balance_daily",
+            "consumer_div.wallet_merchant_balance_daily",
+            "consumer_div.notifications",
+            "consumer_div.user_sessions",
+            "consumer_div.user_setting_snapshot",
+        ]
+        self.assertEqual(list(db_schema.keys()), expected_tables)
+        glossary = get_db(db_name)["glossary"]
+        expected_glossary = """- sender_id and receiver_id can be joined with either users.uid or merchants.mid depending on the sender_type
+- if a user applied a coupon to a purchase, there will be 2 rows in wallet_transactions_daily:
+  - 1st row where coupon_id is NULL, amount = purchase value 
+  - 2nd row where coupon_id is NOT NULL, amount = coupon value applied
+  - the sender and receiver id will be the same for both rows, but they will have different txid's 
+- coupons.code and wallet_transactions_daily.gateway_name should be matched case insensitively
+- Total Transaction Volume (TTV) = SUM(wallet_transactions_daily.amount)
+- Total Coupon Discount Redeemed (TCDR) = SUM(wallet_transactions_daily.amount) WHERE coupon_id IS NOT NULL
+- Session Density = COUNT(user_sessions.user_id) / COUNT(DISTINCT user_sessions.user_id)
+- Active Merchants Percentage (APM) = COUNT(DISTINCT CASE WHEN sender_type = 1 THEN wallet_transactions_daily.sender_id WHEN receiver_type = 1 THEN wallet_transactions_daily.receiver_id ELSE NULL END) / COUNT(DISTINCT merchants.mid)"""
+        self.assertEqual(glossary, expected_glossary)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 96)
 
     def test_geography(self):
         db_name = "geography"
@@ -149,12 +213,16 @@ class TestDB(unittest.TestCase):
             "border_info",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 29)
 
     def test_restaurants(self):
         db_name = "restaurants"
         db_schema = get_db(db_name)["table_metadata"]
         expected_tables = ["location", "geographic", "restaurant"]
         self.assertEqual(list(db_schema.keys()), expected_tables)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 12)
 
     def test_scholar(self):
         db_name = "scholar"
@@ -174,6 +242,8 @@ class TestDB(unittest.TestCase):
             "paperkeyphrase",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 28)
 
     def test_yelp(self):
         db_name = "yelp"
@@ -188,6 +258,8 @@ class TestDB(unittest.TestCase):
             "neighbourhood",
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
+        num_columns = sum([len(db_schema[table]) for table in db_schema])
+        self.assertEqual(num_columns, 36)
 
     def test_supplementary_columns_ner(self):
         # for each db, go through each table and add column names to a set and make sure they are not repeated
