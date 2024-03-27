@@ -3,7 +3,7 @@ set -e
 # get arguments
 # if $@ is empty, set it to all of our db's
 if [ -z "$@" ]; then
-    set -- academic advising atis car_dealership derm_treatment geography restaurants scholar yelp
+    set -- academic advising atis broker car_dealership derm_treatment ewallet geography restaurants scholar yelp
 fi
 # $@ is all arguments passed to the script
 echo "Databases to init: $@"
