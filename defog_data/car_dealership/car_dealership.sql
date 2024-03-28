@@ -116,39 +116,40 @@ VALUES
   ('Jennifer', 'Davis', 'jennifer.davis@example.com', '555-345-6789', NOW() - INTERVAL '20 days');
 
 -- customers
-INSERT INTO customers (first_name, last_name, email, phone, address, city, state, zip_code)
+INSERT INTO customers (first_name, last_name, email, phone, address, city, state, zip_code, crtd_ts)
 VALUES
-  ('William', 'Davis', 'william.davis@example.com', '555-888-9999', '123 Main St', 'New York', 'NY', '10001'),
-  ('Ava', 'Miller', 'ava.miller@example.com', '555-777-6666', '456 Oak Ave', 'Los Angeles', 'CA', '90001'),
-  ('Benjamin', 'Wilson', 'benjamin.wilson@example.com', '555-666-5555', '789 Elm St', 'Chicago', 'IL', '60007'),
-  ('Mia', 'Moore', 'mia.moore@example.com', '555-555-4444', '321 Pine Rd', 'Houston', 'TX', '77001'),
-  ('Henry', 'Taylor', 'henry.taylor@example.com', '555-444-3333', '654 Cedar Ln', 'Phoenix', 'AZ', '85001'),
-  ('Charlotte', 'Anderson', 'charlotte.anderson@example.com', '555-333-2222', '987 Birch Dr', 'Philadelphia', 'PA', '19019'),
-  ('Alexander', 'Thomas', 'alexander.thomas@example.com', '555-222-1111', '741 Walnut St', 'San Antonio', 'TX', '78006'),
-  ('Amelia', 'Jackson', 'amelia.jackson@gmail.com', '555-111-0000', '852 Maple Ave', 'San Diego', 'CA', '92101'),
-  ('Daniel', 'White', 'daniel.white@youtube.com', '555-000-9999', '963 Oak St', 'Dallas', 'TX', '75001'),
-  ('Abigail', 'Harris', 'abigail.harris@company.io', '555-999-8888', '159 Pine Ave', 'San Jose', 'CA', '95101'),
-  ('Christopher', 'Brown', 'christopher.brown@ai.com', '555-456-7890', '753 Maple Rd', 'Miami', 'FL', '33101'),
-  ('Sophia', 'Lee', 'sophia.lee@microsoft.com', '555-567-8901', '951 Oak Ln', 'Seattle', 'WA', '98101');
+  ('William', 'Davis', 'william.davis@example.com', '555-888-9999', '123 Main St', 'New York', 'NY', '10001', NOW() - INTERVAL '5 years'),
+  ('Ava', 'Miller', 'ava.miller@example.com', '555-777-6666', '456 Oak Ave', 'Los Angeles', 'CA', '90001', NOW() - INTERVAL '4 years'),
+  ('Benjamin', 'Wilson', 'benjamin.wilson@example.com', '555-666-5555', '789 Elm St', 'Chicago', 'IL', '60007', NOW() - INTERVAL '3 years'),
+  ('Mia', 'Moore', 'mia.moore@example.com', '555-555-4444', '321 Pine Rd', 'Houston', 'TX', '77001', NOW() - INTERVAL '2 years'),
+  ('Henry', 'Taylor', 'henry.taylor@example.com', '555-444-3333', '654 Cedar Ln', 'Phoenix', 'AZ', '85001', NOW() - INTERVAL '1 year'),
+  ('Charlotte', 'Anderson', 'charlotte.anderson@example.com', '555-333-2222', '987 Birch Dr', 'Philadelphia', 'PA', '19019', NOW() - INTERVAL '5 years'),
+  ('Alexander', 'Thomas', 'alexander.thomas@example.com', '555-222-1111', '741 Walnut St', 'San Antonio', 'TX', '78006', NOW() - INTERVAL '4 years'),
+  ('Amelia', 'Jackson', 'amelia.jackson@gmail.com', '555-111-0000', '852 Maple Ave', 'San Diego', 'CA', '92101', NOW() - INTERVAL '3 years'),
+  ('Daniel', 'White', 'daniel.white@youtube.com', '555-000-9999', '963 Oak St', 'Dallas', 'TX', '75001', NOW() - INTERVAL '2 years'),
+  ('Abigail', 'Harris', 'abigail.harris@company.io', '555-999-8888', '159 Pine Ave', 'San Jose', 'CA', '95101', NOW() - INTERVAL '1 year'),
+  ('Christopher', 'Brown', 'christopher.brown@ai.com', '555-456-7890', '753 Maple Rd', 'Miami', 'FL', '33101', NOW() - INTERVAL '5 years'),
+  ('Sophia', 'Lee', 'sophia.lee@microsoft.com', '555-567-8901', '951 Oak Ln', 'Seattle', 'WA', '98101', NOW() - INTERVAL '4 years');
 
 -- sales
-INSERT INTO sales (car_id, salesperson_id, customer_id, sale_price, sale_date)
+INSERT INTO sales (car_id, salesperson_id, customer_id, sale_price, sale_date, crtd_ts)
 VALUES
-  (1, 2, 3, 27500.00, '2023-03-15'),
-  (3, 1, 5, 44000.00, '2023-03-20'),
-  (6, 4, 2, 24500.00, '2023-03-22'),
-  (8, 7, 9, 38000.00, '2023-03-25'),
-  (2, 4, 7, 21500.00, '2023-03-28'),
-  (10, 6, 1, 27000.00, '2023-04-01'),
-  (5, 3, 6, 26000.00, '2023-04-05'),
-  (7, 2, 10, 60000.00, '2023-04-10'),
-  (4, 6, 8, 40000.00, '2023-04-12'),
-  (9, 2, 4, 44500.00, '2023-04-15'),
-  (1, 7, 11, 28000.00, NOW() - INTERVAL '32 days'),
-  (3, 3, 12, 43500.00, NOW() - INTERVAL '10 days'),
-  (6, 1, 11, 24000.00, NOW() - INTERVAL '15 days'),
-  (2, 3, 1, 17200.00, NOW() - INTERVAL '30 days'),
-  (8, 6, 12, 37500.00, NOW() - INTERVAL '29 days');
+  (1, 2, 3, 27500.00, '2023-03-15', '2023-03-15 00:00:00'::TIMESTAMP),
+  (3, 1, 5, 44000.00, '2023-03-20', '2023-03-20 00:00:00'::TIMESTAMP),
+  (6, 4, 2, 24500.00, '2023-03-22', '2023-03-22 00:00:00'::TIMESTAMP),
+  (8, 7, 9, 38000.00, '2023-03-25', '2023-03-25 00:00:00'::TIMESTAMP),
+  (2, 4, 7, 21500.00, '2023-03-28', '2023-03-28 00:00:00'::TIMESTAMP),
+  (10, 6, 1, 27000.00, '2023-04-01', '2023-04-01 00:00:00'::TIMESTAMP),
+  (5, 3, 6, 26000.00, '2023-04-05', '2023-04-05 00:00:00'::TIMESTAMP),
+  (7, 2, 10, 60000.00, '2023-04-10', '2023-04-10 00:00:00'::TIMESTAMP),
+  (4, 6, 8, 40000.00, '2023-04-12', '2023-04-12 00:00:00'::TIMESTAMP),
+  (9, 2, 4, 44500.00, '2023-04-15', '2023-04-15 00:00:00'::TIMESTAMP),
+  (1, 7, 11, 28000.00, NOW() - INTERVAL '32 days', NOW() - INTERVAL '32 days'),
+  (3, 3, 12, 43500.00, NOW() - INTERVAL '10 days', NOW() - INTERVAL '10 days'),
+  (6, 1, 11, 24000.00, NOW() - INTERVAL '15 days', NOW() - INTERVAL '15 days'),
+  (2, 3, 1, 17200.00, NOW() - INTERVAL '30 days', NOW() - INTERVAL '30 days'),
+  (8, 6, 12, 37500.00, NOW(), NOW()),
+  (10, 4, 2, 26500.00, NOW() - INTERVAL '5 days', NOW() - INTERVAL '5 days');
 
 -- inventory_snapshots
 INSERT INTO inventory_snapshots (snapshot_date, car_id, is_in_inventory)
