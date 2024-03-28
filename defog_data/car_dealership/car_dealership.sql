@@ -88,21 +88,33 @@ VALUES
   ('BMW', 'X5', 2023, 'Silver', '5UXCR6C56M9A12345', 'V8', 'Automatic', 62000.00),
   ('Audi', 'A4', 2022, 'Blue', 'WAUBNAF47MA098765', 'Inline 4', 'Automatic', 39000.00),
   ('Lexus', 'RX350', 2021, 'White', '2T2BZMCA7MC143210', 'V6', 'Automatic', 45500.00),
-  ('Subaru', 'Outback', 2022, 'Green', '4S4BSANC2N3246801', 'Boxer 4', 'CVT', 28000.00);
+  ('Subaru', 'Outback', 2022, 'Green', '4S4BSANC2N3246801', 'Boxer 4', 'CVT', 28000.00),
+  ('Mazda', 'CX-5', 2022, 'Red', 'JM3KE4DY4N0123456', 'Inline 4', 'Automatic', 29000.00),
+  ('Hyundai', 'Tucson', 2023, 'Black', 'KM8J3CAL3NU123456', 'Inline 4', 'Automatic', 32000.00),
+  ('Kia', 'Sorento', 2021, 'Black', '5XYPH4A50MG987654', 'V6', 'Automatic', 32000.00),
+  ('Jeep', 'Wrangler', 2022, 'Gray', '1C4HJXDG3NW123456', 'V6', 'Automatic', 38000.00),
+  ('GMC', 'Sierra 1500', 2023, 'White', '1GTU9CED3NZ123456', 'V8', 'Automatic', 45000.00),
+  ('Ram', '1500', 2022, 'Blue', '1C6SRFFT3NN123456', 'V8', 'Automatic', 42000.00),
+  ('Mercedes-Benz', 'E-Class', 2021, 'Silver', 'W1KZF8DB1MA123456', 'Inline 6', 'Automatic', 62000.00),
+  ('Volkswagen', 'Tiguan', 2022, 'Red', '3VV2B7AX1NM123456', 'Inline 4', 'Automatic', 32000.00),
+  ('Volvo', 'XC90', 2023, 'Black', 'YV4A22PK3N1234567', 'Inline 4', 'Automatic', 65000.00),
+  ('Porsche', '911', 2022, 'White', 'WP0AA2A93NS123456', 'Flat 6', 'Automatic', 120000.00);
 
 -- salespersons
 INSERT INTO salespersons (first_name, last_name, email, phone, hire_date)
 VALUES
-  ('John', 'Doe', 'john.doe@example.com', '555-123-4567', '2020-01-01'),
-  ('Jane', 'Smith', 'jane.smith@example.com', '555-987-6543', '2019-06-15'),
-  ('Michael', 'Johnson', 'michael.johnson@example.com', '555-456-7890', '2021-03-10'),
-  ('Emily', 'Brown', 'emily.brown@example.com', '555-111-2222', '2022-02-20'),
-  ('David', 'Wilson', 'david.wilson@example.com', '555-333-4444', '2020-11-05'),
+  ('John', 'Doe', 'john.doe@example.com', '555-123-4567', NOW() - INTERVAL '2 years'),
+  ('Jane', 'Smith', 'jane.smith@example.com', '555-987-6543', NOW() - INTERVAL '3 years'),
+  ('Michael', 'Johnson', 'michael.johnson@example.com', '555-456-7890', NOW() - INTERVAL '1 year'),
+  ('Emily', 'Brown', 'emily.brown@example.com', '555-111-2222', NOW() - INTERVAL '1 year'),
+  ('David', 'Wilson', 'david.wilson@example.com', '555-333-4444', NOW() - INTERVAL '2 years'),
   ('Sarah', 'Taylor', 'sarah.taylor@example.com', '555-555-6666', '2018-09-01'),
   ('Daniel', 'Anderson', 'daniel.anderson@example.com', '555-777-8888', '2021-07-12'),
   ('Olivia', 'Thomas', 'olivia.thomas@example.com', '555-999-0000', '2023-01-25'),
   ('James', 'Jackson', 'james.jackson@example.com', '555-222-3333', '2019-04-30'),
-  ('Sophia', 'White', 'sophia.white@example.com', '555-444-5555', '2022-08-18');
+  ('Sophia', 'White', 'sophia.white@example.com', '555-444-5555', '2022-08-18'),
+  ('Robert', 'Johnson', 'robert.johnson@example.com', '555-234-5678', NOW() - INTERVAL '15 days'),
+  ('Jennifer', 'Davis', 'jennifer.davis@example.com', '555-345-6789', NOW() - INTERVAL '20 days');
 
 -- customers
 INSERT INTO customers (first_name, last_name, email, phone, address, city, state, zip_code)
@@ -114,9 +126,11 @@ VALUES
   ('Henry', 'Taylor', 'henry.taylor@example.com', '555-444-3333', '654 Cedar Ln', 'Phoenix', 'AZ', '85001'),
   ('Charlotte', 'Anderson', 'charlotte.anderson@example.com', '555-333-2222', '987 Birch Dr', 'Philadelphia', 'PA', '19019'),
   ('Alexander', 'Thomas', 'alexander.thomas@example.com', '555-222-1111', '741 Walnut St', 'San Antonio', 'TX', '78006'),
-  ('Amelia', 'Jackson', 'amelia.jackson@example.com', '555-111-0000', '852 Maple Ave', 'San Diego', 'CA', '92101'),
-  ('Daniel', 'White', 'daniel.white@example.com', '555-000-9999', '963 Oak St', 'Dallas', 'TX', '75001'),
-  ('Abigail', 'Harris', 'abigail.harris@example.com', '555-999-8888', '159 Pine Ave', 'San Jose', 'CA', '95101');
+  ('Amelia', 'Jackson', 'amelia.jackson@gmail.com', '555-111-0000', '852 Maple Ave', 'San Diego', 'CA', '92101'),
+  ('Daniel', 'White', 'daniel.white@youtube.com', '555-000-9999', '963 Oak St', 'Dallas', 'TX', '75001'),
+  ('Abigail', 'Harris', 'abigail.harris@company.io', '555-999-8888', '159 Pine Ave', 'San Jose', 'CA', '95101'),
+  ('Christopher', 'Brown', 'christopher.brown@ai.com', '555-456-7890', '753 Maple Rd', 'Miami', 'FL', '33101'),
+  ('Sophia', 'Lee', 'sophia.lee@microsoft.com', '555-567-8901', '951 Oak Ln', 'Seattle', 'WA', '98101');
 
 -- sales
 INSERT INTO sales (car_id, salesperson_id, customer_id, sale_price, sale_date)
@@ -125,12 +139,17 @@ VALUES
   (3, 1, 5, 44000.00, '2023-03-20'),
   (6, 4, 2, 24500.00, '2023-03-22'),
   (8, 7, 9, 38000.00, '2023-03-25'),
-  (2, 5, 7, 21500.00, '2023-03-28'),
-  (10, 9, 1, 27000.00, '2023-04-01'),
+  (2, 4, 7, 21500.00, '2023-03-28'),
+  (10, 6, 1, 27000.00, '2023-04-01'),
   (5, 3, 6, 26000.00, '2023-04-05'),
-  (7, 8, 10, 60000.00, '2023-04-10'),
+  (7, 2, 10, 60000.00, '2023-04-10'),
   (4, 6, 8, 40000.00, '2023-04-12'),
-  (9, 10, 4, 44500.00, '2023-04-15');
+  (9, 2, 4, 44500.00, '2023-04-15'),
+  (1, 7, 11, 28000.00, NOW() - INTERVAL '32 days'),
+  (3, 3, 12, 43500.00, NOW() - INTERVAL '10 days'),
+  (6, 1, 11, 24000.00, NOW() - INTERVAL '15 days'),
+  (2, 3, 1, 17200.00, NOW() - INTERVAL '30 days'),
+  (8, 6, 12, 37500.00, NOW() - INTERVAL '29 days');
 
 -- inventory_snapshots
 INSERT INTO inventory_snapshots (snapshot_date, car_id, is_in_inventory)

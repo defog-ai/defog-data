@@ -128,7 +128,10 @@ VALUES
 ('David', 'Wilson', '1965-09-30', 'Male', 'david@email.com', '555-369-2580', '321 Pine Ln', 'Somewhere', 'FL', '13579', 'medicaid', 'GHI901234', 175, 78),
 ('Eve', 'Brown', '2000-01-01', 'Female', 'eve@email.com', '555-147-2589', '654 Cedar St', 'Nowhere', 'WA', '97531', 'uninsured', NULL, 160, 55),
 ('Frank', 'Taylor', '1988-05-12', 'Male', 'frank@email.com', '555-753-9514', '987 Birch Dr', 'Anyplace', 'CO', '24680', 'private', 'JKL567890', 183, 90),
-('Grace', 'Anderson', '1975-12-25', 'Female', 'grace@email.com', '555-951-7532', '159 Maple Rd', 'Somewhere', 'OH', '86420', 'medicare', 'MNO246810', 170, 68);
+('Grace', 'Anderson', '1975-12-25', 'Female', 'grace@email.com', '555-951-7532', '159 Maple Rd', 'Somewhere', 'OH', '86420', 'medicare', 'MNO246810', 170, 68),
+('Hannah', 'Garcia', '1982-08-05', 'Female', 'hannah@email.com', '555-369-1470', '753 Walnut Ave', 'Somewhere', 'CA', '97531', 'private', 'PQR135790', 162, 57),
+('Isaac', 'Martinez', '1995-02-18', 'Male', 'isaac@email.com', '555-147-8520', '951 Spruce Blvd', 'Anytown', 'TX', '13579', 'medicaid', 'STU024680', 178, 82);
+
 
 INSERT INTO drugs (drug_name, manufacturer, drug_type, moa, fda_appr_dt, admin_route, dos_amt, dos_unit, dos_freq_hrs, ndc)
 VALUES  
@@ -137,7 +140,11 @@ VALUES
 ('Topizol', 'BioMed Ltd', 'topical', 'PDE4 inhibitor', '2018-11-01', 'topical', 15, 'g', 12, '98765-432-10'),
 ('Biologic-X', 'Innova Biologics', 'biologic', 'IL-23 inhibitor', NULL, 'injection', 100, 'mg', 672, '13579-246-80'), 
 ('Smallazine', 'Chem Co', 'small molecule', 'JAK inhibitor', '2020-03-15', 'oral', 5, 'mg', 24, '97531-864-20'),
-('Topicort', 'Derma Rx', 'topical', 'Corticosteroid', '2005-09-30', 'topical', 30, 'g', 12, '24680-135-79'); 
+('Topicort', 'Derma Rx', 'topical', 'Corticosteroid', '2005-09-30', 'topical', 30, 'g', 12, '24680-135-79'),
+('Biologic-Y', 'BioPharm Inc', 'biologic', 'IL-12/23 inhibitor', '2012-07-01', 'injection', 50, 'mg', 504, '75319-951-46'),
+('Smallitol', 'PharmaGen', 'small molecule', 'IL-6 inhibitor', '2017-04-15', 'oral', 10, 'mg', 24, '36915-258-07'),
+('Topicalin', 'DermiCare', 'topical', 'Calcineurin inhibitor', '2019-10-01', 'topical', 20, 'g', 12, '14785-369-02'),
+('Biologic-Z', 'BioMed Ltd', 'biologic', 'IL-17F inhibitor', '2021-01-01', 'injection', 80, 'mg', 336, '95146-753-19');
 
 INSERT INTO diagnoses (diag_code, diag_name, diag_desc)
 VALUES
@@ -156,20 +163,29 @@ VALUES
 INSERT INTO treatments (patient_id, doc_id, drug_id, diag_id, start_dt, end_dt, is_placebo, tot_drug_amt, drug_unit)
 VALUES
 (1, 1, 1, 1, '2022-01-01', '2022-06-30', false, 240, 'mg'),
-(2, 2, 2, 2, '2022-02-15', '2022-08-14', false, 180, 'mg'),
+(2, 2, 2, 2, '2022-02-15', '2022-08-14', true, 180, 'mg'),
 (3, 3, 3, 3, '2022-03-10', '2022-09-09', false, 360, 'g'),
 (4, 4, 4, 4, '2022-04-01', NULL, false, 200, 'mg'),
 (5, 5, 5, 5, '2022-05-01', '2022-10-31', false, 180, 'mg'),
 (6, 6, 6, 6, '2022-06-15', '2022-12-14', false, 720, 'g'),
-(1, 7, 1, 7, '2022-07-01', '2022-12-31', false, 240, 'mg'),
+(1, 7, 1, 7, '2022-07-01', '2022-12-31', true, 240, 'mg'),
 (2, 1, 2, 8, '2022-08-01', '2023-01-31', false, 180, 'mg'),
 (3, 2, 3, 9, '2022-09-01', '2023-02-28', false, 360, 'g'),
 (4, 3, 4, 10, '2022-10-01', NULL, true, 0, NULL),
-(5, 4, 5, 1, '2022-11-01', '2023-04-30', false, 180, 'mg'),
+(5, 4, 5, 1, '2022-11-01', '2023-04-30', true, 180, 'mg'),
 (6, 5, 6, 2, '2022-12-01', '2023-05-31', false, 720, 'g'),
 (7, 6, 1, 3, '2023-01-01', '2023-06-30', false, 240, 'mg'),
 (1, 7, 2, 4, '2023-02-01', '2023-07-31', false, 180, 'mg'),
-(2, 1, 3, 5, '2023-03-01', '2023-08-31', false, 360, 'g');
+(2, 1, 3, 5, '2023-03-01', '2023-08-31', false, 360, 'g'),
+(1, 2, 4, 6, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '7 months'), DATE_TRUNC('month', CURRENT_DATE - INTERVAL '2 months'), false, 300, 'mg'),
+(2, 5, 1, 8, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '6 month'), DATE_TRUNC('month', CURRENT_DATE - INTERVAL '4 months'), false, 80, 'mg'),
+(3, 6, 2, 9, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '5 months'), NULL, true, 200, 'mg'),
+(1, 7, 3, 10, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '4 months'), NULL, false, 150, 'g'),
+(2, 1, 4, 1, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '3 months'), NULL, false, 100, 'mg'),
+(3, 2, 5, 2, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '2 months'), NULL, false, 250, 'mg'),
+(1, 3, 6, 3, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '1 month'), NULL, false, 300, 'g'),
+(2, 4, 1, 4, CURRENT_DATE, NULL, true, 200, 'mg'),
+(3, 5, 2, 5, CURRENT_DATE, NULL, false, 150, 'mg');
 
 INSERT INTO outcomes (treatment_id, assess_dt, day7_lesion_cnt, day30_lesion_cnt, day100_lesion_cnt, day7_pasi_score, day30_pasi_score, day100_pasi_score, day7_tewl, day30_tewl, day100_tewl, day7_itch_vas, day30_itch_vas, day100_itch_vas, day7_hfg, day30_hfg, day100_hfg)  
 VALUES
@@ -187,7 +203,9 @@ VALUES
 (12, '2022-12-08', 29, 23, 11, 17.4, 12.3, 4.9, 21.8, 18.7, 14.8, 78, 58, 38, 0.6, 1.6, 3.1),
 (13, '2023-01-08', 18, 12, 3, 10.5, 6.1, 1.0, 16.9, 14.3, 11.0, 56, 36, 16, 1.9, 2.9, 4.4),
 (14, '2023-02-08', 27, 20, 10, 16.2, 11.1, 4.1, 21.0, 17.9, 14.1, 74, 54, 34, 0.5, 1.5, 3.0), 
-(15, '2023-03-08', 20, 14, 4, 11.8, 7.3, 1.7, 17.8, 15.2, 11.8, 60, 40, 20, 1.6, 2.6, 4.1);
+(15, '2023-03-08', 20, 14, 4, 11.8, 7.3, 1.7, 17.8, 15.2, 11.8, 60, 40, 20, 1.6, 2.6, 4.1),
+(16, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '5 months') + INTERVAL '7 days', 24, 18, 8, 14.4, 9.6, 3.2, 20.4, 17.4, 13.7, 70, 50, 30, 0.9, 1.9, 3.4),
+(17, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '1 month') + INTERVAL '7 days', 22, 16, NULL, 13.2, 8.8, NULL, 19.1, 16.3, NULL, 65, 45, NULL, 1.3, 2.3, NULL);
 
 INSERT INTO adverse_events (treatment_id, reported_dt, description)
 VALUES  
