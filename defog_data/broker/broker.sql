@@ -68,7 +68,8 @@ INSERT INTO sbCustomer (sbCustId, sbCustName, sbCustEmail, sbCustPhone, sbCustAd
 ('C007', 'David Kim', 'david.kim@email.com', '555-370-2648', '864 Oak St', 'Anothertown', 'FL', 'USA', '33101', '2022-11-05', 'active'),
 ('C008', 'Sarah Nguyen', 'sarah.nguyen@email.com', '555-623-7419', '951 Pine Rd', 'Yourtown', 'CA', 'USA', '92101', '2019-04-01', 'closed'),
 ('C009', 'William Garcia', 'william.garcia@email.com', '555-148-5326', '258 Elm Ave', 'Anytown', 'CA', 'USA', '90001', '2021-08-22', 'active'),
-('C010', 'Jessica Hernandez', 'jessica.hernandez@email.com', '555-963-8520', '147 Cedar Blvd', 'Someville', 'NY', 'USA', '10002', '2020-03-10', 'inactive');
+('C010', 'Jessica Hernandez', 'jessica.hernandez@email.com', '555-963-8520', '147 Cedar Blvd', 'Someville', 'NY', 'USA', '10002', '2020-03-10', 'inactive'),
+('C011', 'Alex Rodriguez', 'alex.rodriguez@email.com', '555-246-1357', '753 Oak St', 'Newtown', 'NJ', 'USA', '08801', '2023-01-15', 'active');
 
 -- sbTicker  
 INSERT INTO sbTicker (sbTickerId, sbTickerSymbol, sbTickerName, sbTickerType, sbTickerExchange, sbTickerCurrency, sbTickerDb2x, sbTickerIsActive) VALUES
@@ -88,7 +89,8 @@ INSERT INTO sbTicker (sbTickerId, sbTickerSymbol, sbTickerName, sbTickerType, sb
 ('T014', 'VXUS', 'Vanguard Total International Stock ETF', 'etf', 'NASDAQ', 'USD', 'NQ', true),
 ('T015', 'VFINX', 'Vanguard 500 Index Fund', 'mutualfund', 'Vanguard', 'USD', 'VG', true),
 ('T016', 'VTSAX', 'Vanguard Total Stock Market Index Fund', 'mutualfund', 'Vanguard', 'USD', 'VG', true),  
-('T017', 'VIGAX', 'Vanguard Growth Index Fund', 'mutualfund', 'Vanguard', 'USD', 'VG', true);
+('T017', 'VIGAX', 'Vanguard Growth Index Fund', 'mutualfund', 'Vanguard', 'USD', 'VG', true),
+('T018', 'GOOG', 'Alphabet Inc.', 'stock', 'NASDAQ', 'USD', 'NQ', true);
 
 -- sbDailyPrice
 INSERT INTO sbDailyPrice (sbDpTickerId, sbDpDate, sbDpOpen, sbDpHigh, sbDpLow, sbDpClose, sbDpVolume, sbDpEpochMs, sbDpSource) VALUES
@@ -136,7 +138,7 @@ INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxT
 ('TX009', 'C009', 'T009', '2023-04-01 15:30:00', 'buy', 50, 220.00, 11000.00, 'USD', 55.00, 10.00, 'KP009', '20230401 15:30:00', 'success'),
 ('TX010', 'C010', 'T010', '2023-04-01 16:15:00', 'sell', 80, 140.00, 11200.00, 'USD', 56.00, 10.00, 'KP010', '20230401 16:15:00', 'success'),
 ('TX011', 'C001', 'T001', '2023-04-02 09:30:00', 'sell', 50, 151.50, 7575.00, 'USD', 37.88, 5.00, 'KP011', '20230402 09:30:00', 'success'),
-('TX012', 'C002', 'T002', '2023-04-02 10:15:00', 'buy', 30, 281.25, 8437.50, 'USD', 42.19, 7.50, 'KP012', '20230402 10:15:00', 'success'),
+('TX012', 'C002', 'T002', '2023-04-02 10:15:00', 'buy', 30, 281.25, 8437.50, 'USD', 42.19, 7.50, 'KP012', '20230402 10:15:00', 'fail'),
 ('TX013', 'C003', 'T003', '2023-04-02 11:00:00', 'sell', 5, 3212.00, 16060.00, 'USD', 80.30, 15.00, 'KP013', '20230402 11:00:00', 'success'), 
 ('TX014', 'C004', 'T004', '2023-04-02 11:45:00', 'buy', 15, 184.50, 2767.50, 'USD', 13.84, 5.00, 'KP014', '20230402 11:45:00', 'success'),
 ('TX015', 'C005', 'T005', '2023-04-02 12:30:00', 'sell', 2, 2512.00, 5024.00, 'USD', 25.12, 10.00, 'KP015', '20230402 12:30:00', 'success'),
@@ -145,7 +147,7 @@ INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxT
 ('TX018', 'C008', 'T008', '2023-04-02 14:45:00', 'buy', 75, 131.25, 9843.75, 'USD', 49.22, 7.50, 'KP018', '20230402 14:45:00', 'success'),
 ('TX019', 'C009', 'T009', '2023-04-02 15:30:00', 'sell', 25, 221.50, 5537.50, 'USD', 27.69, 5.00, 'KP019', '20230402 15:30:00', 'success'),
 ('TX020', 'C010', 'T010', '2023-04-02 16:15:00', 'buy', 60, 141.75, 8505.00, 'USD', 42.53, 7.50, 'KP020', '20230402 16:15:00', 'success'),
-('TX021', 'C001', 'T001', '2023-04-03 09:30:00', 'buy', 75, 152.25, 11418.75, 'USD', 57.09, 10.00, 'KP021', '20230403 09:30:00', 'success'),
+('TX021', 'C001', 'T001', '2023-04-03 09:30:00', 'buy', 75, 152.25, 11418.75, 'USD', 57.09, 10.00, 'KP021', '20230403 09:30:00', 'fail'),
 ('TX022', 'C002', 'T002', '2023-04-03 10:15:00', 'sell', 40, 283.00, 11320.00, 'USD', 56.60, 10.00, 'KP022', '20230403 10:15:00', 'success'),  
 ('TX023', 'C003', 'T003', '2023-04-03 11:00:00', 'buy', 8, 3227.00, 25816.00, 'USD', 129.08, 20.00, 'KP023', '20230403 11:00:00', 'success'),
 ('TX024', 'C004', 'T004', '2023-04-03 11:45:00', 'sell', 20, 186.25, 3725.00, 'USD', 18.63, 5.00, 'KP024', '20230403 11:45:00', 'success'),
@@ -154,4 +156,13 @@ INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxT
 ('TX027', 'C007', 'T007', '2023-04-03 14:00:00', 'buy', 1, 402500.00, 402500.00, 'USD', 2012.50, 100.00, 'KP027', '20230403 14:00:00', 'success'),  
 ('TX028', 'C008', 'T008', '2023-04-03 14:45:00', 'sell', 90, 132.75, 11947.50, 'USD', 59.74, 7.50, 'KP028', '20230403 14:45:00', 'success'),
 ('TX029', 'C009', 'T009', '2023-04-03 15:30:00', 'buy', 40, 222.25, 8890.00, 'USD', 44.45, 10.00, 'KP029', '20230403 15:30:00', 'success'),
-('TX030', 'C010', 'T010', '2023-04-03 16:15:00', 'sell', 70, 142.50, 9975.00, 'USD', 49.88, 10.00, 'KP030', '20230403 16:15:00', 'success');
+('TX030', 'C010', 'T010', '2023-04-03 16:15:00', 'sell', 70, 142.50, 9975.00, 'USD', 49.88, 10.00, 'KP030', '20230403 16:15:00', 'success'),
+('TX031', 'C001', 'T001', NOW() - INTERVAL '9 days', 'buy', 100, 150.00, 15000.00, 'USD', 75.00, 10.00, 'KP031', TO_CHAR(NOW() - INTERVAL '9 days', '%Y%m%d %H:%i:%s'), 'fail'),
+('TX032', 'C002', 'T002', NOW() - INTERVAL '8 days', 'sell', 80, 280.00, 14000.00, 'USD', 70.00, 10.00, 'KP032', TO_CHAR(NOW() - INTERVAL '8 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX033', 'C003', 'T003', NOW() - INTERVAL '7 days', 'buy', 120, 200.00, 24000.00, 'USD', 120.00, 15.00, 'KP033', TO_CHAR(NOW() - INTERVAL '7 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX034', 'C004', 'T004', NOW() - INTERVAL '6 days', 'sell', 90, 320.00, 28800.00, 'USD', 144.00, 12.00, 'KP034', TO_CHAR(NOW() - INTERVAL '6 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX035', 'C005', 'T005', NOW() - INTERVAL '5 days', 'buy', 150, 180.00, 27000.00, 'USD', 135.00, 20.00, 'KP035', TO_CHAR(NOW() - INTERVAL '5 days', '%Y%m%d %H:%i:%s'), 'fail'),
+('TX036', 'C006', 'T006', NOW() - INTERVAL '4 days', 'sell', 70, 300.00, 21000.00, 'USD', 105.00, 15.00, 'KP036', TO_CHAR(NOW() - INTERVAL '4 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX037', 'C007', 'T007', NOW() - INTERVAL '3 days', 'buy', 110, 220.00, 24200.00, 'USD', 121.00, 10.00, 'KP037', TO_CHAR(NOW() - INTERVAL '3 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX038', 'C008', 'T008', NOW() - INTERVAL '2 days', 'sell', 100, 350.00, 35000.00, 'USD', 175.00, 25.00, 'KP038', TO_CHAR(NOW() - INTERVAL '2 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX039', 'C009', 'T009', NOW() - INTERVAL '1 day', 'buy', 80, 230.00, 18400.00, 'USD', 92.00, 18.00, 'KP039', TO_CHAR(NOW() - INTERVAL '1 day', '%Y%m%d %H:%i:%s'), 'pending');

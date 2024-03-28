@@ -138,7 +138,11 @@ VALUES
   (7, 'shopsmart', 'customerserv@shopsmart.biz', '+6585771234', '2020-09-15 06:25:00', 'business', 'inactive', 'SG', '888 Orchard Rd, #05-000, Singapore 238801', NULL, 'approved'),
   (8, 'michael_brown', 'mike.brown@outlook.com', '+3912378624', '2019-07-22 16:40:00', 'individual', 'active', 'DE', 'Heidestr 17, Berlin 10557', 'Heidestr 17, Berlin 10557', 'approved'),
   (9, 'alex_taylor', 'ataylo@university.edu', NULL, '2022-08-30 09:15:00', 'individual', 'active', 'NZ', '12 Mardon Rd, Wellington 6012', '5 Boulcott St, Wellington 6011', 'approved'),
-  (10, 'ecomplatform', 'support@ecomplatform.co', '+15165551234', '2017-03-01 13:30:00', 'business', 'active', 'US', '2525 E El Segundo Blvd, El Segundo CA 90245', NULL, 'approved');
+  (10, 'huang2143', 'huang2143@example.com', '+8612345678901', '2023-12-10 08:00:00', 'individual', 'active', 'CN', '123 Nanjing Road, Shanghai 200000', '123 Nanjing Road, Shanghai 200000', 'approved'),
+  (11, 'lisa_jones', 'lisa.jones@email.com', '+6123456789', '2023-09-05 15:20:00', 'individual', 'active', 'AU', '789 George St, Sydney NSW 2000', '789 George St, Sydney NSW 2000', 'approved'),
+  (12, 'thomas_smith', 'thomas.smith@email.com', '+441234567890', '2023-10-18 11:45:00', 'individual', 'inactive', 'GB', '456 High St, London SW1 1AA', '456 High St, London SW1 1AA', 'pending'),
+  (13, 'amy_patel', 'amy.patel@email.com', '+918765432109', '2024-02-28 09:30:00', 'individual', 'active', 'IN', '789 MG Road, Mumbai 400001', '789 MG Road, Mumbai 400001', 'approved');
+
 
 -- merchants 
 INSERT INTO consumer_div.merchants (mid, name, description, website_url, logo_url, created_at, country, state, city, postal_code, address, status, category, sub_category, mcc, contact_name, contact_email, contact_phone)
@@ -152,8 +156,13 @@ VALUES
   (7, 'ZenHomeGoods', 'Housewares and home decor items', 'https://www.zenhomegoods.com', 'https://www.zenhomegoods.com/branding.jpg', '2014-09-15 00:00:00', 'AU', 'Victoria', 'Melbourne', '3004', '159 Franklin St, Melbourne VIC 3004', 'active', 'Retail', 'Home & Garden', 5719, 'Emily Watson', 'ewatson@zenhomegoods.com', '+61312345678'),
   (8, 'KidzPlayhouse', 'Children''s toys and games', 'https://kidzplayhouse.com', 'https://kidzplayhouse.com/logo.png', '2017-04-01 00:00:00', 'GB', NULL, 'London', 'WC2N 5DU', '119 Charing Cross Rd, London WC2N 5DU', 'suspended', 'Retail', 'Toys & Games', 5945, 'David Thompson', 'dthompson@kidzplayhouse.com', '+442071234567'),
   (9, 'BeautyTrending', 'Cosmetics and beauty supplies', 'https://beautytrending.com', 'https://beautytrending.com/bt-logo.svg', '2021-10-15 00:00:00', 'NZ', NULL, 'Auckland', '1010', '129 Queen St, Auckland 1010', 'active', 'Retail', 'Health & Beauty', 5977, 'Sophie Wilson', 'swilson@beautytrending.com', '+6493012345'),
-  (10, 'GameRush', 'Video games and gaming accessories', 'https://gamerush.co', 'https://gamerush.co/gr-logo.png', '2023-02-01 00:00:00', 'US', 'New York', 'New York', '10001', '303 Park Ave S, New York NY 10001', 'active', 'Retail', 'Electronics', 5735, 'Michael Davis', 'mdavis@gamerush.co', '+16463012345');
-  
+  (10, 'GameRush', 'Video games and gaming accessories', 'https://gamerush.co', 'https://gamerush.co/gr-logo.png', '2023-02-01 00:00:00', 'US', 'New York', 'New York', '10001', '303 Park Ave S, New York NY 10001', 'active', 'Retail', 'Electronics', 5735, 'Michael Davis', 'mdavis@gamerush.co', '+16463012345'),
+  (11, 'FashionTrend', 'Trendy clothing and accessories', 'https://www.fashiontrend.com', 'https://www.fashiontrend.com/logo.png', '2019-08-10 00:00:00', 'UK', NULL, 'Manchester', 'M2 4WU', '87 Deansgate, Manchester M2 4WU', 'active', 'Retail', 'Apparel', 5651, 'Emma Thompson', 'ethompson@fashiontrend.com', '+441612345678'),
+  (12, 'GreenGourmet', 'Organic foods and natural products', 'https://www.greengourmet.com', 'https://www.greengourmet.com/logo.jpg', '2020-12-05 00:00:00', 'CA', 'British Columbia', 'Vancouver', 'V6B 6B1', '850 W Hastings St, Vancouver BC V6B 6B1', 'active', 'Food & Dining', 'Groceries', 5411, 'Daniel Lee', 'dlee@greengourmet.com', '+16041234567'),
+  (13, 'PetParadise', 'Pet supplies and accessories', 'https://petparadise.com', 'https://petparadise.com/logo.png', '2018-03-20 00:00:00', 'AU', 'New South Wales', 'Sydney', '2000', '275 Pitt St, Sydney NSW 2000', 'active', 'Retail', 'Pets', 5995, 'Olivia Johnson', 'ojohnson@petparadise.com', '+61298765432'),
+  (14, 'HomeTechSolutions', 'Smart home devices and gadgets', 'https://hometechsolutions.net', 'https://hometechsolutions.net/logo.png', '2022-04-15 00:00:00', 'US', 'California', 'San Francisco', '94105', '350 Mission St, San Francisco CA 94105', 'active', 'Retail', 'Home Appliances', 5734, 'Ethan Brown', 'ebrown@hometechsolutions.net', '+14159876543'),
+  (15, 'BookWorms', 'Books and reading accessories', 'https://bookworms.co.uk', 'https://bookworms.co.uk/logo.png', '2017-06-30 00:00:00', 'UK', NULL, 'London', 'WC2H 9JA', '66-67 Tottenham Court Rd, London WC2H 9JA', 'active', 'Retail', 'Books', 5942, 'Sophia Turner', 'sturner@bookworms.co.uk', '+442078912345');
+
 -- coupons
 INSERT INTO consumer_div.coupons (cid, merchant_id, code, description, start_date, end_date, discount_type, discount_value, min_purchase_amount, max_discount_amount, redemption_limit, status, created_at, updated_at)
 VALUES
@@ -190,7 +199,13 @@ VALUES
   (1, 0, 1, 0, 175.00, 'success', 'debit', 'Refund on order #1234', NULL, '2023-06-06 14:20:00', '2023-06-06 14:20:05', 'a331232e-a3f6-4e7f-b49f-3588bc5ff985', 'Stripe', 'rfnd_xkt521', 'web_33lq1dh', '38.75.197.8', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) ...'),
   (7, 1, 2, 0, 599.99, 'success', 'debit', 'Yearly subscription', NULL, '2023-06-06 16:55:10', '2023-06-06 16:55:15', 'ed6f46ab-9617-4d11-9aa9-60d24bdf9bc0', 'PayPal', 'sub_pjj908', 'web_zld22f', '199.59.148.201', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 ...'), 
   (2, 0, 2, 1, 22.99, 'refunded', 'debit', 'Product return', NULL, '2023-06-07 10:10:30', '2023-06-07 10:11:05', '6c97a87d-610f-4705-ae97-55071127d9ad', 'Adyen', 'tx_zcx258', 'mobile_1av8p0', '70.121.39.25', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4 like Mac OS X) ...'),
-  (2, 0, 2, 1, 22.99, 'success', 'credit', 'Refund on return', NULL, '2023-06-07 10:10:30', '2023-06-07 10:11:05', '6c97a87d-610f-4705-ae97-55071127d9ad', 'Adyen', 'tx_zcx258', 'mobile_1av8p0', '70.121.39.25', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4 like Mac OS X) ...');
+  (2, 0, 2, 1, 22.99, 'success', 'credit', 'Refund on return', NULL, '2023-06-07 10:10:30', '2023-06-07 10:11:05', '6c97a87d-610f-4705-ae97-55071127d9ad', 'Adyen', 'tx_zcx258', 'mobile_1av8p0', '70.121.39.25', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4 like Mac OS X) ...'),
+  (1, 0, 2, 1, 49.99, 'success', 'debit', 'Product purchase', NULL, NOW() - INTERVAL '5 months', NOW() - INTERVAL '5 months', 'tx_ref_11_1', 'Stripe', 'stripe_ref_11_1', 'device_11_1', '192.168.1.11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'),
+  (4, 0, 3, 1, 99.99, 'success', 'debit', 'Service purchase', NULL, NOW() - INTERVAL '4 months', NOW() - INTERVAL '4 months', 'tx_ref_12_1', 'PayPal', 'paypal_ref_12_1', 'device_12_1', '192.168.1.12', 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1'),
+  (4, 0, 1, 1, 149.99, 'success', 'debit', 'Subscription purchase', NULL, NOW() - INTERVAL '3 months', NOW() - INTERVAL '3 months', 'tx_ref_13_1', 'Stripe', 'stripe_ref_13_1', 'device_13_1', '192.168.1.13', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'),
+  (2, 0, 5, 1, 199.99, 'success', 'debit', 'Product purchase', NULL, NOW() - INTERVAL '2 months', NOW() - INTERVAL '2 months', 'tx_ref_14_1', 'PayPal', 'paypal_ref_14_1', 'device_14_1', '192.168.1.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0'),
+  (2, 0, 1, 1, 249.99, 'success', 'debit', 'Service purchase', NULL, NOW() - INTERVAL '1 month', NOW() - INTERVAL '1 month', 'tx_ref_15_1', 'Stripe', 'stripe_ref_15_1', 'device_15_1', '192.168.1.15', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36');
+
   
 -- wallet_user_balance_daily
 INSERT INTO consumer_div.wallet_user_balance_daily (user_id, balance, updated_at)
