@@ -69,7 +69,10 @@ INSERT INTO sbCustomer (sbCustId, sbCustName, sbCustEmail, sbCustPhone, sbCustAd
 ('C008', 'Sarah Nguyen', 'sarah.nguyen@email.com', '555-623-7419', '951 Pine Rd', 'Yourtown', 'CA', 'USA', '92101', '2019-04-01', 'closed'),
 ('C009', 'William Garcia', 'william.garcia@email.com', '555-148-5326', '258 Elm Ave', 'Anytown', 'CA', 'USA', '90001', '2021-08-22', 'active'),
 ('C010', 'Jessica Hernandez', 'jessica.hernandez@email.com', '555-963-8520', '147 Cedar Blvd', 'Someville', 'NY', 'USA', '10002', '2020-03-10', 'inactive'),
-('C011', 'Alex Rodriguez', 'alex.rodriguez@email.com', '555-246-1357', '753 Oak St', 'Newtown', 'NJ', 'USA', '08801', '2023-01-15', 'active');
+('C011', 'Alex Rodriguez', 'alex.rodriguez@email.com', '555-246-1357', '753 Oak St', 'Newtown', 'NJ', 'USA', '08801', '2023-01-15', 'active'),
+('C012', 'Olivia Johnson', 'olivia.johnson@email.com', '555-987-6543', '321 Elm St', 'Newtown', 'NJ', 'USA', '08801', '2023-01-05', 'active'),
+('C013', 'Ethan Davis', 'ethan.davis@email.com', '555-246-8135', '654 Oak Ave', 'Someville', 'NY', 'USA', '10002', '2023-02-12', 'active'),
+('C014', 'Ava Wilson', 'ava.wilson@email.com', '555-135-7902', '987 Pine Rd', 'Anytown', 'CA', 'USA', '90001', '2023-03-20', 'active');
 
 -- sbTicker  
 INSERT INTO sbTicker (sbTickerId, sbTickerSymbol, sbTickerName, sbTickerType, sbTickerExchange, sbTickerCurrency, sbTickerDb2x, sbTickerIsActive) VALUES
@@ -165,4 +168,14 @@ INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxT
 ('TX036', 'C006', 'T006', NOW() - INTERVAL '4 days', 'sell', 70, 300.00, 21000.00, 'USD', 105.00, 15.00, 'KP036', TO_CHAR(NOW() - INTERVAL '4 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX037', 'C007', 'T007', NOW() - INTERVAL '3 days', 'buy', 110, 220.00, 24200.00, 'USD', 121.00, 10.00, 'KP037', TO_CHAR(NOW() - INTERVAL '3 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX038', 'C008', 'T008', NOW() - INTERVAL '2 days', 'sell', 100, 350.00, 35000.00, 'USD', 175.00, 25.00, 'KP038', TO_CHAR(NOW() - INTERVAL '2 days', '%Y%m%d %H:%i:%s'), 'success'),
-('TX039', 'C009', 'T009', NOW() - INTERVAL '1 day', 'buy', 80, 230.00, 18400.00, 'USD', 92.00, 18.00, 'KP039', TO_CHAR(NOW() - INTERVAL '1 day', '%Y%m%d %H:%i:%s'), 'pending');
+('TX039', 'C009', 'T009', NOW() - INTERVAL '1 day', 'buy', 80, 230.00, 18400.00, 'USD', 92.00, 18.00, 'KP039', TO_CHAR(NOW() - INTERVAL '1 day', '%Y%m%d %H:%i:%s'), 'pending'),
+('TX040', 'C001', 'T011', NOW() - INTERVAL '10 days', 'buy', 50, 400.00, 20000.00, 'USD', 100.00, 20.00, 'KP040', TO_CHAR(NOW() - INTERVAL '10 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX041', 'C002', 'T012', NOW() - INTERVAL '9 days', 'sell', 30, 320.00, 9600.00, 'USD', 48.00, 15.00, 'KP041', TO_CHAR(NOW() - INTERVAL '9 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX042', 'C003', 'T013', NOW() - INTERVAL '8 days', 'buy', 80, 180.00, 14400.00, 'USD', 72.00, 10.00, 'KP042', TO_CHAR(NOW() - INTERVAL '8 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX043', 'C004', 'T014', NOW() - INTERVAL '7 days', 'sell', 60, 220.00, 13200.00, 'USD', 66.00, 12.00, 'KP043', TO_CHAR(NOW() - INTERVAL '7 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX044', 'C012', 'T001', '2023-01-15 10:00:00', 'buy', 80, 155.00, 12400.00, 'USD', 62.00, 10.00, 'KP044', '20230115 10:00:00', 'success'),
+('TX045', 'C013', 'T002', '2023-02-20 11:30:00', 'sell', 60, 285.00, 17100.00, 'USD', 85.50, 15.00, 'KP045', '20230220 11:30:00', 'success'),
+('TX046', 'C014', 'T003', '2023-03-25 14:45:00', 'buy', 5, 3250.00, 16250.00, 'USD', 81.25, 20.00, 'KP046', '20230325 14:45:00', 'success'),
+('TX047', 'C012', 'T004', '2023-01-30 13:15:00', 'sell', 40, 190.00, 7600.00, 'USD', 38.00, 10.00, 'KP047', '20230130 13:15:00', 'success'),
+('TX048', 'C013', 'T005', '2023-02-28 16:00:00', 'buy', 2, 2550.00, 5100.00, 'USD', 25.50, 15.00, 'KP048', '20230228 16:00:00', 'success'),
+('TX049', 'C014', 'T006', '2023-03-31 09:45:00', 'sell', 30, 210.00, 6300.00, 'USD', 31.50, 10.00, 'KP049', '20230331 09:45:00', 'success');

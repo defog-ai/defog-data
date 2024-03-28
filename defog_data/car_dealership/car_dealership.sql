@@ -8,7 +8,6 @@ CREATE TABLE cars (
   engine_type TEXT NOT NULL, -- type of engine (e.g., V6, V8, Electric)
   transmission TEXT NOT NULL, -- type of transmission (e.g., Automatic, Manual)
   price NUMERIC(10, 2) NOT NULL, -- selling price of the car
-  is_sold BOOLEAN NOT NULL DEFAULT FALSE, -- indicates if the car has been sold
   crtd_ts TIMESTAMP NOT NULL DEFAULT NOW() -- timestamp when the car was added to the system
 );
 
@@ -204,4 +203,9 @@ VALUES
   ('Utility Company', '2023-04-15', 1500.00, 'bank_transfer', 'INV-009', '2023-04-01', '2023-04-30'),
   ('Marketing Agency', '2023-04-20', 15000.00, 'credit_card', 'INV-010', '2023-04-15', '2023-05-15'),
   ('Insurance Provider', '2023-04-25', 5000.00, 'bank_transfer', 'INV-011', '2023-04-20', '2023-05-20'),
-  ('Cleaning Service', '2023-04-30', 2000.00, 'check', 'INV-012', '2023-04-25', '2023-05-25');
+  ('Cleaning Service', '2023-04-30', 2000.00, 'check', 'INV-012', '2023-04-25', '2023-05-25'),
+  ('Toyota Auto Parts', NOW() - INTERVAL '5 days', 12500.00, 'bank_transfer', 'INV-013', NOW() - INTERVAL '10 days', NOW() + INTERVAL '20 days'),
+  ('Honda Manufacturing', NOW() - INTERVAL '3 days', 18000.00, 'check', 'INV-014', NOW() - INTERVAL '8 days', NOW() + INTERVAL '22 days'),
+  ('Ford Supplier Co', NOW() - INTERVAL '2 days', 22000.00, 'bank_transfer', 'INV-015', NOW() - INTERVAL '7 days', NOW() + INTERVAL '23 days'),
+  ('Tesla Parts Inc', NOW() - INTERVAL '1 day', 15000.00, 'credit_card', 'INV-016', NOW() - INTERVAL '6 days', NOW() + INTERVAL '24 days'),
+  ('Chevrolet Auto', NOW(), 20000.00, 'bank_transfer', 'INV-017', NOW() - INTERVAL '5 days', NOW() + INTERVAL '25 days');
