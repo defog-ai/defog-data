@@ -151,7 +151,7 @@ class TestDB(unittest.TestCase):
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
         num_columns = sum([len(db_schema[table]) for table in db_schema])
-        self.assertEqual(num_columns, 56)
+        self.assertEqual(num_columns, 55)
 
     def test_derm_treatment(self):
         db_name = "derm_treatment"

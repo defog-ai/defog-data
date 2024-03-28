@@ -47,11 +47,6 @@
           "column_description": "Selling price of the car"
         },
         {
-          "data_type": "BOOLEAN",
-          "column_name": "is_sold",
-          "column_description": "Indicates if the car has been sold"
-        },
-        {
           "data_type": "TIMESTAMP",
           "column_name": "crtd_ts",
           "column_description": "Timestamp when the car was added to the system"
