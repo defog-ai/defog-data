@@ -79,41 +79,43 @@ CREATE TABLE payments_made (
 INSERT INTO cars (make, model, year, color, vin_number, engine_type, transmission, price)
 VALUES
   ('Toyota', 'Camry', 2022, 'Silver', '4T1BF1FK3CU510984', 'V6', 'Automatic', 28500.00),
-  ('Honda', 'Civic', 2021, 'Red', '2HGFC2F53MH522780', 'Inline 4', 'CVT', 22000.00),
-  ('Ford', 'Mustang', 2023, 'Blue', '1FA6P8TH4M5100001', 'V8', 'Manual', 45000.00),
-  ('Tesla', 'Model 3', 2022, 'White', '5YJ3E1EB7MF123456', 'Electric', 'Automatic', 41000.00),
-  ('Chevrolet', 'Equinox', 2021, 'Gray', '2GNAXUEV1M6290124', 'Inline 4', 'Automatic', 26500.00),
-  ('Nissan', 'Altima', 2022, 'Black', '1N4BL4BV4NN123456', 'V6', 'CVT', 25000.00),
-  ('BMW', 'X5', 2023, 'Silver', '5UXCR6C56M9A12345', 'V8', 'Automatic', 62000.00),
+  ('Honda', 'Civic', 2021, 'platinum/grey', '2HGFC2F53MH522780', 'Inline 4', 'CVT', 22000.00),
+  ('Ford', 'Mustang', 2023, 'blue', '1FA6P8TH4M5100001', 'V8', 'Manual', 45000.00),
+  ('Tesla', 'Model 3', 2022, 'fuschia', '5YJ3E1EB7MF123456', 'Electric', 'Automatic', 41000.00),
+  ('Chevrolet', 'Equinox', 2021, 'midnight blue', '2GNAXUEV1M6290124', 'Inline 4', 'Automatic', 26500.00),
+  ('Nissan', 'Altima', 2022, 'Jet black', '1N4BL4BV4NN123456', 'V6', 'CVT', 25000.00),
+  ('BMW', 'X5', 2023, 'Titan Silver', '5UXCR6C56M9A12345', 'V8', 'Automatic', 62000.00),
   ('Audi', 'A4', 2022, 'Blue', 'WAUBNAF47MA098765', 'Inline 4', 'Automatic', 39000.00),
-  ('Lexus', 'RX350', 2021, 'White', '2T2BZMCA7MC143210', 'V6', 'Automatic', 45500.00),
-  ('Subaru', 'Outback', 2022, 'Green', '4S4BSANC2N3246801', 'Boxer 4', 'CVT', 28000.00),
-  ('Mazda', 'CX-5', 2022, 'Red', 'JM3KE4DY4N0123456', 'Inline 4', 'Automatic', 29000.00),
-  ('Hyundai', 'Tucson', 2023, 'Black', 'KM8J3CAL3NU123456', 'Inline 4', 'Automatic', 32000.00),
-  ('Kia', 'Sorento', 2021, 'Black', '5XYPH4A50MG987654', 'V6', 'Automatic', 32000.00),
-  ('Jeep', 'Wrangler', 2022, 'Gray', '1C4HJXDG3NW123456', 'V6', 'Automatic', 38000.00),
-  ('GMC', 'Sierra 1500', 2023, 'White', '1GTU9CED3NZ123456', 'V8', 'Automatic', 45000.00),
-  ('Ram', '1500', 2022, 'Blue', '1C6SRFFT3NN123456', 'V8', 'Automatic', 42000.00),
+  ('Lexus', 'RX350', 2021, 'Fiery red', '2T2BZMCA7MC143210', 'V6', 'Automatic', 45500.00),
+  ('Subaru', 'Outback', 2022, 'Jade', '4S4BSANC2N3246801', 'Boxer 4', 'CVT', 28000.00),
+  ('Mazda', 'CX-5', 2022, 'Royal Purple', 'JM3KE4DY4N0123456', 'Inline 4', 'Automatic', 29000.00),
+  ('Hyundai', 'Tucson', 2023, 'black', 'KM8J3CAL3NU123456', 'Inline 4', 'Automatic', 32000.00),
+  ('Kia', 'Sorento', 2021, 'ebony black', '5XYPH4A50MG987654', 'V6', 'Automatic', 32000.00),
+  ('Jeep', 'Wrangler', 2022, 'Harbor Gray', '1C4HJXDG3NW123456', 'V6', 'Automatic', 38000.00),
+  ('GMC', 'Sierra 1500', 2023, 'Snow White', '1GTU9CED3NZ123456', 'V8', 'Automatic', 45000.00),
+  ('Ram', '1500', 2022, 'baby blue', '1C6SRFFT3NN123456', 'V8', 'Automatic', 42000.00),
   ('Mercedes-Benz', 'E-Class', 2021, 'Silver', 'W1KZF8DB1MA123456', 'Inline 6', 'Automatic', 62000.00),
   ('Volkswagen', 'Tiguan', 2022, 'Red', '3VV2B7AX1NM123456', 'Inline 4', 'Automatic', 32000.00),
-  ('Volvo', 'XC90', 2023, 'Black', 'YV4A22PK3N1234567', 'Inline 4', 'Automatic', 65000.00),
-  ('Porsche', '911', 2022, 'White', 'WP0AA2A93NS123456', 'Flat 6', 'Automatic', 120000.00);
+  ('Volvo', 'XC90', 2023, 'black', 'YV4A22PK3N1234567', 'Inline 4', 'Automatic', 65000.00),
+  ('Porsche', '911', 2022, 'white', 'WP0AA2A93NS123456', 'Flat 6', 'Automatic', 120000.00),
+  ('Cadillac', 'Escalade', 2023, 'Black', '1GYS4HKJ3MR123456', 'V8', 'Automatic', 85000.00);
 
 -- salespersons
 INSERT INTO salespersons (first_name, last_name, email, phone, hire_date)
 VALUES
-  ('John', 'Doe', 'john.doe@example.com', '555-123-4567', NOW() - INTERVAL '2 years'),
-  ('Jane', 'Smith', 'jane.smith@example.com', '555-987-6543', NOW() - INTERVAL '3 years'),
-  ('Michael', 'Johnson', 'michael.johnson@example.com', '555-456-7890', NOW() - INTERVAL '1 year'),
-  ('Emily', 'Brown', 'emily.brown@example.com', '555-111-2222', NOW() - INTERVAL '1 year'),
-  ('David', 'Wilson', 'david.wilson@example.com', '555-333-4444', NOW() - INTERVAL '2 years'),
-  ('Sarah', 'Taylor', 'sarah.taylor@example.com', '555-555-6666', '2018-09-01'),
-  ('Daniel', 'Anderson', 'daniel.anderson@example.com', '555-777-8888', '2021-07-12'),
-  ('Olivia', 'Thomas', 'olivia.thomas@example.com', '555-999-0000', '2023-01-25'),
-  ('James', 'Jackson', 'james.jackson@example.com', '555-222-3333', '2019-04-30'),
-  ('Sophia', 'White', 'sophia.white@example.com', '555-444-5555', '2022-08-18'),
-  ('Robert', 'Johnson', 'robert.johnson@example.com', '555-234-5678', NOW() - INTERVAL '15 days'),
-  ('Jennifer', 'Davis', 'jennifer.davis@example.com', '555-345-6789', NOW() - INTERVAL '20 days');
+  ('John', 'Doe', 'john.doe@autonation.com', '(555)-123-4567', NOW() - INTERVAL '2 years'),
+  ('Jane', 'Smith', 'jane.smith@autonation.com', '(415)-987-6543', NOW() - INTERVAL '3 years'),
+  ('Michael', 'Johnson', 'michael.johnson@autonation.com', '(555)-456-7890', NOW() - INTERVAL '1 year'),
+  ('Emily', 'Brown', 'emily.brown@sonicauto.com', '(444)-111-2222', NOW() - INTERVAL '1 year'),
+  ('David', 'Wilson', 'david.wilson@sonicauto.com', '(444)-333-4444', NOW() - INTERVAL '2 years'),
+  ('Sarah', 'Taylor', 'sarah.taylor@sonicauto.com', '(123)-555-6666', '2018-09-01'),
+  ('Daniel', 'Anderson', 'daniel.anderson@sonicauto.com', '(555)-777-8888', '2021-07-12'),
+  ('Olivia', 'Thomas', 'olivia.thomas@pensake.com', '(333)-415-0000', '2023-01-25'),
+  ('James', 'Jackson', 'james.jackson@pensake.com', '(555)-212-3333', '2019-04-30'),
+  ('Sophia', 'White', 'sophia.white@pensake.com', '(555)-444-5555', '2022-08-18'),
+  ('Robert', 'Johnson', 'robert.johnson@pensake.com', '(001)-415-5678', NOW() - INTERVAL '15 days'),
+  ('Jennifer', 'Davis', 'jennifer.davis@directauto.com', '(555)-345-6789', NOW() - INTERVAL '20 days'),
+  ('Jessica', 'Rodriguez', 'jessica.rodriguez@directauto.com', '(555)-789-0123', '2022-06-01');
 
 -- customers
 INSERT INTO customers (first_name, last_name, email, phone, address, city, state, zip_code, crtd_ts)
@@ -128,28 +130,36 @@ VALUES
   ('Amelia', 'Jackson', 'amelia.jackson@gmail.com', '555-111-0000', '852 Maple Ave', 'San Diego', 'CA', '92101', NOW() - INTERVAL '3 years'),
   ('Daniel', 'White', 'daniel.white@youtube.com', '555-000-9999', '963 Oak St', 'Dallas', 'TX', '75001', NOW() - INTERVAL '2 years'),
   ('Abigail', 'Harris', 'abigail.harris@company.io', '555-999-8888', '159 Pine Ave', 'San Jose', 'CA', '95101', NOW() - INTERVAL '1 year'),
-  ('Christopher', 'Brown', 'christopher.brown@ai.com', '555-456-7890', '753 Maple Rd', 'Miami', 'FL', '33101', NOW() - INTERVAL '5 years'),
-  ('Sophia', 'Lee', 'sophia.lee@microsoft.com', '555-567-8901', '951 Oak Ln', 'Seattle', 'WA', '98101', NOW() - INTERVAL '4 years');
+  ('Christopher', 'Brown', 'christopher.brown@ai.com', '555-456-7890', '753 Maple Rd', 'Miami', 'FL', '33101', NOW() - INTERVAL '5 months'),
+  ('Sophia', 'Lee', 'sophia.lee@microsoft.com', '555-567-8901', '951 Oak Ln', 'Seattle', 'WA', '98101', NOW() - INTERVAL '6 months'),
+  ('Michael', 'Chen', 'michael.chen@company.com', '(555)-456-7890', '123 Oak St', 'San Francisco', 'CA', '94101', NOW() - INTERVAL '3 months');
 
 -- sales
-INSERT INTO sales (car_id, salesperson_id, customer_id, sale_price, sale_date, crtd_ts)
+INSERT INTO sales (car_id, salesperson_id, customer_id, sale_price, sale_date)
 VALUES
-  (1, 2, 3, 27500.00, '2023-03-15', '2023-03-15 00:00:00'::TIMESTAMP),
-  (3, 1, 5, 44000.00, '2023-03-20', '2023-03-20 00:00:00'::TIMESTAMP),
-  (6, 4, 2, 24500.00, '2023-03-22', '2023-03-22 00:00:00'::TIMESTAMP),
-  (8, 7, 9, 38000.00, '2023-03-25', '2023-03-25 00:00:00'::TIMESTAMP),
-  (2, 4, 7, 21500.00, '2023-03-28', '2023-03-28 00:00:00'::TIMESTAMP),
-  (10, 6, 1, 27000.00, '2023-04-01', '2023-04-01 00:00:00'::TIMESTAMP),
-  (5, 3, 6, 26000.00, '2023-04-05', '2023-04-05 00:00:00'::TIMESTAMP),
-  (7, 2, 10, 60000.00, '2023-04-10', '2023-04-10 00:00:00'::TIMESTAMP),
-  (4, 6, 8, 40000.00, '2023-04-12', '2023-04-12 00:00:00'::TIMESTAMP),
-  (9, 2, 4, 44500.00, '2023-04-15', '2023-04-15 00:00:00'::TIMESTAMP),
-  (1, 7, 11, 28000.00, NOW() - INTERVAL '32 days', NOW() - INTERVAL '32 days'),
-  (3, 3, 12, 43500.00, NOW() - INTERVAL '10 days', NOW() - INTERVAL '10 days'),
-  (6, 1, 11, 24000.00, NOW() - INTERVAL '15 days', NOW() - INTERVAL '15 days'),
-  (2, 3, 1, 17200.00, NOW() - INTERVAL '30 days', NOW() - INTERVAL '30 days'),
-  (8, 6, 12, 37500.00, NOW(), NOW()),
-  (10, 4, 2, 26500.00, NOW() - INTERVAL '5 days', NOW() - INTERVAL '5 days');
+  (1, 2, 3, 27500.00, '2023-03-15'),
+  (3, 1, 5, 44000.00, '2023-03-20'),
+  (6, 4, 2, 24500.00, '2023-03-22'),
+  (8, 7, 9, 38000.00, '2023-03-25'),
+  (2, 4, 7, 21500.00, '2023-03-28'),
+  (10, 6, 1, 27000.00, '2023-04-01'),
+  (5, 3, 6, 26000.00, '2023-04-05'),
+  (7, 2, 10, 60000.00, '2023-04-10'),
+  (4, 6, 8, 40000.00, '2023-04-12'),
+  (9, 2, 4, 44500.00, '2023-04-15'),
+  (1, 7, 11, 28000.00, NOW() - INTERVAL '32 days'),
+  (3, 3, 12, 43500.00, NOW() - INTERVAL '10 days'),
+  (6, 1, 11, 24000.00, NOW() - INTERVAL '15 days'),
+  (2, 3, 1, 17200.00, NOW() - INTERVAL '30 days'),
+  (8, 6, 12, 37500.00, NOW() - INTERVAL '3 days'),
+  (10, 4, 2, 26500.00, NOW() - INTERVAL '5 days'),
+  (3, 2, 3, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '1 week') + INTERVAL '1 day'),
+  (3, 2, 7, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '1 week')),
+  (3, 2, 10, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '1 week') - INTERVAL '1 day'),
+  (4, 1, 3, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '8 week') + INTERVAL '1 day'),
+  (4, 1, 7, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '8 week')),
+  (4, 1, 10, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '8 week') - INTERVAL '1 day');
+
 
 -- inventory_snapshots
 INSERT INTO inventory_snapshots (snapshot_date, car_id, is_in_inventory)
@@ -188,7 +198,19 @@ VALUES
   (7, '2023-04-05', 26000.00, 'debit_card'),
   (8, '2023-04-10', 60000.00, 'financing'),
   (9, '2023-04-12', 40000.00, 'check'),
-  (10, '2023-04-15', 44500.00, 'credit_card');
+  (10, '2023-04-15', 44500.00, 'credit_card'),
+  (11, NOW() - INTERVAL '30 days', 28000.00, 'cash'),
+  (12, NOW() - INTERVAL '3 days', 43500.00, 'credit_card'),
+  (13, NOW() - INTERVAL '6 days', 24000.00, 'debit_card'),
+  (14, NOW() - INTERVAL '1 days', 17200.00, 'financing'),
+  (15, NOW() - INTERVAL '1 days', 37500.00, 'credit_card'),
+  (16, NOW() - INTERVAL '5 days', 26500.00, 'debit_card'),
+  (17, DATE_TRUNC('week', NOW() - INTERVAL '1 week') + INTERVAL '1 day', 115000.00, 'financing'),
+  (18, DATE_TRUNC('week', NOW() - INTERVAL '1 week'), 115000.00, 'credit_card'),
+  (19, DATE_TRUNC('week', NOW() - INTERVAL '1 week') - INTERVAL '1 day', 115000.00, 'debit_card'),
+  (20, DATE_TRUNC('week', NOW() - INTERVAL '8 week') + INTERVAL '1 day', 115000.00, 'cash'),
+  (21, DATE_TRUNC('week', NOW() - INTERVAL '8 week'), 115000.00, 'check'),
+  (22, DATE_TRUNC('week', NOW() - INTERVAL '8 week') - INTERVAL '1 day', 115000.00, 'credit_card');
 
 -- payments_made
 INSERT INTO payments_made (vendor_name, payment_date, payment_amount, payment_method, invoice_number, invoice_date, due_date)

@@ -42,7 +42,7 @@ CREATE TABLE sbDailyPrice (
 CREATE TABLE sbTransaction (
   sbTxId varchar(50) PRIMARY KEY,
   sbTxCustId varchar(20) NOT NULL,
-  sbTxTickerId varchar(20) NOT NULL,  
+  sbTxTickerId varchar(20) NOT NULL,
   sbTxDateTime timestamp NOT NULL,
   sbTxType varchar(20) NOT NULL, -- possible values: buy, sell
   sbTxShares numeric(10,2) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE sbTransaction (
   sbTxTax numeric(10,2) NOT NULL,
   sbTxCommission numeric(10,2) NOT NULL,
   sbTxKpx varchar(10), -- internal code
-  sbTxDateStr varchar(25), -- date as string in yyyyMMdd HH:mm:ss format
+  sbTxSettlementDateStr varchar(25), -- settlement date as string in yyyyMMdd HH:mm:ss format. NULL if not settled
   sbTxStatus varchar(10) NOT NULL -- possible values: success, fail, pending
 );
 
@@ -72,7 +72,14 @@ INSERT INTO sbCustomer (sbCustId, sbCustName, sbCustEmail, sbCustPhone, sbCustAd
 ('C011', 'Alex Rodriguez', 'alex.rodriguez@email.com', '555-246-1357', '753 Oak St', 'Newtown', 'NJ', 'USA', '08801', '2023-01-15', 'active'),
 ('C012', 'Olivia Johnson', 'olivia.johnson@email.com', '555-987-6543', '321 Elm St', 'Newtown', 'NJ', 'USA', '08801', '2023-01-05', 'active'),
 ('C013', 'Ethan Davis', 'ethan.davis@email.com', '555-246-8135', '654 Oak Ave', 'Someville', 'NY', 'USA', '10002', '2023-02-12', 'active'),
-('C014', 'Ava Wilson', 'ava.wilson@email.com', '555-135-7902', '987 Pine Rd', 'Anytown', 'CA', 'USA', '90001', '2023-03-20', 'active');
+('C014', 'Ava Wilson', 'ava.wilson@email.com', '555-135-7902', '987 Pine Rd', 'Anytown', 'CA', 'USA', '90001', '2023-03-20', 'active'),
+('C015', 'Emma Brown', 'emma.brown@email.com', '555-987-6543', '789 Oak St', 'Newtown', 'NJ', 'USA', '08801', DATE_TRUNC('month', NOW()) - INTERVAL '5 months', 'active'),
+('C016', 'Jacob Taylor', 'jacob.taylor@email.com', '555-246-8135', '159 Elm Ave', 'Anytown', 'CA', 'USA', '90001', DATE_TRUNC('month', NOW()) - INTERVAL '4 months', 'active'),
+('C017', 'Sophia Martinez', 'sophia.martinez@email.com', '555-135-7902', '753 Pine Rd', 'Someville', 'NY', 'USA', '10002', DATE_TRUNC('month', NOW()) - INTERVAL '3 months', 'active'),
+('C018', 'Michael Anderson', 'michael.anderson@email.com', '555-864-2319', '321 Cedar Ln', 'Yourtown', 'CA', 'USA', '92101', DATE_TRUNC('month', NOW()) - INTERVAL '2 months', 'active'),
+('C019', 'Isabella Thompson', 'isabella.thompson@email.com', '555-753-1904', '987 Maple Dr', 'Anothertown', 'FL', 'USA', '33101', DATE_TRUNC('month', NOW()) - INTERVAL '1 month', 'active'),
+('C020', 'William Garcia', 'william.garcia@email.com', '555-370-2648', '654 Oak St', 'Mytown', 'TX', 'USA', '75000', DATE_TRUNC('month', NOW()), 'active');
+
 
 -- sbTicker  
 INSERT INTO sbTicker (sbTickerId, sbTickerSymbol, sbTickerName, sbTickerType, sbTickerExchange, sbTickerCurrency, sbTickerDb2x, sbTickerIsActive) VALUES
@@ -93,7 +100,10 @@ INSERT INTO sbTicker (sbTickerId, sbTickerSymbol, sbTickerName, sbTickerType, sb
 ('T015', 'VFINX', 'Vanguard 500 Index Fund', 'mutualfund', 'Vanguard', 'USD', 'VG', true),
 ('T016', 'VTSAX', 'Vanguard Total Stock Market Index Fund', 'mutualfund', 'Vanguard', 'USD', 'VG', true),  
 ('T017', 'VIGAX', 'Vanguard Growth Index Fund', 'mutualfund', 'Vanguard', 'USD', 'VG', true),
-('T018', 'GOOG', 'Alphabet Inc.', 'stock', 'NASDAQ', 'USD', 'NQ', true);
+('T018', 'GOOG', 'Alphabet Inc.', 'stock', 'NASDAQ', 'USD', 'NQ', true),
+('T019', 'VTI', 'Vanguard Total Stock Market ETF', 'etf', 'NYSE Arca', 'USD', 'NX', true),
+('T020', 'VTSAX', 'Vanguard Total Stock Market Index Fund', 'mutualfund', 'Vanguard', 'USD', 'VG', true),
+('T021', 'NFLX', 'Netflix, Inc.', 'stock', 'NASDAQ', 'USD', 'NQ', true);
 
 -- sbDailyPrice
 INSERT INTO sbDailyPrice (sbDpTickerId, sbDpDate, sbDpOpen, sbDpHigh, sbDpLow, sbDpClose, sbDpVolume, sbDpEpochMs, sbDpSource) VALUES
@@ -126,10 +136,31 @@ INSERT INTO sbDailyPrice (sbDpTickerId, sbDpDate, sbDpOpen, sbDpHigh, sbDpLow, s
 ('T007', '2023-04-03', 402500.00, 404000.00, 401000.00, 403500.00, 9000, 1680508800000, 'NYSE'),
 ('T008', '2023-04-03', 132.75, 134.50, 131.50, 133.75, 10000000, 1680508800000, 'NYSE'),
 ('T009', '2023-04-03', 222.25, 224.00, 221.00, 223.50, 7000000, 1680508800000, 'NYSE'),
-('T010', '2023-04-03', 142.50, 144.00, 141.50, 143.25, 5000000, 1680508800000, 'NYSE');
+('T010', '2023-04-03', 142.50, 144.00, 141.50, 143.25, 5000000, 1680508800000, 'NYSE'),
+('T019', CURRENT_DATE - INTERVAL '6 days', 205.00, 207.50, 203.75, 206.25, 8000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '6 days') * 1000, 'NYSE'),
+('T019', CURRENT_DATE - INTERVAL '5 days', 206.50, 208.00, 205.00, 207.00, 7500000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '5 days') * 1000, 'NYSE'),
+('T019', CURRENT_DATE - INTERVAL '4 days', 207.25, 209.00, 206.50, 208.50, 7000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '4 days') * 1000, 'NYSE'),
+('T019', CURRENT_DATE - INTERVAL '3 days', 208.75, 210.50, 207.75, 209.75, 6500000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '3 days') * 1000, 'NYSE'),
+('T019', CURRENT_DATE - INTERVAL '2 days', 210.00, 211.75, 209.25, 211.00, 6000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '2 days') * 1000, 'NYSE'),
+('T019', CURRENT_DATE - INTERVAL '1 day', 211.25, 213.00, 210.50, 212.25, 5500000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '1 day') * 1000, 'NYSE'),
+('T019', CURRENT_DATE, 212.50, 214.25, 211.75, 213.50, 5000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP) * 1000, 'NYSE'),
+('T020', CURRENT_DATE - INTERVAL '6 days', 82.00, 83.00, 81.50, 82.50, 1000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '6 days') * 1000, 'Vanguard'),  
+('T020', CURRENT_DATE - INTERVAL '5 days', 82.60, 83.60, 82.10, 83.10, 950000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '5 days') * 1000, 'Vanguard'),
+('T020', CURRENT_DATE - INTERVAL '4 days', 83.20, 84.20, 82.70, 83.70, 900000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '4 days') * 1000, 'Vanguard'),  
+('T020', CURRENT_DATE - INTERVAL '3 days', 83.80, 84.80, 83.30, 84.30, 850000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '3 days') * 1000, 'Vanguard'),
+('T020', CURRENT_DATE - INTERVAL '2 days', 84.40, 85.40, 83.90, 84.90, 800000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '2 days') * 1000, 'Vanguard'),
+('T020', CURRENT_DATE - INTERVAL '1 day', 85.00, 86.00, 84.50, 85.50, 750000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '1 day') * 1000, 'Vanguard'),  
+('T020', CURRENT_DATE, 85.60, 86.60, 85.10, 86.10, 700000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP) * 1000, 'Vanguard'),
+('T021', CURRENT_DATE - INTERVAL '6 days', 300.00, 305.00, 297.50, 302.50, 10000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '6 days') * 1000, 'NASDAQ'),
+('T021', CURRENT_DATE - INTERVAL '5 days', 303.00, 308.00, 300.50, 305.50, 9500000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '5 days') * 1000, 'NASDAQ'),  
+('T021', CURRENT_DATE - INTERVAL '4 days', 306.00, 311.00, 303.50, 308.50, 9000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '4 days') * 1000, 'NASDAQ'),
+('T021', CURRENT_DATE - INTERVAL '3 days', 309.00, 314.00, 306.50, 311.50, 8500000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '3 days') * 1000, 'NASDAQ'),
+('T021', CURRENT_DATE - INTERVAL '2 days', 312.00, 317.00, 309.50, 314.50, 8000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '2 days') * 1000, 'NASDAQ'),  
+('T021', CURRENT_DATE - INTERVAL '1 day', 315.00, 320.00, 312.50, 317.50, 7500000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP - INTERVAL '1 day') * 1000, 'NASDAQ'),
+('T021', CURRENT_DATE, 318.00, 323.00, 315.50, 320.50, 7000000, EXTRACT(EPOCH FROM CURRENT_TIMESTAMP) * 1000, 'NASDAQ');
 
 -- sbTransaction
-INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxType, sbTxShares, sbTxPrice, sbTxAmount, sbTxCcy, sbTxTax, sbTxCommission, sbTxKpx, sbTxDateStr, sbTxStatus) VALUES
+INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxType, sbTxShares, sbTxPrice, sbTxAmount, sbTxCcy, sbTxTax, sbTxCommission, sbTxKpx, sbTxSettlementDateStr, sbTxStatus) VALUES
 ('TX001', 'C001', 'T001', '2023-04-01 09:30:00', 'buy', 100, 150.00, 15000.00, 'USD', 75.00, 10.00, 'KP001', '20230401 09:30:00', 'success'),
 ('TX002', 'C002', 'T002', '2023-04-01 10:15:00', 'sell', 50, 280.00, 14000.00, 'USD', 70.00, 10.00, 'KP002', '20230401 10:15:00', 'success'),
 ('TX003', 'C003', 'T003', '2023-04-01 11:00:00', 'buy', 10, 3200.00, 32000.00, 'USD', 160.00, 20.00, 'KP003', '20230401 11:00:00', 'success'),
@@ -160,22 +191,28 @@ INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxT
 ('TX028', 'C008', 'T008', '2023-04-03 14:45:00', 'sell', 90, 132.75, 11947.50, 'USD', 59.74, 7.50, 'KP028', '20230403 14:45:00', 'success'),
 ('TX029', 'C009', 'T009', '2023-04-03 15:30:00', 'buy', 40, 222.25, 8890.00, 'USD', 44.45, 10.00, 'KP029', '20230403 15:30:00', 'success'),
 ('TX030', 'C010', 'T010', '2023-04-03 16:15:00', 'sell', 70, 142.50, 9975.00, 'USD', 49.88, 10.00, 'KP030', '20230403 16:15:00', 'success'),
-('TX031', 'C001', 'T001', NOW() - INTERVAL '9 days', 'buy', 100, 150.00, 15000.00, 'USD', 75.00, 10.00, 'KP031', TO_CHAR(NOW() - INTERVAL '9 days', '%Y%m%d %H:%i:%s'), 'fail'),
+('TX031', 'C001', 'T001', NOW() - INTERVAL '9 days', 'buy', 100, 150.00, 15000.00, 'USD', 75.00, 10.00, 'KP031', NULL, 'fail'),
 ('TX032', 'C002', 'T002', NOW() - INTERVAL '8 days', 'sell', 80, 280.00, 14000.00, 'USD', 70.00, 10.00, 'KP032', TO_CHAR(NOW() - INTERVAL '8 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX033', 'C003', 'T003', NOW() - INTERVAL '7 days', 'buy', 120, 200.00, 24000.00, 'USD', 120.00, 15.00, 'KP033', TO_CHAR(NOW() - INTERVAL '7 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX034', 'C004', 'T004', NOW() - INTERVAL '6 days', 'sell', 90, 320.00, 28800.00, 'USD', 144.00, 12.00, 'KP034', TO_CHAR(NOW() - INTERVAL '6 days', '%Y%m%d %H:%i:%s'), 'success'),
-('TX035', 'C005', 'T005', NOW() - INTERVAL '5 days', 'buy', 150, 180.00, 27000.00, 'USD', 135.00, 20.00, 'KP035', TO_CHAR(NOW() - INTERVAL '5 days', '%Y%m%d %H:%i:%s'), 'fail'),
+('TX035', 'C005', 'T005', NOW() - INTERVAL '5 days', 'buy', 150, 180.00, 27000.00, 'USD', 135.00, 20.00, 'KP035', NULL, 'fail'),
 ('TX036', 'C006', 'T006', NOW() - INTERVAL '4 days', 'sell', 70, 300.00, 21000.00, 'USD', 105.00, 15.00, 'KP036', TO_CHAR(NOW() - INTERVAL '4 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX037', 'C007', 'T007', NOW() - INTERVAL '3 days', 'buy', 110, 220.00, 24200.00, 'USD', 121.00, 10.00, 'KP037', TO_CHAR(NOW() - INTERVAL '3 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX038', 'C008', 'T008', NOW() - INTERVAL '2 days', 'sell', 100, 350.00, 35000.00, 'USD', 175.00, 25.00, 'KP038', TO_CHAR(NOW() - INTERVAL '2 days', '%Y%m%d %H:%i:%s'), 'success'),
-('TX039', 'C009', 'T009', NOW() - INTERVAL '1 day', 'buy', 80, 230.00, 18400.00, 'USD', 92.00, 18.00, 'KP039', TO_CHAR(NOW() - INTERVAL '1 day', '%Y%m%d %H:%i:%s'), 'pending'),
+('TX039', 'C009', 'T009', NOW() - INTERVAL '1 day', 'buy', 80, 230.00, 18400.00, 'USD', 92.00, 18.00, 'KP039', NULL, 'pending'),
 ('TX040', 'C001', 'T011', NOW() - INTERVAL '10 days', 'buy', 50, 400.00, 20000.00, 'USD', 100.00, 20.00, 'KP040', TO_CHAR(NOW() - INTERVAL '10 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX041', 'C002', 'T012', NOW() - INTERVAL '9 days', 'sell', 30, 320.00, 9600.00, 'USD', 48.00, 15.00, 'KP041', TO_CHAR(NOW() - INTERVAL '9 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX042', 'C003', 'T013', NOW() - INTERVAL '8 days', 'buy', 80, 180.00, 14400.00, 'USD', 72.00, 10.00, 'KP042', TO_CHAR(NOW() - INTERVAL '8 days', '%Y%m%d %H:%i:%s'), 'success'),
-('TX043', 'C004', 'T014', NOW() - INTERVAL '7 days', 'sell', 60, 220.00, 13200.00, 'USD', 66.00, 12.00, 'KP043', TO_CHAR(NOW() - INTERVAL '7 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX043', 'C004', 'T014', NOW() - INTERVAL '7 days', 'sell', 60, 220.00, 13200.00, 'USD', 66.00, 12.00, 'KP043', NULL, 'pending'),
 ('TX044', 'C012', 'T001', '2023-01-15 10:00:00', 'buy', 80, 155.00, 12400.00, 'USD', 62.00, 10.00, 'KP044', '20230115 10:00:00', 'success'),
 ('TX045', 'C013', 'T002', '2023-02-20 11:30:00', 'sell', 60, 285.00, 17100.00, 'USD', 85.50, 15.00, 'KP045', '20230220 11:30:00', 'success'),
 ('TX046', 'C014', 'T003', '2023-03-25 14:45:00', 'buy', 5, 3250.00, 16250.00, 'USD', 81.25, 20.00, 'KP046', '20230325 14:45:00', 'success'),
 ('TX047', 'C012', 'T004', '2023-01-30 13:15:00', 'sell', 40, 190.00, 7600.00, 'USD', 38.00, 10.00, 'KP047', '20230130 13:15:00', 'success'),
 ('TX048', 'C013', 'T005', '2023-02-28 16:00:00', 'buy', 2, 2550.00, 5100.00, 'USD', 25.50, 15.00, 'KP048', '20230228 16:00:00', 'success'),
-('TX049', 'C014', 'T006', '2023-03-30 09:45:00', 'sell', 30, 210.00, 6300.00, 'USD', 31.50, 10.00, 'KP049', '20230331 09:45:00', 'success');
+('TX049', 'C014', 'T006', '2023-03-30 09:45:00', 'sell', 30, 210.00, 6300.00, 'USD', 31.50, 10.00, 'KP049', '20230331 09:45:00', 'success'),
+('TX050', 'C015', 'T001', DATE_TRUNC('month', NOW()) - INTERVAL '5 months' + INTERVAL '1 day', 'buy', 50, 150.00, 7500.00, 'USD', 37.50, 10.00, 'KP050', TO_CHAR(DATE_TRUNC('month', NOW()) - INTERVAL '5 months' + INTERVAL '1 day', '%Y%m%d %H:%i:%s'), 'success'),
+('TX051', 'C016', 'T002', DATE_TRUNC('month', NOW()) - INTERVAL '4 months' + INTERVAL '2 days', 'sell', 40, 280.00, 11200.00, 'USD', 56.00, 10.00, 'KP051', TO_CHAR(DATE_TRUNC('month', NOW()) - INTERVAL '4 months' + INTERVAL '2 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX052', 'C017', 'T003', DATE_TRUNC('month', NOW()) - INTERVAL '3 months' + INTERVAL '3 days', 'buy', 15, 3200.00, 48000.00, 'USD', 240.00, 20.00, 'KP052', TO_CHAR(DATE_TRUNC('month', NOW()) - INTERVAL '3 months' + INTERVAL '3 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX053', 'C018', 'T004', DATE_TRUNC('month', NOW()) - INTERVAL '2 months' + INTERVAL '4 days', 'sell', 30, 180.00, 5400.00, 'USD', 27.00, 5.00, 'KP053', TO_CHAR(DATE_TRUNC('month', NOW()) - INTERVAL '2 months' + INTERVAL '4 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX054', 'C019', 'T005', DATE_TRUNC('month', NOW()) - INTERVAL '1 month' + INTERVAL '5 days', 'buy', 10, 2500.00, 25000.00, 'USD', 125.00, 15.00, 'KP054', TO_CHAR(DATE_TRUNC('month', NOW()) - INTERVAL '1 month' + INTERVAL '5 days', '%Y%m%d %H:%i:%s'), 'success'),
+('TX055', 'C020', 'T006', DATE_TRUNC('month', NOW()) + INTERVAL '1 day', 'sell', 20, 200.00, 4000.00, 'USD', 20.00, 10.00, 'KP055', TO_CHAR(DATE_TRUNC('month', NOW()) + INTERVAL '1 day', '%Y%m%d %H:%i:%s'), 'success');

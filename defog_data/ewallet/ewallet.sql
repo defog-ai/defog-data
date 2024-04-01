@@ -129,8 +129,8 @@ CREATE TABLE consumer_div.user_setting_snapshot (
 -- users
 INSERT INTO consumer_div.users (uid, username, email, phone_number, created_at, user_type, status, country, address_billing, address_delivery, kyc_status) 
 VALUES 
-  (1, 'john_doe', 'john.doe@email.com', '+1234567890', '2022-01-01 10:00:00', 'individual', 'active', 'US', '123 Main St, Anytown US 12345', '123 Main St, Anytown US 12345', 'approved'),
-  (2, 'jane_smith', 'jane.smith@email.com', '+9876543210', '2022-02-15 14:30:00', 'individual', 'active', 'CA', '456 Oak Rd, Toronto ON M1M2M2', '456 Oak Rd, Toronto ON M1M2M2', 'approved'), 
+  (1, 'john_doe', 'john.doe@email.com', '+1234567890', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '1 month', 'individual', 'active', 'US', '123 Main St, Anytown US 12345', '123 Main St, Anytown US 12345', 'approved'),
+  (2, 'jane_smith', 'jane.smith@email.com', '+9876543210', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '2 months', 'individual', 'active', 'CA', '456 Oak Rd, Toronto ON M1M2M2', '456 Oak Rd, Toronto ON M1M2M2', 'approved'), 
   (3, 'bizuser', 'contact@business.co', '+1234509876', '2021-06-01 09:15:00', 'business', 'active', 'FR', '12 Rue Baptiste, Paris 75001', NULL, 'approved'),
   (4, 'david_miller', 'dave@personal.email', '+4477788899', '2023-03-20 18:45:00', 'individual', 'inactive', 'GB', '25 London Road, Manchester M12 4XY', '25 London Road, Manchester M12 4XY', 'pending'),
   (5, 'emily_wilson', 'emily.w@gmail.com', '+8091017161', '2021-11-03 22:10:00', 'individual', 'suspended', 'AU', '72 Collins St, Melbourne VIC 3000', '19 Smith St, Brunswick VIC 3056', 'rejected'),
@@ -163,11 +163,11 @@ VALUES
 -- coupons
 INSERT INTO consumer_div.coupons (cid, merchant_id, code, description, start_date, end_date, discount_type, discount_value, min_purchase_amount, max_discount_amount, redemption_limit, status, created_at, updated_at)
 VALUES
-  (1, 1, 'TECH20', '20% off electronics', '2023-05-01', '2023-05-31', 'percentage', 20.00, 100.00, NULL, 500, 'active', '2023-04-01 09:00:00', '2023-04-15 11:30:00'),
+  (1, 1, 'TECH20', '20% off tech and electronics', '2023-05-01', '2023-05-31', 'percentage', 20.00, 100.00, NULL, 500, 'active', '2023-04-01 09:00:00', '2023-04-15 11:30:00'),
   (2, 2, 'NEWYEAR30', '30% off workout gear', '2023-01-01', '2023-01-15', 'percentage', 30.00, NULL, NULL, 1000, 'expired', '2022-12-01 12:00:00', '2023-01-16 18:45:00'),
   (3, 3, 'DINEDISCOUNT', 'Get $10 off $50 order', '2023-06-01', '2023-06-30', 'fixed_amount', 10.00, 50.00, 10.00, NULL, 'active', '2023-05-15 15:30:00', NULL), 
-  (4, 4, 'LUXESCAPE', '15% off weekly rental', '2023-07-01', '2023-08-31', 'percentage', 15.00, 1000.00, 300.00, 200, 'active', '2023-05-01 09:15:00', NULL),
-  (5, 5, 'CRAFTY10', '$10 off $75+ purchase', '2023-04-01', '2023-04-30', 'fixed_amount', 10.00, 75.00, 10.00, 300, 'inactive', '2023-03-01 14:00:00', '2023-05-05 10:30:00'),
+  (4, 4, 'HOME15', '15% off weekly rental', '2023-07-01', '2023-08-31', 'percentage', 15.00, 1000.00, 300.00, 200, 'active', '2023-05-01 09:15:00', NULL),
+  (5, 5, 'HOME10', '$10 off $75+ purchase', '2023-04-01', '2023-04-30', 'fixed_amount', 10.00, 75.00, 10.00, 300, 'inactive', '2023-03-01 14:00:00', '2023-05-05 10:30:00'),
   (6, 6, 'CODENEW25', '25% off new subscriptions', '2023-03-01', '2023-03-31', 'percentage', 25.00, NULL, NULL, NULL, 'expired', '2023-02-15 11:00:00', '2023-04-01 09:30:00'),
   (7, 7, 'ZENHOME', 'Get 20% off home items', '2023-09-01', '2023-09-30', 'percentage', 20.00, 50.00, NULL, 1500, 'active', '2023-08-15 16:45:00', NULL),
   (8, 8, 'GAMEKIDS', '$15 off $100+ purchase', '2022-12-01', '2022-12-31', 'fixed_amount', 15.00, 100.00, 15.00, 800, 'expired', '2022-11-01 10:30:00', '2023-01-02 13:15:00'), 
@@ -247,7 +247,11 @@ VALUES
 (7, 'Thanks for shopping at ZenHomeGoods! How did we do?', 'general', 'read', '2023-06-02 09:31:00', 'mobile_app', 'mobile_yjp08q', 'https://zenhomesurvey.com/order/c51e10d1'),
 (8, 'Playtime! New games and toys have arrived', 'promotion', 'archived', '2023-06-01 18:00:00', 'email', NULL, 'https://kidzplayhouse.com/new-arrivals'),
 (9, 'Here''s $10 to start your glow up!', 'promotion', 'unread', '2023-06-01 10:15:00', 'email', NULL, 'https://beautytrending.com/new-customer'),
-(10, 'Your order #ord_mjs337 is being processed', 'transaction', 'read', '2023-06-04 19:31:30', 'web_app', 'web_d8180kaf', 'https://gamerush.co/orders/32e2b29c');
+(10, 'Your order #ord_mjs337 is being processed', 'transaction', 'read', '2023-06-04 19:31:30', 'web_app', 'web_d8180kaf', 'https://gamerush.co/orders/32e2b29c'),
+(1, 'New promotion: Get 10% off your next order!', 'promotion', 'unread', DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week', 'email', NULL, 'https://techmart.com/promo/TECH10'),
+(1, 'Your order #456def has been delivered', 'transaction', 'unread', DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '2 weeks', 'mobile_app', 'mobile_8fh2k1', 'app://orders/456def'),  
+(2, 'Reminder: Your FitLife membership expires in 7 days', 'general', 'unread', DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '3 weeks', 'email', NULL, 'https://fitlifegear.com/renew'),
+(2, 'Weekend Flash Sale: 25% off all activewear!', 'promotion', 'unread', DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' + INTERVAL '2 days', 'mobile_app', 'mobile_yjp08q', 'app://shop/activewear');
 
 -- user_sessions
 INSERT INTO consumer_div.user_sessions (user_id, session_start_ts, session_end_ts, device_type, device_id)

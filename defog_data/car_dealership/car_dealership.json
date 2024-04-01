@@ -76,7 +76,7 @@
         {
           "data_type": "VARCHAR(20)",
           "column_name": "phone",
-          "column_description": ""
+          "column_description": "First 3 digits in brackets is the area code. Format: (123)-456-7890"
         },
         {
           "data_type": "DATE",
