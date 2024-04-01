@@ -214,8 +214,8 @@
         },
         {
           "data_type": "varchar(25)",
-          "column_name": "sbTxDateStr",
-          "column_description": "date as string in yyyyMMdd HH:mm:ss format"
+          "column_name": "sbTxSettlementDateStr",
+          "column_description": "settlement date as string in yyyyMMdd HH:mm:ss format. NULL if not settled"
         },
         {
           "data_type": "varchar(10)",

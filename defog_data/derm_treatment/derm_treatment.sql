@@ -130,7 +130,10 @@ VALUES
 ('Frank', 'Taylor', '1988-05-12', 'Male', 'frank@email.com', '555-753-9514', '987 Birch Dr', 'Anyplace', 'CO', '24680', 'private', 'JKL567890', 183, 90),
 ('Grace', 'Anderson', '1975-12-25', 'Female', 'grace@email.com', '555-951-7532', '159 Maple Rd', 'Somewhere', 'OH', '86420', 'medicare', 'MNO246810', 170, 68),
 ('Hannah', 'Garcia', '1982-08-05', 'Female', 'hannah@email.com', '555-369-1470', '753 Walnut Ave', 'Somewhere', 'CA', '97531', 'private', 'PQR135790', 162, 57),
-('Isaac', 'Martinez', '1995-02-18', 'Male', 'isaac@email.com', '555-147-8520', '951 Spruce Blvd', 'Anytown', 'TX', '13579', 'medicaid', 'STU024680', 178, 82);
+('Isaac', 'Martinez', '1995-02-18', 'Male', 'isaac@email.com', '555-147-8520', '951 Spruce Blvd', 'Anytown', 'TX', '13579', 'medicaid', 'STU024680', 178, 82),
+('John', 'Richter', '1980-01-01', 'Male', 'john@qwik.com', '555-123-4567', '123 Main St', 'Anytown', 'CA', '12345', 'private', 'ABC123456', 180, 80),
+('Kelly', 'Smith', '1985-05-15', 'Female', 'kelly@fsda.org', '555-987-6543', '456 Oak Ave', 'Somecity', 'NY', '54321', 'medicare', 'XYZ789012', 165, 60);
+
 
 
 INSERT INTO drugs (drug_name, manufacturer, drug_type, moa, fda_appr_dt, admin_route, dos_amt, dos_unit, dos_freq_hrs, ndc)
@@ -185,7 +188,9 @@ VALUES
 (3, 2, 5, 2, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '2 months'), NULL, false, 250, 'mg'),
 (1, 3, 6, 3, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '1 month'), NULL, false, 300, 'g'),
 (2, 4, 1, 4, CURRENT_DATE, NULL, true, 200, 'mg'),
-(3, 5, 2, 5, CURRENT_DATE, NULL, false, 150, 'mg');
+(3, 5, 2, 5, CURRENT_DATE, NULL, false, 150, 'mg'),
+(9, 1, 1, 1, CURRENT_DATE - INTERVAL '6 months', CURRENT_DATE - INTERVAL '3 months', false, 240, 'mg'),
+(10, 2, 2, 2, CURRENT_DATE - INTERVAL '5 months', CURRENT_DATE - INTERVAL '2 months', false, 180, 'mg');
 
 INSERT INTO outcomes (treatment_id, assess_dt, day7_lesion_cnt, day30_lesion_cnt, day100_lesion_cnt, day7_pasi_score, day30_pasi_score, day100_pasi_score, day7_tewl, day30_tewl, day100_tewl, day7_itch_vas, day30_itch_vas, day100_itch_vas, day7_hfg, day30_hfg, day100_hfg)  
 VALUES
@@ -205,7 +210,11 @@ VALUES
 (14, '2023-02-08', 27, 20, 10, 16.2, 11.1, 4.1, 21.0, 17.9, 14.1, 74, 54, 34, 0.5, 1.5, 3.0), 
 (15, '2023-03-08', 20, 14, 4, 11.8, 7.3, 1.7, 17.8, 15.2, 11.8, 60, 40, 20, 1.6, 2.6, 4.1),
 (16, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '5 months') + INTERVAL '7 days', 24, 18, 8, 14.4, 9.6, 3.2, 20.4, 17.4, 13.7, 70, 50, 30, 0.9, 1.9, 3.4),
-(17, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '1 month') + INTERVAL '7 days', 22, 16, NULL, 13.2, 8.8, NULL, 19.1, 16.3, NULL, 65, 45, NULL, 1.3, 2.3, NULL);
+(17, DATE_TRUNC('month', CURRENT_DATE - INTERVAL '1 month') + INTERVAL '7 days', 22, 16, NULL, 13.2, 8.8, NULL, 19.1, 16.3, NULL, 65, 45, NULL, 1.3, 2.3, NULL),
+(25, CURRENT_DATE - INTERVAL '6 months' + INTERVAL '7 days', 30, NULL, NULL, 18.0, NULL, NULL, 22.0, NULL, NULL, 80, NULL, NULL, 1.0, NULL, NULL),  
+(25, CURRENT_DATE - INTERVAL '2 months', 30, 18, 10, 18.0, 12.0, 4.0, 22.0, 19.0, 15.0, 80, 60, 40, 1.0, 2.0, 3.0),
+(26, CURRENT_DATE - INTERVAL '5 months' + INTERVAL '7 days', 25, NULL, NULL, 15.0, NULL, NULL, 20.0, NULL, NULL, 75, NULL, NULL, 0.5, NULL, NULL),
+(26, CURRENT_DATE - INTERVAL '1 month', 25, 18, 10, 15.0, 10.0, 5.0, 20.0, 17.0, 13.0, 75, 55, 35, 0.5, 1.5, 3.0);
 
 INSERT INTO adverse_events (treatment_id, reported_dt, description)
 VALUES  
