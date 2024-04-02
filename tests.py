@@ -168,7 +168,7 @@ class TestDB(unittest.TestCase):
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
         num_columns = sum([len(db_schema[table]) for table in db_schema])
-        self.assertEqual(num_columns, 80)
+        self.assertEqual(num_columns, 81)
 
     def test_ewallet(self):
         db_name = "ewallet"
@@ -186,16 +186,17 @@ class TestDB(unittest.TestCase):
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
         glossary = get_db(db_name)["glossary"]
-        expected_glossary = """- sender_id and receiver_id can be joined with either users.uid or merchants.mid depending on the sender_type
+        expected_glossary = """- sender_id and receiver_id can be joined with either users.uid or merchants.mid depending on the sender_type/receiver_type
 - if a user applied a coupon to a purchase, there will be 2 rows in wallet_transactions_daily:
   - 1st row where coupon_id is NULL, amount = purchase value 
   - 2nd row where coupon_id is NOT NULL, amount = coupon value applied
   - the sender and receiver id will be the same for both rows, but they will have different txid's 
-- coupons.code and wallet_transactions_daily.gateway_name should be matched case insensitively
+- when using coupons.code, wallet_transactions_daily.gateway_name, filter case insensitively
 - Total Transaction Volume (TTV) = SUM(wallet_transactions_daily.amount)
 - Total Coupon Discount Redeemed (TCDR) = SUM(wallet_transactions_daily.amount) WHERE coupon_id IS NOT NULL
 - Session Density = COUNT(user_sessions.user_id) / COUNT(DISTINCT user_sessions.user_id)
 - Active Merchants Percentage (APM) = COUNT(DISTINCT CASE WHEN sender_type = 1 THEN wallet_transactions_daily.sender_id WHEN receiver_type = 1 THEN wallet_transactions_daily.receiver_id ELSE NULL END) / COUNT(DISTINCT merchants.mid)"""
+        print(glossary)
         self.assertEqual(glossary, expected_glossary)
         num_columns = sum([len(db_schema[table]) for table in db_schema])
         self.assertEqual(num_columns, 96)
