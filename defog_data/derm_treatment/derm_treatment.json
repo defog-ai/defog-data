@@ -74,9 +74,14 @@
           "column_description": ""
         },
         {
+          "data_type": "DATE",
+          "column_name": "date_of_registration",
+          "column_description": ""
+        },
+        {
           "data_type": "VARCHAR(10)", 
           "column_name": "gender",
-          "column_description": ""
+          "column_description": "Male, Female, Others"
         },
         {
           "data_type": "VARCHAR(100)",

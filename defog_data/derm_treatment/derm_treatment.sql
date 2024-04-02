@@ -18,7 +18,8 @@ CREATE TABLE patients (
   first_name VARCHAR(50),
   last_name VARCHAR(50),
   date_of_birth DATE,
-  gender VARCHAR(10),
+  date_of_registration DATE,
+  gender VARCHAR(10), -- Male, Female, Others
   email VARCHAR(100),
   phone VARCHAR(20),
   addr_street VARCHAR(100),
@@ -120,19 +121,19 @@ VALUES
 ('Sarah', 'Wilson', 'general', 2003, 'University of California, San Francisco', 'San Francisco', 'CA', '94143', 'MNO678'),
 ('Robert', 'Taylor', 'dermatology', 2012, 'Yale University', 'New Haven', 'CT', '06510', 'PQR901');
 
-INSERT INTO patients (first_name, last_name, date_of_birth, gender, email, phone, addr_street, addr_city, addr_state, addr_zip, ins_type, ins_policy_num, height_cm, weight_kg)
+INSERT INTO patients (first_name, last_name, date_of_birth, date_of_registration, gender, email, phone, addr_street, addr_city, addr_state, addr_zip, ins_type, ins_policy_num, height_cm, weight_kg)
 VALUES
-('Alice', 'Johnson', '1985-03-15', 'Female', 'alice@email.com', '555-123-4567', '123 Main St', 'Anytown', 'CA', '12345', 'private', 'ABC123456', 165, 60),
-('Bob', 'Smith', '1978-11-23', 'Male', 'bob@email.com', '555-987-6543', '456 Oak Ave', 'Somecity', 'NY', '54321', 'medicare', 'XYZ789012', 180, 85),
-('Carol', 'Davis', '1992-07-08', 'Female', 'carol@email.com', '555-246-8135', '789 Elm Rd', 'Anothercity', 'TX', '67890', 'private', 'DEF345678', 158, 52),  
-('David', 'Wilson', '1965-09-30', 'Male', 'david@email.com', '555-369-2580', '321 Pine Ln', 'Somewhere', 'FL', '13579', 'medicaid', 'GHI901234', 175, 78),
-('Eve', 'Brown', '2000-01-01', 'Female', 'eve@email.com', '555-147-2589', '654 Cedar St', 'Nowhere', 'WA', '97531', 'uninsured', NULL, 160, 55),
-('Frank', 'Taylor', '1988-05-12', 'Male', 'frank@email.com', '555-753-9514', '987 Birch Dr', 'Anyplace', 'CO', '24680', 'private', 'JKL567890', 183, 90),
-('Grace', 'Anderson', '1975-12-25', 'Female', 'grace@email.com', '555-951-7532', '159 Maple Rd', 'Somewhere', 'OH', '86420', 'medicare', 'MNO246810', 170, 68),
-('Hannah', 'Garcia', '1982-08-05', 'Female', 'hannah@email.com', '555-369-1470', '753 Walnut Ave', 'Somewhere', 'CA', '97531', 'private', 'PQR135790', 162, 57),
-('Isaac', 'Martinez', '1995-02-18', 'Male', 'isaac@email.com', '555-147-8520', '951 Spruce Blvd', 'Anytown', 'TX', '13579', 'medicaid', 'STU024680', 178, 82),
-('John', 'Richter', '1980-01-01', 'Male', 'john@qwik.com', '555-123-4567', '123 Main St', 'Anytown', 'CA', '12345', 'private', 'ABC123456', 180, 80),
-('Kelly', 'Smith', '1985-05-15', 'Female', 'kelly@fsda.org', '555-987-6543', '456 Oak Ave', 'Somecity', 'NY', '54321', 'medicare', 'XYZ789012', 165, 60);
+('Alice', 'Johnson', '1985-03-15', '2023-01-03', 'Female', 'alice@email.com', '555-123-4567', '123 Main St', 'Anytown', 'CA', '12345', 'private', 'ABC123456', 165, 60),
+('Bob', 'Smith', '1978-11-23', '2023-01-10', 'Male', 'bob@email.com', '555-987-6543', '456 Oak Ave', 'Somecity', 'NY', '54321', 'medicare', 'XYZ789012', 180, 85),
+('Carol', 'Davis', '1992-07-08', '2022-01-03', 'Female', 'carol@email.com', '555-246-8135', '789 Elm Rd', 'Anothercity', 'TX', '67890', 'private', 'DEF345678', 158, 52),  
+('David', 'Wilson', '1965-09-30', '2022-07-12', 'Male', 'david@email.com', '555-369-2580', '321 Pine Ln', 'Somewhere', 'FL', '13579', 'medicaid', 'GHI901234', 175, 78),
+('Eve', 'Brown', '2000-01-01', '2023-08-03', 'Female', 'eve@email.com', '555-147-2589', '654 Cedar St', 'Nowhere', 'WA', '97531', 'uninsured', NULL, 160, 55),
+('Frank', 'Taylor', '1988-05-12', '2021-12-21', 'Male', 'frank@email.com', '555-753-9514', '987 Birch Dr', 'Anyplace', 'CO', '24680', 'private', 'JKL567890', 183, 90),
+('Grace', 'Anderson', '1975-12-25', '2023-09-04', 'Others', 'grace@email.com', '555-951-7532', '159 Maple Rd', 'Somewhere', 'OH', '86420', 'medicare', 'MNO246810', 170, 68),
+('Hannah', 'Garcia', '1982-08-05', '2023-03-23', 'Female', 'hannah@email.com', '555-369-1470', '753 Walnut Ave', 'Somewhere', 'CA', '97531', 'private', 'PQR135790', 162, 57),
+('Isaac', 'Martinez', '1995-02-18', '2021-11-13', 'Male', 'isaac@email.com', '555-147-8520', '951 Spruce Blvd', 'Anytown', 'TX', '13579', 'medicaid', 'STU024680', 178, 82),
+('John', 'Richter', '1980-01-01', '2021-11-24', 'Male', 'john@qwik.com', '555-123-4567', '123 Main St', 'Anytown', 'CA', '12345', 'private', 'ABC123456', 180, 80),
+('Kelly', 'Smith', '1985-05-15', '2024-02-28', 'Female', 'kelly@fsda.org', '555-987-6543', '456 Oak Ave', 'Somecity', 'NY', '54321', 'medicare', 'XYZ789012', 165, 60);
 
 
 
