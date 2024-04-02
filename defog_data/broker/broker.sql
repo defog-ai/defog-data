@@ -59,7 +59,7 @@ CREATE TABLE sbTransaction (
 
 -- sbCustomer
 INSERT INTO sbCustomer (sbCustId, sbCustName, sbCustEmail, sbCustPhone, sbCustAddress1, sbCustCity, sbCustState, sbCustCountry, sbCustPostalCode, sbCustJoinDate, sbCustStatus) VALUES
-('C001', 'John Doe', 'john.doe@email.com', '555-123-4567', '123 Main St', 'Anytown', 'CA', 'USA', '90001', '2020-01-01', 'active'),
+('C001', 'john doe', 'john.doe@email.com', '555-123-4567', '123 Main St', 'Anytown', 'CA', 'USA', '90001', '2020-01-01', 'active'),
 ('C002', 'Jane Smith', 'jane.smith@email.com', '555-987-6543', '456 Oak Rd', 'Someville', 'NY', 'USA', '10002', '2019-03-15', 'active'),
 ('C003', 'Bob Johnson', 'bob.johnson@email.com', '555-246-8135', '789 Pine Ave', 'Mytown', 'TX', 'USA', '75000', '2022-06-01', 'inactive'),
 ('C004', 'Samantha Lee', 'samantha.lee@email.com', '555-135-7902', '246 Elm St', 'Yourtown', 'CA', 'USA', '92101', '2018-09-22', 'suspended'),
@@ -74,11 +74,11 @@ INSERT INTO sbCustomer (sbCustId, sbCustName, sbCustEmail, sbCustPhone, sbCustAd
 ('C013', 'Ethan Davis', 'ethan.davis@email.com', '555-246-8135', '654 Oak Ave', 'Someville', 'NY', 'USA', '10002', '2023-02-12', 'active'),
 ('C014', 'Ava Wilson', 'ava.wilson@email.com', '555-135-7902', '987 Pine Rd', 'Anytown', 'CA', 'USA', '90001', '2023-03-20', 'active'),
 ('C015', 'Emma Brown', 'emma.brown@email.com', '555-987-6543', '789 Oak St', 'Newtown', 'NJ', 'USA', '08801', DATE_TRUNC('month', NOW()) - INTERVAL '5 months', 'active'),
-('C016', 'Jacob Taylor', 'jacob.taylor@email.com', '555-246-8135', '159 Elm Ave', 'Anytown', 'CA', 'USA', '90001', DATE_TRUNC('month', NOW()) - INTERVAL '4 months', 'active'),
-('C017', 'Sophia Martinez', 'sophia.martinez@email.com', '555-135-7902', '753 Pine Rd', 'Someville', 'NY', 'USA', '10002', DATE_TRUNC('month', NOW()) - INTERVAL '3 months', 'active'),
+('C016', 'sophia martinez', 'sophia.martinez@email.com', '555-246-8135', '159 Elm Ave', 'Anytown', 'CA', 'USA', '90001', DATE_TRUNC('month', NOW()) - INTERVAL '4 months', 'active'),
+('C017', 'Jacob Taylor', 'jacob.taylor@email.com', '555-135-7902', '753 Pine Rd', 'Someville', 'NY', 'USA', '10002', DATE_TRUNC('month', NOW()) - INTERVAL '3 months', 'active'),
 ('C018', 'Michael Anderson', 'michael.anderson@email.com', '555-864-2319', '321 Cedar Ln', 'Yourtown', 'CA', 'USA', '92101', DATE_TRUNC('month', NOW()) - INTERVAL '2 months', 'active'),
 ('C019', 'Isabella Thompson', 'isabella.thompson@email.com', '555-753-1904', '987 Maple Dr', 'Anothertown', 'FL', 'USA', '33101', DATE_TRUNC('month', NOW()) - INTERVAL '1 month', 'active'),
-('C020', 'William Garcia', 'william.garcia@email.com', '555-370-2648', '654 Oak St', 'Mytown', 'TX', 'USA', '75000', DATE_TRUNC('month', NOW()), 'active');
+('C020', 'Maurice Lee', 'maurice.lee@email.com', '555-370-2648', '654 Oak St', 'Mytown', 'TX', 'USA', '75000', DATE_TRUNC('month', NOW()), 'active');
 
 
 -- sbTicker  
@@ -182,7 +182,7 @@ INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxT
 ('TX019', 'C009', 'T009', '2023-04-02 15:30:00', 'sell', 25, 221.50, 5537.50, 'USD', 27.69, 5.00, 'KP019', '20230402 15:30:00', 'success'),
 ('TX020', 'C010', 'T010', '2023-04-02 16:15:00', 'buy', 60, 141.75, 8505.00, 'USD', 42.53, 7.50, 'KP020', '20230402 16:15:00', 'success'),
 ('TX021', 'C001', 'T001', '2023-04-03 09:30:00', 'buy', 75, 152.25, 11418.75, 'USD', 57.09, 10.00, 'KP021', '20230403 09:30:00', 'fail'),
-('TX022', 'C002', 'T002', '2023-04-03 10:15:00', 'sell', 40, 283.00, 11320.00, 'USD', 56.60, 10.00, 'KP022', '20230403 10:15:00', 'success'),  
+('TX022', 'C002', 'T002', '2023-04-03 10:15:00', 'sell', 40, 283.00, 11320.00, 'USD', 56.60, 10.00, 'KP022', '20230403 10:15:00', 'success'),
 ('TX023', 'C003', 'T003', '2023-04-03 11:00:00', 'buy', 8, 3227.00, 25816.00, 'USD', 129.08, 20.00, 'KP023', '20230403 11:00:00', 'success'),
 ('TX024', 'C004', 'T004', '2023-04-03 11:45:00', 'sell', 20, 186.25, 3725.00, 'USD', 18.63, 5.00, 'KP024', '20230403 11:45:00', 'success'),
 ('TX025', 'C005', 'T005', '2023-04-03 12:30:00', 'buy', 3, 2522.00, 7566.00, 'USD', 37.83, 15.00, 'KP025', '20230403 12:30:00', 'success'),
@@ -215,4 +215,4 @@ INSERT INTO sbTransaction (sbTxId, sbTxCustId, sbTxTickerId, sbTxDateTime, sbTxT
 ('TX052', 'C017', 'T003', DATE_TRUNC('month', NOW()) - INTERVAL '3 months' + INTERVAL '3 days', 'buy', 15, 3200.00, 48000.00, 'USD', 240.00, 20.00, 'KP052', TO_CHAR(DATE_TRUNC('month', NOW()) - INTERVAL '3 months' + INTERVAL '3 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX053', 'C018', 'T004', DATE_TRUNC('month', NOW()) - INTERVAL '2 months' + INTERVAL '4 days', 'sell', 30, 180.00, 5400.00, 'USD', 27.00, 5.00, 'KP053', TO_CHAR(DATE_TRUNC('month', NOW()) - INTERVAL '2 months' + INTERVAL '4 days', '%Y%m%d %H:%i:%s'), 'success'),
 ('TX054', 'C019', 'T005', DATE_TRUNC('month', NOW()) - INTERVAL '1 month' + INTERVAL '5 days', 'buy', 10, 2500.00, 25000.00, 'USD', 125.00, 15.00, 'KP054', TO_CHAR(DATE_TRUNC('month', NOW()) - INTERVAL '1 month' + INTERVAL '5 days', '%Y%m%d %H:%i:%s'), 'success'),
-('TX055', 'C020', 'T006', DATE_TRUNC('month', NOW()) + INTERVAL '1 day', 'sell', 20, 200.00, 4000.00, 'USD', 20.00, 10.00, 'KP055', TO_CHAR(DATE_TRUNC('month', NOW()) + INTERVAL '1 day', '%Y%m%d %H:%i:%s'), 'success');
+('TX055', 'C002', 'T006', DATE_TRUNC('month', NOW()) + INTERVAL '1 day', 'sell', 20, 200.00, 4000.00, 'USD', 20.00, 10.00, 'KP055', TO_CHAR(DATE_TRUNC('month', NOW()) + INTERVAL '1 day', '%Y%m%d %H:%i:%s'), 'success');

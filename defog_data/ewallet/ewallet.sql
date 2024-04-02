@@ -78,13 +78,13 @@ CREATE TABLE consumer_div.wallet_transactions_daily (
 );
 
 CREATE TABLE consumer_div.wallet_user_balance_daily (
-  user_id BIGINT PRIMARY KEY,
+  user_id BIGINT,
   balance DECIMAL(10,2) NOT NULL,
   updated_at TIMESTAMP NOT NULL
 );
 
 CREATE TABLE consumer_div.wallet_merchant_balance_daily (
-  merchant_id BIGINT PRIMARY KEY,
+  merchant_id BIGINT,
   balance DECIMAL(10,2) NOT NULL,
   updated_at TIMESTAMP NOT NULL
 );
@@ -144,8 +144,8 @@ VALUES
 -- merchants 
 INSERT INTO consumer_div.merchants (mid, name, description, website_url, logo_url, created_at, country, state, city, postal_code, address, status, category, sub_category, mcc, contact_name, contact_email, contact_phone)
 VALUES
-  (1, 'TechMart', 'Leading electronics retailer', 'https://www.techmart.com', 'https://www.techmart.com/logo.png', '2015-01-15 00:00:00', 'US', 'California', 'Los Angeles', '90011', '645 Wilshire Blvd, Los Angeles CA 90011', 'active', 'Retail', 'Electronics', 5732, 'John Jacobs', 'jjacobs@techmart.com', '+15551234567'),
-  (2, 'FitLifeGear', 'Fitness equipment and activewear', 'https://fitlifegear.com', 'https://fitlifegear.com/brand.jpg', '2018-07-01 00:00:00', 'CA', 'Ontario', 'Toronto', 'M5V2J2', '421 Richmond St W, Toronto ON M5V2J2', 'active', 'Retail', 'Sporting Goods', 5655, 'Jane McDonald', 'jmcdonald@fitlifegear.com', '+14165559876'),
+  (1, 'TechMart', 'Leading electronics retailer', 'https://www.techmart.com', 'https://www.techmart.com/logo.png', '2015-01-15 00:00:00', 'US', 'California', 'Los Angeles', '90011', '645 Wilshire Blvd, Los Angeles CA 90011', 'active', 'retail (hardware)', 'Electronics', 5732, 'John Jacobs', 'jjacobs@techmart.com', '+15551234567'),
+  (2, 'FitLifeGear', 'Fitness equipment and activewear', 'https://fitlifegear.com', 'https://fitlifegear.com/brand.jpg', '2018-07-01 00:00:00', 'CA', 'Ontario', 'Toronto', 'M5V2J2', '421 Richmond St W, Toronto ON M5V2J2', 'active', 'retail (hardware)', 'Sporting Goods', 5655, 'Jane McDonald', 'jmcdonald@fitlifegear.com', '+14165559876'),
   (3, 'UrbanDining', 'Local restaurants and cafes', 'https://www.urbandining.co', 'https://www.urbandining.co/logo.png', '2020-03-10 00:00:00', 'FR', NULL, 'Paris', '75011', '35 Rue du Faubourg Saint-Antoine, 75011 Paris', 'active', 'Food & Dining', 'Restaurants', 5812, 'Pierre Gagnon', 'pgagnon@urbandining.co', '+33612345678'),
   (4, 'LuxStays', 'Boutique vacation rentals', 'https://luxstays.com', 'https://luxstays.com/branding.jpg', '2016-11-01 00:00:00', 'IT', NULL, 'Rome', '00187', 'Via della Conciliazione 15, Roma 00187', 'inactive', 'Travel & Hospitality', 'Accommodation', 7011, 'Marco Rossi', 'mrossi@luxstays.com', '+39061234567'),
   (5, 'HandyCraft', 'Handmade arts and crafts supplies', 'https://handycraft.store', 'https://handycraft.store/hc-logo.png', '2022-06-20 00:00:00', 'ES', 'Catalonia', 'Barcelona', '08003', 'Passeig de Gracia 35, Barcelona 08003', 'active', 'Retail', 'Crafts & Hobbies', 5949, 'Ana Garcia', 'agarcia@handycraft.store', '+34612345678'),
@@ -180,7 +180,7 @@ INSERT INTO consumer_div.wallet_transactions_daily (sender_id, sender_type, rece
 VALUES
   (1, 0, 1, 0, 99.99, 'success', 'debit', 'Online purchase', NULL, '2023-06-01 10:15:30', '2023-06-01 10:15:45', 'ad154bf7-8185-4230-a8d8-3ef59b4e0012', 'Stripe', 'tx_123abc456def', 'mobile_8fh2k1', '192.168.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) ...'),
   (1, 0, 1, 1, 20.00, 'success', 'credit', 'Coupon discount', 1, '2023-06-01 10:15:30', '2023-06-01 10:15:45', 'ad154bf7-8185-4230-a8d8-3ef59b4e0012', 'Stripe', 'tx_123abc456def', 'mobile_8fh2k1', '192.168.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) ...'),
-  (2, 0, 1, 1, 20.00, 'success', 'credit', 'Coupon discount', 1, '2023-07-01 10:18:30', '2023-06-01 10:18:45', 'kd454bf7-428d-eig2-a8d8-3ef59b4e0012', 'Stripe', 'tx_123abc789gas', 'mobile_yjp08q', '198.51.100.233', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4 like Mac OS X) ...'),
+  (2, 0, 1, 1, 16.00, 'success', 'credit', 'Coupon discount', 1, '2023-07-01 10:18:30', '2023-06-01 10:18:45', 'kd454bf7-428d-eig2-a8d8-3ef59b4e0012', 'Stripe', 'tx_123abc789gas', 'mobile_yjp08q', '198.51.100.233', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4 like Mac OS X) ...'),
   (3, 1, 9, 0, 125.50, 'success', 'debit', 'Product purchase', NULL, '2023-06-01 13:22:18', '2023-06-01 13:22:45', 'e6f510e9-ff7d-4914-81c2-f8e56bae4012', 'PayPal', 'ppx_192ks8hl', 'web_k29qjd', '216.58.195.68', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) ...'),
   (9, 0, 3, 1, 42.75, 'success', 'debit', 'Order #438721', 3, '2023-06-01 18:45:02', '2023-06-01 18:45:13', 'b2ca190e-a42f-4f5e-8318-f82bcc6ae64e', 'Stripe', 'tx_987zyx654wvu', 'mobile_q3mz8n', '68.85.32.201', 'Mozilla/5.0 (Linux; Android 13) ...'),
   (9, 0, 3, 1, 10.00, 'success', 'credit', 'Coupon discount', 3, '2023-06-01 18:45:02', '2023-06-01 18:45:13', 'b2ca190e-a42f-4f5e-8318-f82bcc6ae64e', 'Stripe', 'tx_987zyx654wvu', 'mobile_q3mz8n', '68.85.32.201', 'Mozilla/5.0 (Linux; Android 13) ...'),
@@ -195,14 +195,15 @@ VALUES
   (8, 0, 10, 1, 29.99, 'success', 'credit', 'Coupon discount', 10, '2023-06-04 19:30:45', '2023-06-04 19:31:10', '32e2b29c-5c7f-4906-98c5-e8abdcbfd69a', 'Braintree', 'ord_mjs337', 'web_d8180kaf', '8.26.53.165', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ...'),
   (10, 1, 3, 0, 87.50, 'failed', 'debit', 'Restaurant order', NULL, '2023-06-05 12:05:21', NULL, '37cf052d-0475-4ecc-bda7-73ee904bf65c', 'Checkout.com', NULL, 'mobile_x28qlj', '92.110.51.150', 'Mozilla/5.0 (Linux; Android 13; SM-S901B) ...'),
   (1, 0, 1, 0, 175.00, 'success', 'debit', 'Refund on order #1234', NULL, '2023-06-06 14:20:00', '2023-06-06 14:20:05', 'a331232e-a3f6-4e7f-b49f-3588bc5ff985', 'Stripe', 'rfnd_xkt521', 'web_33lq1dh', '38.75.197.8', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) ...'),
-  (7, 1, 2, 0, 599.99, 'success', 'debit', 'Yearly subscription', NULL, '2023-06-06 16:55:10', '2023-06-06 16:55:15', 'ed6f46ab-9617-4d11-9aa9-60d24bdf9bc0', 'PayPal', 'sub_pjj908', 'web_zld22f', '199.59.148.201', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 ...'), 
+  (7, 1, 2, 0, 599.99, 'success', 'debit', 'Yearly subscription', NULL, '2023-06-06 16:55:10', '2023-06-06 16:55:15', 'ed6f46ab-9617-4d11-9aa9-60d24bdf9bc0', 'PayPal', 'sub_pjj908', 'web_zld22f', '199.59.148.201', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 ...'),
   (2, 0, 2, 1, 22.99, 'refunded', 'debit', 'Product return', NULL, '2023-06-07 10:10:30', '2023-06-07 10:11:05', '6c97a87d-610f-4705-ae97-55071127d9ad', 'Adyen', 'tx_zcx258', 'mobile_1av8p0', '70.121.39.25', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4 like Mac OS X) ...'),
   (2, 0, 2, 1, 22.99, 'success', 'credit', 'Refund on return', NULL, '2023-06-07 10:10:30', '2023-06-07 10:11:05', '6c97a87d-610f-4705-ae97-55071127d9ad', 'Adyen', 'tx_zcx258', 'mobile_1av8p0', '70.121.39.25', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4 like Mac OS X) ...'),
   (1, 0, 2, 1, 49.99, 'success', 'debit', 'Product purchase', NULL, NOW() - INTERVAL '5 months', NOW() - INTERVAL '5 months', 'tx_ref_11_1', 'Stripe', 'stripe_ref_11_1', 'device_11_1', '192.168.1.11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'),
   (4, 0, 3, 1, 99.99, 'success', 'debit', 'Service purchase', NULL, NOW() - INTERVAL '4 months', NOW() - INTERVAL '4 months', 'tx_ref_12_1', 'PayPal', 'paypal_ref_12_1', 'device_12_1', '192.168.1.12', 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1'),
   (4, 0, 1, 1, 149.99, 'success', 'debit', 'Subscription purchase', NULL, NOW() - INTERVAL '3 months', NOW() - INTERVAL '3 months', 'tx_ref_13_1', 'Stripe', 'stripe_ref_13_1', 'device_13_1', '192.168.1.13', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'),
   (2, 0, 5, 1, 199.99, 'success', 'debit', 'Product purchase', NULL, NOW() - INTERVAL '2 months', NOW() - INTERVAL '2 months', 'tx_ref_14_1', 'PayPal', 'paypal_ref_14_1', 'device_14_1', '192.168.1.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0'),
-  (2, 0, 1, 1, 249.99, 'success', 'debit', 'Service purchase', NULL, NOW() - INTERVAL '1 month', NOW() - INTERVAL '1 month', 'tx_ref_15_1', 'Stripe', 'stripe_ref_15_1', 'device_15_1', '192.168.1.15', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36');
+  (2, 0, 1, 1, 249.99, 'success', 'debit', 'Service purchase', NULL, NOW() - INTERVAL '1 month', NOW() - INTERVAL '1 month', 'tx_ref_15_1', 'Stripe', 'stripe_ref_15_1', 'device_15_1', '192.168.1.15', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'),
+  (7, 1, 2, 0, 299.99, 'success', 'debit', 'Renew subscription', NULL, NOW() - INTERVAL '3 weeks', NOW() - INTERVAL '3 weeks', 'ed6f46ab-9617-4d11-9aa9-55071127d9ad', 'PayPal', 'sub_pjk832', 'web_zld22f', '199.59.148.201', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 ...');
 
   
 -- wallet_user_balance_daily
@@ -217,7 +218,19 @@ VALUES
   (7, 0.00, '2023-06-07 23:59:59'),
   (8, -599.98, '2023-06-07 23:59:59'),
   (9, -183.25, '2023-06-07 23:59:59'),
-  (10, 0.00, '2023-06-07 23:59:59');
+  (10, 0.00, '2023-06-07 23:59:59'),
+  (1, 2739.10, NOW() - INTERVAL '8 days'),
+  (1, 2738.12, NOW() - INTERVAL '6 days'),
+  (1, 2733.92, NOW() - INTERVAL '3 days'),
+  (2, 155.24, NOW() - INTERVAL '7 days'),
+  (3, 2775.25, NOW() - INTERVAL '6 days'),
+  (4, 2500.00, NOW() - INTERVAL '5 days'),
+  (5, 155.99, NOW() - INTERVAL '4 days'),
+  (6, 29.95, NOW() - INTERVAL '3 days'),
+  (7, 172.98, NOW() - INTERVAL '2 days'),
+  (8, 0.00, NOW() - INTERVAL '7 days'),
+  (9, 125.00, NOW() - INTERVAL '3 days'),
+  (10, 219.98, NOW() - INTERVAL '1 days');
   
 -- wallet_merchant_balance_daily  
 INSERT INTO consumer_div.wallet_merchant_balance_daily (merchant_id, balance, updated_at)
@@ -259,6 +272,7 @@ VALUES
 (1, '2023-06-01 09:45:22', '2023-06-01 10:20:35', 'mobile_app', 'mobile_8fh2k1'),
 (1, '2023-06-02 13:30:00', '2023-06-02 14:15:15', 'web_app', 'web_33lq1dh'),
 (1, '2023-06-06 14:19:00', '2023-06-06 14:22:10', 'web_app', 'web_33lq1dh'),
+(1, '2023-06-07 23:49:12', '2023-06-08 00:00:00', 'web_app', 'web_33lq1dh'),
 (2, '2023-06-02 08:55:08', '2023-06-02 09:45:42', 'mobile_app', 'mobile_yjp08q'),
 (2, '2023-06-07 10:09:15', '2023-06-07 10:12:25', 'mobile_app', 'mobile_1av8p0'),
 (3, '2023-06-01 13:15:33', '2023-06-01 13:28:01', 'web_app', 'web_k29qjd'),
@@ -284,4 +298,6 @@ VALUES
 (7, '2023-06-07', 250.00, 1000.00, 2, 'bcryptHash(zEnH0me&Pw7)', NULL, NULL, NULL, false, true, '2023-06-07 00:00:00'),
 (8, '2023-06-07', 200.00, 1000.00, 0, 'bcryptHash(K1dzPlay!&Rt8)', NULL, 'web_d8180kaf, mobile_q3mz8n', '8.26.53.165, 68.85.32.201', false, false, '2023-06-07 00:00:00'),
 (9, '2023-06-07', 150.00, 1000.00, 2, 'bcryptHash(Gl0wUp7!9zy)', NULL, 'mobile_g3mjfz', '203.96.81.36', true, true, '2023-06-07 00:00:00'),
-(10, '2023-06-07', 300.00, 2000.00, 1, 'bcryptHash(GamzRu1ez*&99!)', NULL, 'web_d8180kaf', '8.26.53.165', false, true, '2023-06-07 00:00:00');
+(10, '2023-06-07', 300.00, 2000.00, 1, 'bcryptHash(GamzRu1ez*&99!)', NULL, 'web_d8180kaf', '8.26.53.165', false, true, '2023-06-07 00:00:00'),
+(1, '2023-06-01', 500.00, 1000.00, 2, 'bcryptHash($2yz9!&ka1)', '9d61c49b-8977-4914-a36b-80d1445e38fa', 'mobile_8fh2k1', '192.168.0.1', false, true, '2023-06-01 06:00:00'),
+(2, '2023-06-01', 500.00, 2500.00, 1, 'bcryptHash(qpwo9874zyGk!)', NULL, 'mobile_yjp08q', '198.51.100.233, 70.121.39.25', true, false, '2023-06-01 09:00:00');
