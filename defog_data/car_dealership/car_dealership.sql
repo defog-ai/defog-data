@@ -150,7 +150,7 @@ VALUES
   (1, 7, 11, 28000.00, NOW() - INTERVAL '32 days'),
   (3, 3, 12, 43500.00, NOW() - INTERVAL '10 days'),
   (6, 1, 11, 24000.00, NOW() - INTERVAL '15 days'),
-  (2, 3, 1, 17200.00, NOW() - INTERVAL '30 days'),
+  (2, 3, 1, 17200.00, NOW() - INTERVAL '21 days'),
   (8, 6, 12, 37500.00, NOW() - INTERVAL '3 days'),
   (10, 4, 2, 26500.00, NOW() - INTERVAL '5 days'),
   (3, 2, 3, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '1 week') + INTERVAL '1 day'),
