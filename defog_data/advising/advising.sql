@@ -87,12 +87,6 @@ CREATE TABLE public.course_tags_count (
 );
 
 
-CREATE TABLE public.gsi (
-    course_offering_id bigint DEFAULT '0'::bigint NOT NULL,
-    student_id bigint NOT NULL
-);
-
-
 CREATE TABLE public.instructor (
     instructor_id bigint DEFAULT '0'::bigint NOT NULL,
     name text,
@@ -278,15 +272,3 @@ INSERT INTO public.student_record (student_id, course_id, semester, grade, how, 
 (3, 2, 1, 'B+', 'in-person', NULL, 'Yes', NULL, 1, 2),
 (3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, 1, 4)
 ;
-
-INSERT INTO public.gsi (course_offering_id, student_id) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(1, 2),
-(2, 2),
-(2, 3),
-(4, 3)
-;
-

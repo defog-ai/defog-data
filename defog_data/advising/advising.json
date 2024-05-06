@@ -1,17 +1,5 @@
 {
     "table_metadata": {
-        "gsi": [
-            {
-                "data_type": "bigint",
-                "column_name": "course_offering_id",
-                "column_description": "Unique identifier for a course offering"
-            },
-            {
-                "data_type": "bigint",
-                "column_name": "student_id",
-                "column_description": "Unique identifier for a student enrolled in a course offering"
-            }
-        ],
         "area": [
             {
                 "data_type": "bigint",

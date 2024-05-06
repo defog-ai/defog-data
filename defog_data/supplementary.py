@@ -287,9 +287,6 @@ columns_join = {
         ("course", "student_record"): [
             ("course.course_id", "student_record.course_id")
         ],
-        ("course_offering", "gsi"): [
-            ("course_offering.offering_id", "gsi.course_offering_id")
-        ],
         ("course_offering", "offering_instructor"): [
             ("course_offering.offering_id", "offering_instructor.offering_id")
         ],
