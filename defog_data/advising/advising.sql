@@ -258,7 +258,8 @@ INSERT INTO public.program_requirement (program_id, category, min_credit, additi
 INSERT INTO public.semester (semester_id, semester, year) VALUES
 (1, 'Fall', 2020),
 (2, 'Spring', 2021),
-(3, 'Summer', 2021)
+(3, 'Summer', 2021),
+(4, 'Fall', 2021)
 ;
 
 INSERT INTO public.student (student_id, lastname, firstname, program_id, declare_major, total_credit, total_gpa, entered_as, admit_term, predicted_graduation_semester, degree, minor, internship) VALUES
