@@ -251,9 +251,9 @@ INSERT INTO public.semester (semester_id, semester, year) VALUES
 ;
 
 INSERT INTO public.student (student_id, lastname, firstname, program_id, declare_major, total_credit, total_gpa, entered_as, admit_term, predicted_graduation_semester, degree, minor, internship) VALUES
-(1, 'Smith', 'John', 1, 'Computer Science', 120, 3.5, 'Freshman','2018-01-01', '2022-05-01', 'Bachelor of Science', NULL, NULL),
-(2, 'Doe', 'Jane', 1, 'Computer Science', 90, 3.2, 'Freshman', '2018-01-01', '2022-05-01', 'Bachelor of Science', NULL, NULL),
-(3, 'Johnson', 'David', 2, 'Mathematics', 100, 3.6, 'Freshman', '2019-01-01', '2022-05-01', 'Bachelor of Arts', 'Mathematics', NULL)
+(1, 'Smith', 'John', 1, 'Computer Science', 13, 3.5, 'Freshman','2018-01-01', '2022-05-01', 'Bachelor of Science', NULL, NULL),
+(2, 'Doe', 'Jane', 1, 'Computer Science', 7, 3.2, 'Freshman', '2018-01-01', '2022-05-01', 'Bachelor of Science', NULL, NULL),
+(3, 'Johnson', 'David', 2, 'Mathematics', 7, 3.6, 'Freshman', '2019-01-01', '2022-05-01', 'Bachelor of Arts', 'Mathematics', NULL)
 ;
 
 INSERT INTO public.student_record (student_id, course_id, semester, grade, how, transfer_source, earn_credit, repeat_term, test_id, offering_id) VALUES
@@ -267,5 +267,14 @@ INSERT INTO public.student_record (student_id, course_id, semester, grade, how, 
 (3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, 1, 4)
 ;
 
-
+INSERT INTO public.gsi (course_offering_id, student_id) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(1, 2),
+(2, 2),
+(2, 3),
+(4, 3)
+;
 
