@@ -62,7 +62,6 @@ class TestDB(unittest.TestCase):
         db_name = "advising"
         db_schema = get_db(db_name)["table_metadata"]
         expected_tables = [
-            "gsi",
             "area",
             "course",
             "program",
@@ -80,7 +79,7 @@ class TestDB(unittest.TestCase):
         ]
         self.assertEqual(list(db_schema.keys()), expected_tables)
         num_columns = sum([len(db_schema[table]) for table in db_schema])
-        self.assertEqual(num_columns, 111)
+        self.assertEqual(num_columns, 109)
 
     def test_atis(self):
         db_name = "atis"

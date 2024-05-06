@@ -87,12 +87,6 @@ CREATE TABLE public.course_tags_count (
 );
 
 
-CREATE TABLE public.gsi (
-    course_offering_id bigint DEFAULT '0'::bigint NOT NULL,
-    student_id bigint NOT NULL
-);
-
-
 CREATE TABLE public.instructor (
     instructor_id bigint DEFAULT '0'::bigint NOT NULL,
     name text,
@@ -192,7 +186,11 @@ INSERT INTO public.course_offering (offering_id, course_id, semester, section_nu
 (1, 1, 1, 1, '08:00:00', '10:00:00', 'John Smith', NULL, NULL, 'Jane Doe', NULL, NULL, NULL, true, false, 'Introduction to Computer Science', '123 Main St', true),
 (2, 2, 1, 1, '10:00:00', '12:00:00', NULL, NULL, 'Gilbert Strang', NULL, NULL, NULL, NULL, true, true, 'Advanced Calculus', '456 Elm St', false),
 (3, 3, 2, 1, '08:00:00', '10:00:00', 'John Smith', NULL, NULL, 'Jane Doe', NULL, NULL, NULL, false, true, 'Introduction to Physics', '789 Oak St', true),
-(4, 4, 2, 1, '16:00:00', '18:00:00', NULL, NULL, 'John Smith', 'Brendan Burns', NULL, NULL, NULL, false, true, 'Distributed Systems', '789 Oak St', true)
+(4, 4, 2, 1, '16:00:00', '18:00:00', NULL, NULL, 'John Smith', 'Brendan Burns', NULL, NULL, NULL, false, true, 'Distributed Systems', '789 Oak St', true),
+(5, 1, 3, 1, '08:00:00', '10:00:00', NULL, 'John Smith', 'Jane Doe', NULL, NULL, NULL, NULL, true, false, 'Introduction to Computer Science', '123 Main St', true),
+(6, 2, 3, 1, '10:00:00', '12:00:00', 'Gilbert Strang', NULL, NULL, NULL, NULL, NULL, NULL, true, true, 'Advanced Calculus', '456 Elm St', false),
+(7, 3, 4, 1, '14:00:00', '16:00:00', NULL, NULL, 'Jane Doe', NULL, 'John Smith', NULL, NULL, false, true, 'Introduction to Physics', '789 Oak St', true),
+(8, 4, 4, 1, '16:00:00', '18:00:00', NULL, NULL, 'John Smith', NULL, 'Brendan Burns', NULL, NULL, false, true, 'Distributed Systems', '789 Oak St', true)
 ;
 
 INSERT INTO public.course_prerequisite (pre_course_id, course_id) VALUES
@@ -217,12 +215,19 @@ INSERT INTO public.instructor (instructor_id, name, uniqname) VALUES
 
 INSERT INTO public.offering_instructor (offering_instructor_id, offering_id, instructor_id) VALUES
 (1, 1, 1),
-(2, 3, 1),
-(3, 4, 1),
-(4, 1, 2),
+(2, 1, 2),
+(3, 2, 3),
+(4, 3, 1),
 (5, 3, 2),
-(6, 2, 3),
-(7, 4, 4)
+(6, 4, 1),
+(7, 4, 4),
+(8, 5, 1),
+(9, 5, 2),
+(10, 6, 3),
+(11, 7, 2),
+(12, 7, 1),
+(13, 8, 1),
+(14, 8, 4)
 ;
 
 INSERT INTO public.program (program_id, name, college, introduction) VALUES
@@ -247,7 +252,8 @@ INSERT INTO public.program_requirement (program_id, category, min_credit, additi
 INSERT INTO public.semester (semester_id, semester, year) VALUES
 (1, 'Fall', 2020),
 (2, 'Spring', 2021),
-(3, 'Summer', 2021)
+(3, 'Summer', 2021),
+(4, 'Fall', 2021)
 ;
 
 INSERT INTO public.student (student_id, lastname, firstname, program_id, declare_major, total_credit, total_gpa, entered_as, admit_term, predicted_graduation_semester, degree, minor, internship) VALUES
@@ -266,15 +272,3 @@ INSERT INTO public.student_record (student_id, course_id, semester, grade, how, 
 (3, 2, 1, 'B+', 'in-person', NULL, 'Yes', NULL, 1, 2),
 (3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, 1, 4)
 ;
-
-INSERT INTO public.gsi (course_offering_id, student_id) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(1, 2),
-(2, 2),
-(2, 3),
-(4, 3)
-;
-
