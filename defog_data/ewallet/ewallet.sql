@@ -284,7 +284,15 @@ VALUES
 (8, '2023-06-04 19:25:15', '2023-06-04 19:40:20', 'web_app', 'web_d8180kaf'),
 (8, '2023-06-01 17:30:00', '2023-06-01 18:15:35', 'mobile_app', 'mobile_q3mz8n'),
 (9, '2023-06-04 07:45:30', '2023-06-04 08:15:27', 'mobile_app', 'mobile_g3mjfz'),
-(10, '2023-06-02 14:10:15', '2023-06-02 14:40:58', 'web_app', 'web_zz91p44l');
+(10, '2023-06-02 14:10:15', '2023-06-02 14:40:58', 'web_app', 'web_zz91p44l'),
+(5, CURRENT_DATE - INTERVAL '31 days', CURRENT_DATE - INTERVAL '31 days' + INTERVAL '15 min', 'web_app', 'web_8902wknz'),
+(6, CURRENT_DATE - INTERVAL '8 days', CURRENT_DATE - INTERVAL '8 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
+(7, CURRENT_DATE - INTERVAL '5 days', CURRENT_DATE - INTERVAL '5 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
+(8, CURRENT_DATE - INTERVAL '3 days', CURRENT_DATE - INTERVAL '3 days' + INTERVAL '15 min', 'web_app', 'web_d8180kaf'),
+(9, CURRENT_DATE - INTERVAL '1 days', CURRENT_DATE - INTERVAL '1 days' + INTERVAL '15 min', 'mobile_app', 'mobile_g3mjfz'),
+(10, CURRENT_DATE - INTERVAL '2 days', CURRENT_DATE - INTERVAL '2 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
+(5, CURRENT_DATE - INTERVAL '2 days', CURRENT_DATE - INTERVAL '2 days' + INTERVAL '15 min', 'web_app', 'web_8902wknz')
+;
 
 -- user_setting_snapshot
 INSERT INTO consumer_div.user_setting_snapshot (user_id, snapshot_date, tx_limit_daily, tx_limit_monthly, membership_status, password_hash, api_key, verified_devices, verified_ips, mfa_enabled, marketing_opt_in, created_at)
