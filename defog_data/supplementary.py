@@ -228,6 +228,19 @@ columns_ner = {
             "journal.journalname,text,Name or title of the journal",
         ],
     },
+    "broker": {
+        "GPE": []
+    },
+    "car_dealership": {
+        "GPE": []
+    },
+    "derm_treatment": {
+        "GPE": []
+    },
+    "ewallet": {
+        "GPE": []
+
+    },
 }
 
 # (pair of tables): list of (column1, column2) tuples that can be joined
@@ -532,4 +545,8 @@ columns_join = {
             ("paperkeyphrase.paperid", "writes.paperid"),
         ],
     },
+    "broker": {},
+    "car_dealership": {},
+    "derm_treatment": {},
+    "ewallet": {},
 }
