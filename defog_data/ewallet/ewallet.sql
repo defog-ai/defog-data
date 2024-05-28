@@ -129,8 +129,8 @@ CREATE TABLE consumer_div.user_setting_snapshot (
 -- users
 INSERT INTO consumer_div.users (uid, username, email, phone_number, created_at, user_type, status, country, address_billing, address_delivery, kyc_status) 
 VALUES 
-  (1, 'john_doe', 'john.doe@email.com', '+1234567890', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '1 month', 'individual', 'active', 'US', '123 Main St, Anytown US 12345', '123 Main St, Anytown US 12345', 'approved'),
-  (2, 'jane_smith', 'jane.smith@email.com', '+9876543210', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '2 months', 'individual', 'active', 'CA', '456 Oak Rd, Toronto ON M1M2M2', '456 Oak Rd, Toronto ON M1M2M2', 'approved'), 
+  (1, 'john_doe', 'john.doe@email.com', '+1234567890', DATE_TRUNC('month', CURRENT_TIMESTAMP) - INTERVAL '1 month', 'individual', 'active', 'US', '123 Main St, Anytown US 12345', '123 Main St, Anytown US 12345', 'approved'),
+  (2, 'jane_smith', 'jane.smith@email.com', '+9876543210', DATE_TRUNC('month', CURRENT_TIMESTAMP) - INTERVAL '2 months', 'individual', 'active', 'CA', '456 Oak Rd, Toronto ON M1M2M2', '456 Oak Rd, Toronto ON M1M2M2', 'approved'), 
   (3, 'bizuser', 'contact@business.co', '+1234509876', '2021-06-01 09:15:00', 'business', 'active', 'FR', '12 Rue Baptiste, Paris 75001', NULL, 'approved'),
   (4, 'david_miller', 'dave@personal.email', '+4477788899', '2023-03-20 18:45:00', 'individual', 'inactive', 'GB', '25 London Road, Manchester M12 4XY', '25 London Road, Manchester M12 4XY', 'pending'),
   (5, 'emily_wilson', 'emily.w@gmail.com', '+8091017161', '2021-11-03 22:10:00', 'individual', 'suspended', 'AU', '72 Collins St, Melbourne VIC 3000', '19 Smith St, Brunswick VIC 3056', 'rejected'),
@@ -261,10 +261,10 @@ VALUES
 (8, 'Playtime! New games and toys have arrived', 'promotion', 'archived', '2023-06-01 18:00:00', 'email', NULL, 'https://kidzplayhouse.com/new-arrivals'),
 (9, 'Here''s $10 to start your glow up!', 'promotion', 'unread', '2023-06-01 10:15:00', 'email', NULL, 'https://beautytrending.com/new-customer'),
 (10, 'Your order #ord_mjs337 is being processed', 'transaction', 'read', '2023-06-04 19:31:30', 'web_app', 'web_d8180kaf', 'https://gamerush.co/orders/32e2b29c'),
-(1, 'New promotion: Get 10% off your next order!', 'promotion', 'unread', DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week', 'email', NULL, 'https://techmart.com/promo/TECH10'),
-(1, 'Your order #456def has been delivered', 'transaction', 'unread', DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '2 weeks', 'mobile_app', 'mobile_8fh2k1', 'app://orders/456def'),  
-(2, 'Reminder: Your FitLife membership expires in 7 days', 'general', 'unread', DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '3 weeks', 'email', NULL, 'https://fitlifegear.com/renew'),
-(2, 'Weekend Flash Sale: 25% off all activewear!', 'promotion', 'unread', DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' + INTERVAL '2 days', 'mobile_app', 'mobile_yjp08q', 'app://shop/activewear');
+(1, 'New promotion: Get 10% off your next order!', 'promotion', 'unread', DATE_TRUNC('week', CURRENT_TIMESTAMP) - INTERVAL '1 week', 'email', NULL, 'https://techmart.com/promo/TECH10'),
+(1, 'Your order #456def has been delivered', 'transaction', 'unread', DATE_TRUNC('week', CURRENT_TIMESTAMP) - INTERVAL '2 weeks', 'mobile_app', 'mobile_8fh2k1', 'app://orders/456def'),  
+(2, 'Reminder: Your FitLife membership expires in 7 days', 'general', 'unread', DATE_TRUNC('week', CURRENT_TIMESTAMP) - INTERVAL '3 weeks', 'email', NULL, 'https://fitlifegear.com/renew'),
+(2, 'Weekend Flash Sale: 25% off all activewear!', 'promotion', 'unread', DATE_TRUNC('week', CURRENT_TIMESTAMP) - INTERVAL '1 week' + INTERVAL '2 days', 'mobile_app', 'mobile_yjp08q', 'app://shop/activewear');
 
 -- user_sessions
 INSERT INTO consumer_div.user_sessions (user_id, session_start_ts, session_end_ts, device_type, device_id)
@@ -285,13 +285,13 @@ VALUES
 (8, '2023-06-01 17:30:00', '2023-06-01 18:15:35', 'mobile_app', 'mobile_q3mz8n'),
 (9, '2023-06-04 07:45:30', '2023-06-04 08:15:27', 'mobile_app', 'mobile_g3mjfz'),
 (10, '2023-06-02 14:10:15', '2023-06-02 14:40:58', 'web_app', 'web_zz91p44l'),
-(5, CURRENT_DATE - INTERVAL '31 days', CURRENT_DATE - INTERVAL '31 days' + INTERVAL '15 min', 'web_app', 'web_8902wknz'),
-(6, CURRENT_DATE - INTERVAL '8 days', CURRENT_DATE - INTERVAL '8 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
-(7, CURRENT_DATE - INTERVAL '5 days', CURRENT_DATE - INTERVAL '5 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
-(8, CURRENT_DATE - INTERVAL '3 days', CURRENT_DATE - INTERVAL '3 days' + INTERVAL '15 min', 'web_app', 'web_d8180kaf'),
-(9, CURRENT_DATE - INTERVAL '1 days', CURRENT_DATE - INTERVAL '1 days' + INTERVAL '15 min', 'mobile_app', 'mobile_g3mjfz'),
-(10, CURRENT_DATE - INTERVAL '2 days', CURRENT_DATE - INTERVAL '2 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
-(5, CURRENT_DATE - INTERVAL '2 days', CURRENT_DATE - INTERVAL '2 days' + INTERVAL '15 min', 'web_app', 'web_8902wknz')
+(5, CURRENT_TIMESTAMP - INTERVAL '31 days', CURRENT_TIMESTAMP - INTERVAL '31 days' + INTERVAL '15 min', 'web_app', 'web_8902wknz'),
+(6, CURRENT_TIMESTAMP - INTERVAL '8 days', CURRENT_TIMESTAMP - INTERVAL '8 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
+(7, CURRENT_TIMESTAMP - INTERVAL '5 days', CURRENT_TIMESTAMP - INTERVAL '5 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
+(8, CURRENT_TIMESTAMP - INTERVAL '3 days', CURRENT_TIMESTAMP - INTERVAL '3 days' + INTERVAL '15 min', 'web_app', 'web_d8180kaf'),
+(9, CURRENT_TIMESTAMP - INTERVAL '1 days', CURRENT_TIMESTAMP - INTERVAL '1 days' + INTERVAL '15 min', 'mobile_app', 'mobile_g3mjfz'),
+(10, CURRENT_TIMESTAMP - INTERVAL '2 days', CURRENT_TIMESTAMP - INTERVAL '2 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
+(5, CURRENT_TIMESTAMP - INTERVAL '2 days', CURRENT_TIMESTAMP - INTERVAL '2 days' + INTERVAL '15 min', 'web_app', 'web_8902wknz')
 ;
 
 -- user_setting_snapshot

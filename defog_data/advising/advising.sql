@@ -52,7 +52,7 @@ CREATE TABLE public.course_offering (
     has_final_exam boolean,
     textbook text,
     class_address text,
-    allow_audit text DEFAULT 'n'::text
+    allow_audit text DEFAULT 'false'::text
 );
 
 
@@ -176,21 +176,21 @@ INSERT INTO public.comment_instructor (instructor_id, student_id, score, comment
 ;
 
 INSERT INTO public.course (course_id, name, department, number, credits, advisory_requirement, enforced_requirement, description, num_semesters, num_enrolled, has_discussion, has_lab, has_projects, has_exams, num_reviews, clarity_score, easiness_score, helpfulness_score) VALUES
-(1, 'Introduction to Computer Science', 'Computer Science', 'CS101', 3, NULL, NULL, 'This course introduces the basics of computer science.', 2, 2, true, false, true, false, 10, 5, 3, 4),
-(2, 'Advanced Calculus', 'Mathematics', 'MATH201', 4, 'CS101', NULL, 'This course covers advanced topics in calculus.', 1, 3, false, false, true, true, 5, 4, 2, 3),
-(3, 'Introduction to Physics', 'Physics', 'PHYS101', 3, NULL, 'MATH201', 'This course provides an introduction to physics principles.', 2, 1, true, true, true, true, 8, 4, 3, 5),
-(4, 'Distributed Databases', 'Computer Science', 'CS302', 3, NULL, 'CS101', 'This course provides an introduction to distributed databases.', 2, 2, true, true, false, true, 4, 2, 1, 5)
+(1, 'Introduction to Computer Science', 'Computer Science', 'CS101', '3', NULL, NULL, 'This course introduces the basics of computer science.', 2, 2, true, false, true, false, 10, 5, 3, 4),
+(2, 'Advanced Calculus', 'Mathematics', 'MATH201', '4', 'CS101', NULL, 'This course covers advanced topics in calculus.', 1, 3, false, false, true, true, 5, 4, 2, 3),
+(3, 'Introduction to Physics', 'Physics', 'PHYS101', '3', NULL, 'MATH201', 'This course provides an introduction to physics principles.', 2, 1, true, true, true, true, 8, 4, 3, 5),
+(4, 'Distributed Databases', 'Computer Science', 'CS302', '3', NULL, 'CS101', 'This course provides an introduction to distributed databases.', 2, 2, true, true, false, true, 4, 2, 1, 5)
 ;
 
 INSERT INTO public.course_offering (offering_id, course_id, semester, section_number, start_time, end_time, monday, tuesday, wednesday, thursday, friday, saturday, sunday, has_final_project, has_final_exam, textbook, class_address, allow_audit) VALUES
-(1, 1, 1, 1, '08:00:00', '10:00:00', 'John Smith', NULL, NULL, 'Jane Doe', NULL, NULL, NULL, true, false, 'Introduction to Computer Science', '123 Main St', true),
-(2, 2, 1, 1, '10:00:00', '12:00:00', NULL, NULL, 'Gilbert Strang', NULL, NULL, NULL, NULL, true, true, 'Advanced Calculus', '456 Elm St', false),
-(3, 3, 2, 1, '08:00:00', '10:00:00', 'John Smith', NULL, NULL, 'Jane Doe', NULL, NULL, NULL, false, true, 'Introduction to Physics', '789 Oak St', true),
-(4, 4, 2, 1, '16:00:00', '18:00:00', NULL, NULL, 'John Smith', 'Brendan Burns', NULL, NULL, NULL, false, true, 'Distributed Systems', '789 Oak St', true),
-(5, 1, 3, 1, '08:00:00', '10:00:00', NULL, 'John Smith', 'Jane Doe', NULL, NULL, NULL, NULL, true, false, 'Introduction to Computer Science', '123 Main St', true),
-(6, 2, 3, 1, '10:00:00', '12:00:00', 'Gilbert Strang', NULL, NULL, NULL, NULL, NULL, NULL, true, true, 'Advanced Calculus', '456 Elm St', false),
-(7, 3, 4, 1, '14:00:00', '16:00:00', NULL, NULL, 'Jane Doe', NULL, 'John Smith', NULL, NULL, false, true, 'Introduction to Physics', '789 Oak St', true),
-(8, 4, 4, 1, '16:00:00', '18:00:00', NULL, NULL, 'John Smith', NULL, 'Brendan Burns', NULL, NULL, false, true, 'Distributed Systems', '789 Oak St', true)
+(1, 1, 1, 1, '08:00:00', '10:00:00', 'John Smith', NULL, NULL, 'Jane Doe', NULL, NULL, NULL, true, false, 'Introduction to Computer Science', '123 Main St', 'true'),
+(2, 2, 1, 1, '10:00:00', '12:00:00', NULL, NULL, 'Gilbert Strang', NULL, NULL, NULL, NULL, true, true, 'Advanced Calculus', '456 Elm St', 'false'),
+(3, 3, 2, 1, '08:00:00', '10:00:00', 'John Smith', NULL, NULL, 'Jane Doe', NULL, NULL, NULL, false, true, 'Introduction to Physics', '789 Oak St', 'true'),
+(4, 4, 2, 1, '16:00:00', '18:00:00', NULL, NULL, 'John Smith', 'Brendan Burns', NULL, NULL, NULL, false, true, 'Distributed Systems', '789 Oak St', 'true'),
+(5, 1, 3, 1, '08:00:00', '10:00:00', NULL, 'John Smith', 'Jane Doe', NULL, NULL, NULL, NULL, true, false, 'Introduction to Computer Science', '123 Main St', 'true'),
+(6, 2, 3, 1, '10:00:00', '12:00:00', 'Gilbert Strang', NULL, NULL, NULL, NULL, NULL, NULL, true, true, 'Advanced Calculus', '456 Elm St', 'false'),
+(7, 3, 4, 1, '14:00:00', '16:00:00', NULL, NULL, 'Jane Doe', NULL, 'John Smith', NULL, NULL, false, true, 'Introduction to Physics', '789 Oak St', 'true'),
+(8, 4, 4, 1, '16:00:00', '18:00:00', NULL, NULL, 'John Smith', NULL, 'Brendan Burns', NULL, NULL, false, true, 'Distributed Systems', '789 Oak St', 'true')
 ;
 
 INSERT INTO public.course_prerequisite (pre_course_id, course_id) VALUES
@@ -263,12 +263,12 @@ INSERT INTO public.student (student_id, lastname, firstname, program_id, declare
 ;
 
 INSERT INTO public.student_record (student_id, course_id, semester, grade, how, transfer_source, earn_credit, repeat_term, test_id, offering_id) VALUES
-(1, 1, 1, 'A', 'in-person', NULL, 'Yes', NULL, 1, 1),
-(1, 2, 1, 'A', 'in-person', NULL, 'Yes', NULL, 1, 2),
-(1, 3, 2, 'A', 'in-person', NULL, 'Yes', NULL, 1, 3),
-(1, 4, 2, 'A', 'in-person', NULL, 'Yes', NULL, 1, 4),
-(2, 2, 1, 'C', 'in-person', NULL, 'Yes', NULL, 1, 2),
-(2, 1, 1, 'B', 'online', NULL, 'Yes', NULL, 1, 1),
-(3, 2, 1, 'B+', 'in-person', NULL, 'Yes', NULL, 1, 2),
-(3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, 1, 4)
+(1, 1, 1, 'A', 'in-person', NULL, 'Yes', NULL, '1', 1),
+(1, 2, 1, 'A', 'in-person', NULL, 'Yes', NULL, '1', 2),
+(1, 3, 2, 'A', 'in-person', NULL, 'Yes', NULL, '1', 3),
+(1, 4, 2, 'A', 'in-person', NULL, 'Yes', NULL, '1', 4),
+(2, 2, 1, 'C', 'in-person', NULL, 'Yes', NULL, '1', 2),
+(2, 1, 1, 'B', 'online', NULL, 'Yes', NULL, '1', 1),
+(3, 2, 1, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 2),
+(3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 4)
 ;

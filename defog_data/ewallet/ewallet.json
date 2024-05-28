@@ -364,7 +364,7 @@
           "column_description": ""
         },
         {
-          "data_type": "INT",
+          "data_type": "BIGINT",
           "column_name": "user_id",
           "column_description": ""
         },
