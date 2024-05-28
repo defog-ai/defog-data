@@ -16,13 +16,22 @@ export DBPORT=5432
 ```
 
 #### Snowflake
-To setup the data in snowflake, you would need to have the snowflake cli installed ([instructions](https://docs.snowflake.com/en/user-guide/snowsql-install-config)), and have your credentials configured as per the [docs](https://docs.snowflake.com/en/user-guide/snowsql-config). You can then run the following command to setup the data:
+To set up the data in snowflake, you would need to have the snowflake cli installed ([instructions](https://docs.snowflake.com/en/user-guide/snowsql-install-config)), and have your credentials configured as per the [docs](https://docs.snowflake.com/en/user-guide/snowsql-config). You can then run the following command to setup the data:
 ```sh
 ./setup_snowflake.sh
 ```
 This will create 1 database per database in the repo as before, using `public` as the default schema.
 
 Note that the same sql files work for both the postgres and snowflake databases, so you can use the same sql files to setup both databases.
+
+#### BigQuery, MySQL, SQLite, SQL Server
+To set up the data in these systems, you would need your credentials to be configured in `utils_dialects`. You can then run the following command to set up the databases:
+```
+python translate_ddl_dialect.py
+```
+This will create one new SQL file per database per dialect.
+For SQLite, the `.db` files will be saved in the folder `sqlite_dbs`.
+Note that BigQuery, MySQL and SQLite do not support schemas and hence the SQL files will be modified to skip schema creation.
 
 ### Python Library
 

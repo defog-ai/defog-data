@@ -3,7 +3,7 @@ set -e
 # get arguments
 # if there are no arguments, set them to a default list
 if [ $# -eq 0 ]; then
-    set -- academic advising atis geography restaurants scholar yelp
+    set -- academic advising atis geography restaurants scholar yelp broker car_dealership derm_treatment ewallet
 fi
 echo "Databases to init: $@"
 
