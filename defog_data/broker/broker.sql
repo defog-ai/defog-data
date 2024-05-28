@@ -73,12 +73,12 @@ INSERT INTO sbCustomer (sbCustId, sbCustName, sbCustEmail, sbCustPhone, sbCustAd
 ('C012', 'Olivia Johnson', 'olivia.johnson@email.com', '555-987-6543', '321 Elm St', 'Newtown', 'NJ', 'USA', '08801', '2023-01-05', 'active'),
 ('C013', 'Ethan Davis', 'ethan.davis@email.com', '555-246-8135', '654 Oak Ave', 'Someville', 'NY', 'USA', '10002', '2023-02-12', 'active'),
 ('C014', 'Ava Wilson', 'ava.wilson@email.com', '555-135-7902', '987 Pine Rd', 'Anytown', 'CA', 'USA', '90001', '2023-03-20', 'active'),
-('C015', 'Emma Brown', 'emma.brown@email.com', '555-987-6543', '789 Oak St', 'Newtown', 'NJ', 'USA', '08801', DATE_TRUNC('month', NOW()) - INTERVAL '5 months', 'active'),
-('C016', 'sophia martinez', 'sophia.martinez@email.com', '555-246-8135', '159 Elm Ave', 'Anytown', 'CA', 'USA', '90001', DATE_TRUNC('month', NOW()) - INTERVAL '4 months', 'active'),
-('C017', 'Jacob Taylor', 'jacob.taylor@email.com', '555-135-7902', '753 Pine Rd', 'Someville', 'NY', 'USA', '10002', DATE_TRUNC('month', NOW()) - INTERVAL '3 months', 'active'),
-('C018', 'Michael Anderson', 'michael.anderson@email.com', '555-864-2319', '321 Cedar Ln', 'Yourtown', 'CA', 'USA', '92101', DATE_TRUNC('month', NOW()) - INTERVAL '2 months', 'active'),
-('C019', 'Isabella Thompson', 'isabella.thompson@email.com', '555-753-1904', '987 Maple Dr', 'Anothertown', 'FL', 'USA', '33101', DATE_TRUNC('month', NOW()) - INTERVAL '1 month', 'active'),
-('C020', 'Maurice Lee', 'maurice.lee@email.com', '555-370-2648', '654 Oak St', 'Mytown', 'TX', 'USA', '75000', DATE_TRUNC('month', NOW()), 'active');
+('C015', 'Emma Brown', 'emma.brown@email.com', '555-987-6543', '789 Oak St', 'Newtown', 'NJ', 'USA', '08801', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '5 months', 'active'),
+('C016', 'sophia martinez', 'sophia.martinez@email.com', '555-246-8135', '159 Elm Ave', 'Anytown', 'CA', 'USA', '90001', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '4 months', 'active'),
+('C017', 'Jacob Taylor', 'jacob.taylor@email.com', '555-135-7902', '753 Pine Rd', 'Someville', 'NY', 'USA', '10002', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '3 months', 'active'),
+('C018', 'Michael Anderson', 'michael.anderson@email.com', '555-864-2319', '321 Cedar Ln', 'Yourtown', 'CA', 'USA', '92101', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '2 months', 'active'),
+('C019', 'Isabella Thompson', 'isabella.thompson@email.com', '555-753-1904', '987 Maple Dr', 'Anothertown', 'FL', 'USA', '33101', DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '1 month', 'active'),
+('C020', 'Maurice Lee', 'maurice.lee@email.com', '555-370-2648', '654 Oak St', 'Mytown', 'TX', 'USA', '75000', DATE_TRUNC('month', CURRENT_DATE), 'active');
 
 
 -- sbTicker  

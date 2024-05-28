@@ -103,18 +103,18 @@ VALUES
 -- salespersons
 INSERT INTO salespersons (first_name, last_name, email, phone, hire_date)
 VALUES
-  ('John', 'Doe', 'john.doe@autonation.com', '(555)-123-4567', NOW() - INTERVAL '2 years'),
-  ('Jane', 'Smith', 'jane.smith@autonation.com', '(415)-987-6543', NOW() - INTERVAL '3 years'),
-  ('Michael', 'Johnson', 'michael.johnson@autonation.com', '(555)-456-7890', NOW() - INTERVAL '1 year'),
-  ('Emily', 'Brown', 'emily.brown@sonicauto.com', '(444)-111-2222', NOW() - INTERVAL '1 year'),
-  ('David', 'Wilson', 'david.wilson@sonicauto.com', '(444)-333-4444', NOW() - INTERVAL '2 years'),
+  ('John', 'Doe', 'john.doe@autonation.com', '(555)-123-4567', CURRENT_DATE - INTERVAL '2 years'),
+  ('Jane', 'Smith', 'jane.smith@autonation.com', '(415)-987-6543', CURRENT_DATE - INTERVAL '3 years'),
+  ('Michael', 'Johnson', 'michael.johnson@autonation.com', '(555)-456-7890', CURRENT_DATE - INTERVAL '1 year'),
+  ('Emily', 'Brown', 'emily.brown@sonicauto.com', '(444)-111-2222', CURRENT_DATE - INTERVAL '1 year'),
+  ('David', 'Wilson', 'david.wilson@sonicauto.com', '(444)-333-4444', CURRENT_DATE - INTERVAL '2 years'),
   ('Sarah', 'Taylor', 'sarah.taylor@sonicauto.com', '(123)-555-6666', '2018-09-01'),
   ('Daniel', 'Anderson', 'daniel.anderson@sonicauto.com', '(555)-777-8888', '2021-07-12'),
   ('Olivia', 'Thomas', 'olivia.thomas@pensake.com', '(333)-415-0000', '2023-01-25'),
   ('James', 'Jackson', 'james.jackson@pensake.com', '(555)-212-3333', '2019-04-30'),
   ('Sophia', 'White', 'sophia.white@pensake.com', '(555)-444-5555', '2022-08-18'),
-  ('Robert', 'Johnson', 'robert.johnson@pensake.com', '(001)-415-5678', NOW() - INTERVAL '15 days'),
-  ('Jennifer', 'Davis', 'jennifer.davis@directauto.com', '(555)-345-6789', NOW() - INTERVAL '20 days'),
+  ('Robert', 'Johnson', 'robert.johnson@pensake.com', '(001)-415-5678', CURRENT_DATE - INTERVAL '15 days'),
+  ('Jennifer', 'Davis', 'jennifer.davis@directauto.com', '(555)-345-6789', CURRENT_DATE - INTERVAL '20 days'),
   ('Jessica', 'Rodriguez', 'jessica.rodriguez@directauto.com', '(555)-789-0123', '2022-06-01');
 
 -- customers
@@ -147,18 +147,18 @@ VALUES
   (7, 2, 10, 60000.00, '2023-04-10'),
   (4, 6, 8, 40000.00, '2023-04-12'),
   (9, 2, 4, 44500.00, '2023-04-15'),
-  (1, 7, 11, 28000.00, NOW() - INTERVAL '32 days'),
-  (3, 3, 12, 43500.00, NOW() - INTERVAL '10 days'),
-  (6, 1, 11, 24000.00, NOW() - INTERVAL '15 days'),
-  (2, 3, 1, 17200.00, NOW() - INTERVAL '21 days'),
-  (8, 6, 12, 37500.00, NOW() - INTERVAL '3 days'),
-  (10, 4, 2, 26500.00, NOW() - INTERVAL '5 days'),
-  (3, 2, 3, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '1 week') + INTERVAL '1 day'),
-  (3, 2, 7, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '1 week')),
-  (3, 2, 10, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '1 week') - INTERVAL '1 day'),
-  (4, 1, 3, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '8 week') + INTERVAL '1 day'),
-  (4, 1, 7, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '8 week')),
-  (4, 1, 10, 115000.00, DATE_TRUNC('week', NOW() - INTERVAL '8 week') - INTERVAL '1 day');
+  (1, 7, 11, 28000.00, CURRENT_DATE - INTERVAL '32 days'),
+  (3, 3, 12, 43500.00, CURRENT_DATE - INTERVAL '10 days'),
+  (6, 1, 11, 24000.00, CURRENT_DATE - INTERVAL '15 days'),
+  (2, 3, 1, 17200.00, CURRENT_DATE - INTERVAL '21 days'),
+  (8, 6, 12, 37500.00, CURRENT_DATE - INTERVAL '3 days'),
+  (10, 4, 2, 26500.00, CURRENT_DATE - INTERVAL '5 days'),
+  (3, 2, 3, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' + INTERVAL '1 day'),
+  (3, 2, 7, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week'),
+  (3, 2, 10, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' - INTERVAL '1 day'),
+  (4, 1, 3, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week' + INTERVAL '1 day'),
+  (4, 1, 7, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week'),
+  (4, 1, 10, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week' - INTERVAL '1 day');
 
 
 -- inventory_snapshots
@@ -199,18 +199,18 @@ VALUES
   (8, '2023-04-10', 60000.00, 'financing'),
   (9, '2023-04-12', 40000.00, 'check'),
   (10, '2023-04-15', 44500.00, 'credit_card'),
-  (11, NOW() - INTERVAL '30 days', 28000.00, 'cash'),
-  (12, NOW() - INTERVAL '3 days', 43500.00, 'credit_card'),
-  (13, NOW() - INTERVAL '6 days', 24000.00, 'debit_card'),
-  (14, NOW() - INTERVAL '1 days', 17200.00, 'financing'),
-  (15, NOW() - INTERVAL '1 days', 37500.00, 'credit_card'),
-  (16, NOW() - INTERVAL '5 days', 26500.00, 'debit_card'),
-  (17, DATE_TRUNC('week', NOW() - INTERVAL '1 week') + INTERVAL '1 day', 115000.00, 'financing'),
-  (18, DATE_TRUNC('week', NOW() - INTERVAL '1 week'), 115000.00, 'credit_card'),
-  (19, DATE_TRUNC('week', NOW() - INTERVAL '1 week') - INTERVAL '1 day', 115000.00, 'debit_card'),
-  (20, DATE_TRUNC('week', NOW() - INTERVAL '8 week') + INTERVAL '1 day', 115000.00, 'cash'),
-  (21, DATE_TRUNC('week', NOW() - INTERVAL '8 week'), 115000.00, 'check'),
-  (22, DATE_TRUNC('week', NOW() - INTERVAL '8 week') - INTERVAL '1 day', 115000.00, 'credit_card');
+  (11, CURRENT_DATE - INTERVAL '30 days', 28000.00, 'cash'),
+  (12, CURRENT_DATE - INTERVAL '3 days', 43500.00, 'credit_card'),
+  (13, CURRENT_DATE - INTERVAL '6 days', 24000.00, 'debit_card'),
+  (14, CURRENT_DATE - INTERVAL '1 days', 17200.00, 'financing'),
+  (15, CURRENT_DATE - INTERVAL '1 days', 37500.00, 'credit_card'),
+  (16, CURRENT_DATE - INTERVAL '5 days', 26500.00, 'debit_card'),
+  (17, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' + INTERVAL '1 day', 115000.00, 'financing'),
+  (18, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week', 115000.00, 'credit_card'),
+  (19, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' - INTERVAL '1 day', 115000.00, 'debit_card'),
+  (20, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week' + INTERVAL '1 day', 115000.00, 'cash'),
+  (21, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week', 115000.00, 'check'),
+  (22, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week' - INTERVAL '1 day', 115000.00, 'credit_card');
 
 -- payments_made
 INSERT INTO payments_made (vendor_name, payment_date, payment_amount, payment_method, invoice_number, invoice_date, due_date)
@@ -227,8 +227,8 @@ VALUES
   ('Marketing Agency', '2023-04-20', 15000.00, 'credit_card', 'INV-010', '2023-04-15', '2023-05-15'),
   ('Insurance Provider', '2023-04-25', 5000.00, 'bank_transfer', 'INV-011', '2023-04-20', '2023-05-20'),
   ('Cleaning Service', '2023-04-30', 2000.00, 'check', 'INV-012', '2023-04-25', '2023-05-25'),
-  ('Toyota Auto Parts', NOW() - INTERVAL '5 days', 12500.00, 'bank_transfer', 'INV-013', NOW() - INTERVAL '10 days', NOW() + INTERVAL '20 days'),
-  ('Honda Manufacturing', NOW() - INTERVAL '3 days', 18000.00, 'check', 'INV-014', NOW() - INTERVAL '8 days', NOW() + INTERVAL '22 days'),
-  ('Ford Supplier Co', NOW() - INTERVAL '2 days', 22000.00, 'bank_transfer', 'INV-015', NOW() - INTERVAL '7 days', NOW() + INTERVAL '23 days'),
-  ('Tesla Parts Inc', NOW() - INTERVAL '1 day', 15000.00, 'credit_card', 'INV-016', NOW() - INTERVAL '6 days', NOW() + INTERVAL '24 days'),
-  ('Chevrolet Auto', NOW(), 20000.00, 'bank_transfer', 'INV-017', NOW() - INTERVAL '5 days', NOW() + INTERVAL '25 days');
+  ('Toyota Auto Parts', CURRENT_DATE - INTERVAL '5 days', 12500.00, 'bank_transfer', 'INV-013', CURRENT_DATE - INTERVAL '10 days', CURRENT_DATE + INTERVAL '20 days'),
+  ('Honda Manufacturing', CURRENT_DATE - INTERVAL '3 days', 18000.00, 'check', 'INV-014', CURRENT_DATE - INTERVAL '8 days', CURRENT_DATE + INTERVAL '22 days'),
+  ('Ford Supplier Co', CURRENT_DATE - INTERVAL '2 days', 22000.00, 'bank_transfer', 'INV-015', CURRENT_DATE - INTERVAL '7 days', CURRENT_DATE + INTERVAL '23 days'),
+  ('Tesla Parts Inc', CURRENT_DATE - INTERVAL '1 day', 15000.00, 'credit_card', 'INV-016', CURRENT_DATE - INTERVAL '6 days', CURRENT_DATE + INTERVAL '24 days'),
+  ('Chevrolet Auto', CURRENT_DATE, 20000.00, 'bank_transfer', 'INV-017', CURRENT_DATE - INTERVAL '5 days', CURRENT_DATE + INTERVAL '25 days');

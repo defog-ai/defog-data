@@ -327,13 +327,13 @@ INSERT INTO public.compartment_class (compartment, class_type) VALUES
 ;
 
 INSERT INTO public.days (days_code, day_name) VALUES
-(1, 'Monday'),
-(2, 'Tuesday'),
-(3, 'Wednesday'),
-(4, 'Thursday'),
-(5, 'Friday'),
-(6, 'Saturday'),
-(7, 'Sunday')
+('1', 'Monday'),
+('2', 'Tuesday'),
+('3', 'Wednesday'),
+('4', 'Thursday'),
+('5', 'Friday'),
+('6', 'Saturday'),
+('7', 'Sunday')
 ;
 
 INSERT INTO public.dual_carrier (main_airline, low_flight_number, high_flight_number, dual_airline, service_name) VALUES
@@ -350,16 +350,16 @@ INSERT INTO public.dual_carrier (main_airline, low_flight_number, high_flight_nu
 ;
 
 INSERT INTO public.equipment_sequence (aircraft_code_sequence, aircraft_code) VALUES
-(1, 'B747'),
-(2, 'A320'),
-(3, 'B737'),
-(4, 'A380'),
-(5, 'B777'),
-(6, 'A330'),
-(7, 'B787'),
-(8, 'A350'),
-(9, 'E190'),
-(10, 'CRJ200')
+('1', 'B747'),
+('2', 'A320'),
+('3', 'B737'),
+('4', 'A380'),
+('5', 'B777'),
+('6', 'A330'),
+('7', 'B787'),
+('8', 'A350'),
+('9', 'E190'),
+('10', 'CRJ200')
 ;
 
 INSERT INTO public.fare (fare_id, from_airport, to_airport, fare_basis_code, fare_airline, restriction_code, one_direction_cost, round_trip_cost, round_trip_required) VALUES
@@ -376,29 +376,29 @@ INSERT INTO public.fare (fare_id, from_airport, to_airport, fare_basis_code, far
 ;
 
 INSERT INTO public.fare_basis (fare_basis_code, booking_class, class_type, premium, economy, discounted, night, season, basis_days) VALUES
-('ABC', 'First', 'First Class', 'Yes', 'No', 'No', 'No', 'Regular', 30),
-('DEF', 'Business', 'Business Class', 'Yes', 'No', 'No', 'No', 'Regular', 30),
-('GHI', 'Economy', 'Economy Class', 'No', 'Yes', 'Yes', 'No', 'Regular', 30),
-('JKL', 'First', 'First Class', 'Yes', 'No', 'No', 'No', 'Regular', 30),
-('MNO', 'Business', 'Business Class', 'Yes', 'No', 'No', 'No', 'Regular', 30),
-('PQR', 'Economy', 'Economy Class', 'No', 'Yes', 'Yes', 'No', 'Regular', 30),
-('STU', 'First', 'First Class', 'Yes', 'No', 'No', 'No', 'Regular', 30),
-('VWX', 'Business', 'Business Class', 'Yes', 'No', 'No', 'No', 'Regular', 30),
-('YZ', 'Economy', 'Economy Class', 'No', 'Yes', 'Yes', 'No', 'Regular', 30),
-('AAA', 'First', 'First Class', 'Yes', 'No', 'No', 'No', 'Regular', 30)
+('ABC', 'First', 'First Class', 'Yes', 'No', 'No', 'No', 'Regular', '30'),
+('DEF', 'Business', 'Business Class', 'Yes', 'No', 'No', 'No', 'Regular', '30'),
+('GHI', 'Economy', 'Economy Class', 'No', 'Yes', 'Yes', 'No', 'Regular', '30'),
+('JKL', 'First', 'First Class', 'Yes', 'No', 'No', 'No', 'Regular', '30'),
+('MNO', 'Business', 'Business Class', 'Yes', 'No', 'No', 'No', 'Regular', '30'),
+('PQR', 'Economy', 'Economy Class', 'No', 'Yes', 'Yes', 'No', 'Regular', '30'),
+('STU', 'First', 'First Class', 'Yes', 'No', 'No', 'No', 'Regular', '30'),
+('VWX', 'Business', 'Business Class', 'Yes', 'No', 'No', 'No', 'Regular', '30'),
+('YZ', 'Economy', 'Economy Class', 'No', 'Yes', 'Yes', 'No', 'Regular', '30'),
+('AAA', 'First', 'First Class', 'Yes', 'No', 'No', 'No', 'Regular', '30')
 ;
 
 INSERT INTO public.flight (flight_id, flight_days, from_airport, to_airport, departure_time, arrival_time, airline_flight, airline_code, flight_number, aircraft_code_sequence, meal_code, stops, connections, dual_carrier, time_elapsed) VALUES
-(1, 'mon,wed', 'ORD', 'JFK', 1577836800, 1577840400, 'AA123', 'AA', 'AA123', 1, 'BF', 0, 0, 'AA123', 3600),
-(2, 'tue,thu', 'ORD', 'JFK', 1577844000, 1577854000, 'UA456', 'UA', 'UA456', 2, 'LN', 1, 1, 'UA456', 10000),
-(3, 'wed', 'ORD', 'JFK', 1577851200, 1577854900, 'AA789', 'AA', 'AA789', 3, 'DN', 0, 0, 'AA789', 3700),
-(4, 'thu', 'ORD', 'JFK', 1577858400, 1577873400, 'WN012', 'WN', 'WN012', 4, 'BS', 1, 1, 'WN012', 15000),
-(5, 'fri', 'ORD', 'LAX', 1577865600, 1577869600, 'AS345', 'AS', 'AS345', 5, 'BF', 0, 0, 'AS345', 4000),
-(6, 'sat,mon', 'JFK', 'ORD', 1577872800, 1577884800, 'AA124', 'AA', 'AA123', 6, 'LN', 1, 1, 'B678', 12000),
-(7, 'sun', 'JFK', 'ORD', 1577880000, 1577883700, 'UA457', 'UA', 'UA457', 7, 'DN', 0, 0, 'UA457', 3700),
-(8, 'mon', 'JFK', 'LAX', 1577887200, 1577897200, 'F934', 'F9', 'F934', 8, 'BS', 1, 1, 'F934', 10000),
-(9, 'tue', 'LAX', 'ORD', 1577894400, 1577898400, 'HA567', 'HA', 'HA567', 9, 'LS', 0, 0, 'HA567', 4000),
-(10, 'wed,mon', 'LAX', 'ORD', 1577901600, 1577921600, 'VX890', 'VX', 'VX890', 10, 'DS', 1, 1, 'VX890', 20000)
+(1, 'mon,wed', 'ORD', 'JFK', 1577836800, 1577840400, 'AA123', 'AA', 'AA123', '1', 'BF', 0, 0, 'AA123', 3600),
+(2, 'tue,thu', 'ORD', 'JFK', 1577844000, 1577854000, 'UA456', 'UA', 'UA456', '2', 'LN', 1, 1, 'UA456', 10000),
+(3, 'wed', 'ORD', 'JFK', 1577851200, 1577854900, 'AA789', 'AA', 'AA789', '3', 'DN', 0, 0, 'AA789', 3700),
+(4, 'thu', 'ORD', 'JFK', 1577858400, 1577873400, 'WN012', 'WN', 'WN012', '4', 'BS', 1, 1, 'WN012', 15000),
+(5, 'fri', 'ORD', 'LAX', 1577865600, 1577869600, 'AS345', 'AS', 'AS345', '5', 'BF', 0, 0, 'AS345', 4000),
+(6, 'sat,mon', 'JFK', 'ORD', 1577872800, 1577884800, 'AA124', 'AA', 'AA123', '6', 'LN', 1, 1, 'B678', 12000),
+(7, 'sun', 'JFK', 'ORD', 1577880000, 1577883700, 'UA457', 'UA', 'UA457', '7', 'DN', 0, 0, 'UA457', 3700),
+(8, 'mon', 'JFK', 'LAX', 1577887200, 1577897200, 'F934', 'F9', 'F934', '8', 'BS', 1, 1, 'F934', 10000),
+(9, 'tue', 'LAX', 'ORD', 1577894400, 1577898400, 'HA567', 'HA', 'HA567', '9', 'LS', 0, 0, 'HA567', 4000),
+(10, 'wed,mon', 'LAX', 'ORD', 1577901600, 1577921600, 'VX890', 'VX', 'VX890', '10', 'DS', 1, 1, 'VX890', 20000)
 ;
 
 INSERT INTO public.flight_fare (flight_id, fare_id) VALUES
@@ -428,11 +428,11 @@ INSERT INTO public.flight_leg (flight_id, leg_number, leg_flight) VALUES
 ;
 
 INSERT INTO public.flight_stop (flight_id, stop_number, stop_days, stop_airport, arrival_time, arrival_airline, arrival_flight_number, departure_time, departure_airline, departure_flight_number, stop_time) VALUES
-(2, 1, 2, 'DFW', 1577847600, 'UA', 'UA456', 1577851200, 'UA', 'UA456', 3600),
-(4, 1, 4, 'DEN', 1577862000, 'WN', 'WN012', 1577865600, 'WN', 'WN012', 3600),
-(6, 1, 6, 'DFW', 1577876400, 'AA', 'AA123', 1577880000, 'AA', 'AA123', 3600),
-(8, 1, 1, 'LAX', 1577890800, 'F9', 'F934', 1577894400, 'F9', 'F934', 3600),
-(10, 1, 3, 'JFK', 1577905200, 'VX', 'VX890', 1577908800, 'VX', 'VX890', 3600)
+(2, 1, '2', 'DFW', 1577847600, 'UA', 'UA456', 1577851200, 'UA', 'UA456', 3600),
+(4, 1, '4', 'DEN', 1577862000, 'WN', 'WN012', 1577865600, 'WN', 'WN012', 3600),
+(6, 1, '6', 'DFW', 1577876400, 'AA', 'AA123', 1577880000, 'AA', 'AA123', 3600),
+(8, 1, '1', 'LAX', 1577890800, 'F9', 'F934', 1577894400, 'F9', 'F934', 3600),
+(10, 1, '3', 'JFK', 1577905200, 'VX', 'VX890', 1577908800, 'VX', 'VX890', 3600)
 ;
 
 INSERT INTO public.food_service (meal_code, meal_number, compartment, meal_description) VALUES
@@ -471,16 +471,16 @@ INSERT INTO public.month (month_number, month_name) VALUES
 ;
 
 INSERT INTO public.restriction (restriction_code, advance_purchase, stopovers, saturday_stay_required, minimum_stay, maximum_stay, application, no_discounts) VALUES
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes'),
-('NONE', 14, 2, 'No', 7, 30, 'One-Way', 'Yes')
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes'),
+('NONE', 14, '2', 'No', 7, 30, 'One-Way', 'Yes')
 ;
 
 INSERT INTO public.state (state_code, state_name, country_name) VALUES

@@ -85,16 +85,16 @@ INSERT INTO public.city (city_name, population, country_name, state_name) VALUES
 ;
 
 INSERT INTO public.highlow (state_name, highest_elevation, lowest_point, highest_point, lowest_elevation) VALUES
-('California', 4421, 'Death Valley', 'Mount Whitney', -86),
-('Texas', 2667, 'Gulf of Mexico', 'Guadalupe Peak', 0),
-('Florida', NULL, 'Atlantic Ocean', 'Unnamed location', 0),
-('New York', 1629, 'Atlantic Ocean', 'Mount Marcy', 0),
-('Ontario', NULL, 'Atlantic Ocean', 'Unnamed location', 0),
-('Sao Paulo', NULL, 'Atlantic Ocean', 'Unnamed location', 0),
-('Guangdong', NULL, 'South China Sea', 'Unnamed location', 0),
-('Maharashtra', NULL, 'Arabian Sea', 'Unnamed location', 0),
-('England', 978, 'North Sea', 'Scafell Pike', 0),
-('Tokyo', 3776, 'Pacific Ocean', 'Mount Fuji', 0)
+('California', '4421', 'Death Valley', 'Mount Whitney', '-86'),
+('Texas', '2667', 'Gulf of Mexico', 'Guadalupe Peak', '0'),
+('Florida', NULL, 'Atlantic Ocean', 'Unnamed location', '0'),
+('New York', '1629', 'Atlantic Ocean', 'Mount Marcy', '0'),
+('Ontario', NULL, 'Atlantic Ocean', 'Unnamed location', '0'),
+('Sao Paulo', NULL, 'Atlantic Ocean', 'Unnamed location', '0'),
+('Guangdong', NULL, 'South China Sea', 'Unnamed location', '0'),
+('Maharashtra', NULL, 'Arabian Sea', 'Unnamed location', '0'),
+('England', '978', 'North Sea', 'Scafell Pike', '0'),
+('Tokyo', '3776', 'Pacific Ocean', 'Mount Fuji', '0')
 ;
 
 INSERT INTO public.lake (lake_name, area, country_name, state_name) VALUES
