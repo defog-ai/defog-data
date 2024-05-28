@@ -528,18 +528,16 @@ def test_query_db(db_name, dialect, test_queries):
                 cursor = conn.cursor()
                 cursor.execute(f"SELECT * FROM {table_name}")
                 query_job = cursor.fetchall()
-                for row in query_job:
-                    if not row:
-                        print(f"WARNING: No values found for `{db_name}`")
+                if not query_job:
+                    print(f"WARNING: No values found for `{db_name}`")
             elif dialect == "sqlite":
                 table_name = table_name.split(".")[-1]
                 conn = sqlite3.connect(f"sqlite_dbs/{db_name}.db")
                 cursor = conn.cursor()
                 cursor.execute(f"SELECT * FROM {table_name}")
                 query_job = cursor.fetchall()
-                for row in query_job:
-                    if not row:
-                        print(f"WARNING: No values found for `{db_name}`")
+                if not query_job:
+                    print(f"WARNING: No values found for `{db_name}`")
             elif dialect == "tsql":
                 with pyodbc.connect(
                     f"DRIVER={creds['tsql']['driver']};SERVER={creds['tsql']['server']};DATABASE={db_name};UID={creds['tsql']['user']};PWD={creds['tsql']['password']}"
@@ -547,8 +545,7 @@ def test_query_db(db_name, dialect, test_queries):
                     with conn.cursor() as cursor:
                         cursor.execute(f"SELECT * FROM {table_name}")
                         query_job = cursor.fetchall()
-                        for row in query_job:
-                            if not row:
-                                print(f"WARNING: No values found for `{db_name}`")
+                        if not query_job:
+                            print(f"WARNING: No values found for `{db_name}`")
         else:
             pass
