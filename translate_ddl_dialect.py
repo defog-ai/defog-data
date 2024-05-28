@@ -29,10 +29,10 @@ db_names = [
     "yelp",
 ]
 dialects = [
-    # "bigquery",
+    "bigquery",
     "mysql",
-    # "sqlite",
-    # "tsql",
+    "sqlite",
+    "tsql",
 ]  # Supported dialects: bigquery, mysql, sqlite, tsql
 bigquery_proj = os.getenv("BIGQUERY_PROJ")
 
