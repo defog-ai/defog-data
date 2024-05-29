@@ -38,7 +38,7 @@ def fix_ddl_bigquery(translated_ddl):
     #     r"DEFAULT\s+('[^']*'|\d+|[a-zA-Z_]+\(\))", "", translated_ddl
     # )
     translated_ddl = re.sub(
-        r"SERIAL(PRIMARY KEY)?", "STRING DEFAULT GENERATE_UUID()", translated_ddl
+        r"SERIAL(PRIMARY KEY)?", "INT64", translated_ddl
     )
     translated_ddl = translated_ddl.replace("EXTRACT(EPOCH FROM ", "UNIX_SECONDS(")
     translated_ddl = re.sub(
