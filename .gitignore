@@ -7,3 +7,10 @@ dist/
 
 # IDE
 .vscode/
+
+# BigQuery, MySQL, SQLite and TSQL files
+*_bigquery.sql 
+*_mysql.sql
+*_sqlite.sql
+*_tsql.sql
+sqlite_dbs/
