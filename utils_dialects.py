@@ -494,6 +494,11 @@ def create_tsql_db(db_name):
     except Exception as e:
         print(f"Error creating tables for `{db_name}`: {e}")
         raise
+    finally:
+        if "cursor" in locals():
+            cursor.close()
+        if "conn" in locals():
+            conn.close()
 
 
 def test_query_db(db_name, dialect, test_queries):
