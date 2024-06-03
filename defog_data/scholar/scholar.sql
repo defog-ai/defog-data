@@ -80,7 +80,12 @@ INSERT INTO public.author (authorid, authorname) VALUES
 (2, 'Emily Johnson'),
 (3, 'Michael Brown'),
 (4, 'Sarah Davis'),
-(5, 'David Wilson')
+(5, 'David Wilson'),
+(6, 'Jennifer Lee'),
+(7, 'Robert Moore'),
+(8, 'Linda Taylor'),
+(9, 'William Anderson'),
+(10, 'Karen Martinez')
 ;
 
 INSERT INTO public.cite (citingpaperid, citedpaperid) VALUES
@@ -177,7 +182,11 @@ INSERT INTO public.writes (paperid, authorid) VALUES
 (4, 5),
 (5, 1),
 (2, 1),
-(4, 3)
+(4, 3),
+(4, 6),
+(2, 7),
+(2, 8),
+(2, 9)
 ;
 
 
