@@ -130,6 +130,9 @@ def fix_ddl_sqlite(translated_ddl):
     Fix the translated DDL for SQLite
     """
     translated_ddl = re.sub(
+        r"SERIAL(PRIMARY KEY)?", "INTEGER PRIMARY KEY", translated_ddl
+    )
+    translated_ddl = re.sub(
         r"DEFAULT\s+CAST\('([^']*)' AS [A-Z]*\)", r"DEFAULT '\1'", translated_ddl
     )
     # remove start of week/month/day to simplify date just for sqlite
