@@ -3,7 +3,7 @@ CREATE TABLE doctors (
   doc_id SERIAL PRIMARY KEY,
   first_name VARCHAR(50),
   last_name VARCHAR(50),
-  specialty TEXT, -- possible values: dermatology, immunology, general
+  specialty TEXT, -- possible values: dermatology, immunology, general, oncology
   year_reg INT, -- year the doctor was registered and obtained license
   med_school_name VARCHAR(100),
   loc_city VARCHAR(50),
@@ -118,8 +118,11 @@ VALUES
 ('David', 'Johnson', 'general', 1998, 'University of Pennsylvania', 'Philadelphia', 'PA', '19104', 'DEF456'),
 ('Emily', 'Brown', 'dermatology', 2015, 'Stanford University', 'Palo Alto', 'CA', '94304', 'GHI012'),
 ('Michael', 'Davis', 'immunology', 2008, 'Duke University', 'Durham', 'NC', '27708', 'JKL345'),
-('Sarah', 'Wilson', 'general', 2003, 'University of California, San Francisco', 'San Francisco', 'CA', '94143', 'MNO678'),
-('Robert', 'Taylor', 'dermatology', 2012, 'Yale University', 'New Haven', 'CT', '06510', 'PQR901');
+('Sarah', 'Wilson', 'oncology', 2003, 'University of California, San Francisco', 'San Francisco', 'CA', '94143', 'MNO678'),
+('Robert', 'Taylor', 'dermatology', 2012, 'Yale University', 'New Haven', 'CT', '06510', 'PQR901'),
+('Laura', 'Martinez', 'immunology', 2006, 'University of Michigan', 'Ann Arbor', 'MI', '48109', 'STU234'),
+('Daniel', 'Garcia', 'general', 2000, 'University of Chicago', 'Chicago', 'IL', '60637', 'VWX567'),
+('Olivia', 'Anderson', 'dermatology', 2018, 'Columbia University', 'New York', 'NY', '10027', 'YZA890');
 
 INSERT INTO patients (first_name, last_name, date_of_birth, date_of_registration, gender, email, phone, addr_street, addr_city, addr_state, addr_zip, ins_type, ins_policy_num, height_cm, weight_kg)
 VALUES
