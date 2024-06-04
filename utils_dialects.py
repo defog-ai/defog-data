@@ -196,9 +196,9 @@ def fix_ddl_tsql(translated_ddl):
     translated_ddl = translated_ddl.replace("(1 = 1))", "1)")
     translated_ddl = translated_ddl.replace("(1 = 0))", "0)")
     translated_ddl = re.sub(r"VARCHAR(?!\()", "VARCHAR(255)", translated_ddl)
-    # replace SERIAL datatype with IDENTITY
+    # replace SERIAL datatype with INTEGER
     translated_ddl = re.sub(
-        r"SERIAL(PRIMARY KEY)?", "INT IDENTITY(1,1)", translated_ddl
+        r"SERIAL(PRIMARY KEY)?", "INTEGER", translated_ddl
     )
     translated_ddl = re.sub(
         r"GETDATE\(\) (\+|-) INTERVAL '(\d+)' (YEARS?|DAYS?|MONTHS?|WEEKS?|MINS?)",
