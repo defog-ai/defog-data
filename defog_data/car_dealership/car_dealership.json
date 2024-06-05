@@ -43,8 +43,8 @@
         },
         {
           "data_type": "NUMERIC(10, 2)",
-          "column_name": "price",
-          "column_description": "Selling price of the car"
+          "column_name": "cost",
+          "column_description": "Cost of the car"
         },
         {
           "data_type": "TIMESTAMP",

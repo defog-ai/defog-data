@@ -7,7 +7,7 @@ CREATE TABLE cars (
   vin_number VARCHAR(17) NOT NULL UNIQUE, -- Vehicle Identification Number
   engine_type TEXT NOT NULL, -- type of engine (e.g., V6, V8, Electric)
   transmission TEXT NOT NULL, -- type of transmission (e.g., Automatic, Manual)
-  price NUMERIC(10, 2) NOT NULL, -- selling price of the car
+  cost NUMERIC(10, 2) NOT NULL, -- cost of the car
   crtd_ts TIMESTAMP NOT NULL DEFAULT NOW() -- timestamp when the car was added to the system
 );
 
@@ -76,7 +76,7 @@ CREATE TABLE payments_made (
 
 
 -- cars
-INSERT INTO cars (id, make, model, year, color, vin_number, engine_type, transmission, price)
+INSERT INTO cars (id, make, model, year, color, vin_number, engine_type, transmission, cost)
 VALUES
   (1, 'Toyota', 'Camry', 2022, 'Silver', '4T1BF1FK3CU510984', 'V6', 'Automatic', 28500.00),
   (2, 'Honda', 'Civic', 2021, 'platinum/grey', '2HGFC2F53MH522780', 'Inline 4', 'CVT', 22000.00),
@@ -137,28 +137,28 @@ VALUES
 -- sales
 INSERT INTO sales (id, car_id, salesperson_id, customer_id, sale_price, sale_date)
 VALUES
-  (1, 1, 2, 3, 27500.00, '2023-03-15'),
-  (2, 3, 1, 5, 44000.00, '2023-03-20'),
-  (3, 6, 4, 2, 24500.00, '2023-03-22'),
+  (1, 1, 2, 3, 30500.00, '2023-03-15'),
+  (2, 3, 1, 5, 47000.00, '2023-03-20'),
+  (3, 6, 4, 2, 26500.00, '2023-03-22'),
   (4, 8, 7, 9, 38000.00, '2023-03-25'),
-  (5, 2, 4, 7, 21500.00, '2023-03-28'),
-  (6, 10, 6, 1, 27000.00, '2023-04-01'),
-  (7, 5, 3, 6, 26000.00, '2023-04-05'),
-  (8, 7, 2, 10, 60000.00, '2023-04-10'),
-  (9, 4, 6, 8, 40000.00, '2023-04-12'),
+  (5, 2, 4, 7, 23500.00, '2023-03-28'),
+  (6, 10, 6, 1, 30000.00, '2023-04-01'),
+  (7, 5, 3, 6, 26800.00, '2023-04-05'),
+  (8, 7, 2, 10, 63000.00, '2023-04-10'),
+  (9, 4, 6, 8, 42500.00, '2023-04-12'),
   (10, 9, 2, 4, 44500.00, '2023-04-15'),
-  (11, 1, 7, 11, 28000.00, CURRENT_DATE - INTERVAL '32 days'),
-  (12, 3, 3, 12, 43500.00, CURRENT_DATE - INTERVAL '10 days'),
-  (13, 6, 1, 11, 24000.00, CURRENT_DATE - INTERVAL '15 days'),
-  (14, 2, 3, 1, 17200.00, CURRENT_DATE - INTERVAL '21 days'),
-  (15, 8, 6, 12, 37500.00, CURRENT_DATE - INTERVAL '3 days'),
-  (16, 10, 4, 2, 26500.00, CURRENT_DATE - INTERVAL '5 days'),
-  (17, 3, 2, 3, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' + INTERVAL '1 day'),
-  (18, 3, 2, 7, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week'),
-  (19, 3, 2, 10, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' - INTERVAL '1 day'),
-  (20, 4, 1, 3, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week' + INTERVAL '1 day'),
-  (21, 4, 1, 7, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week'),
-  (22, 4, 1, 10, 115000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week' - INTERVAL '1 day');
+  (11, 1, 7, 11, 28900.00, CURRENT_DATE - INTERVAL '32 days'),
+  (12, 3, 3, 12, 46500.00, CURRENT_DATE - INTERVAL '10 days'),
+  (13, 6, 1, 11, 26000.00, CURRENT_DATE - INTERVAL '15 days'),
+  (14, 2, 3, 1, 23200.00, CURRENT_DATE - INTERVAL '21 days'),
+  (15, 8, 6, 12, 43500.00, CURRENT_DATE - INTERVAL '3 days'),
+  (16, 10, 4, 2, 29500.00, CURRENT_DATE - INTERVAL '5 days'),
+  (17, 3, 2, 3, 46000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' + INTERVAL '1 day'),
+  (18, 3, 2, 7, 47500.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week'),
+  (19, 3, 2, 10, 46500.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '1 week' - INTERVAL '1 day'),
+  (20, 4, 1, 3, 48000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week' + INTERVAL '1 day'),
+  (21, 4, 1, 7, 45000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week'),
+  (22, 4, 1, 10, 49000.00, DATE_TRUNC('week', CURRENT_DATE) - INTERVAL '8 week' - INTERVAL '1 day');
 
 
 -- inventory_snapshots
