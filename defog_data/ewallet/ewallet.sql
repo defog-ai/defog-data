@@ -285,7 +285,7 @@ VALUES
 (8, '2023-06-01 17:30:00', '2023-06-01 18:15:35', 'mobile_app', 'mobile_q3mz8n'),
 (9, '2023-06-04 07:45:30', '2023-06-04 08:15:27', 'mobile_app', 'mobile_g3mjfz'),
 (10, '2023-06-02 14:10:15', '2023-06-02 14:40:58', 'web_app', 'web_zz91p44l'),
-(5, CURRENT_TIMESTAMP - INTERVAL '1 month 1 day', CURRENT_TIMESTAMP - INTERVAL '1 month 1 day' + INTERVAL '15 min', 'web_app', 'web_8902wknz'),
+(5, CURRENT_TIMESTAMP - INTERVAL '32 days', CURRENT_TIMESTAMP - INTERVAL '32 days' + INTERVAL '15 min', 'web_app', 'web_8902wknz'),
 (6, CURRENT_TIMESTAMP - INTERVAL '8 days', CURRENT_TIMESTAMP - INTERVAL '8 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
 (7, CURRENT_TIMESTAMP - INTERVAL '5 days', CURRENT_TIMESTAMP - INTERVAL '5 days' + INTERVAL '15 min', 'web_app', 'web_zz91p44l'),
 (8, CURRENT_TIMESTAMP - INTERVAL '3 days', CURRENT_TIMESTAMP - INTERVAL '3 days' + INTERVAL '15 min', 'web_app', 'web_d8180kaf'),
