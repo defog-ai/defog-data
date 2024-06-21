@@ -1,8 +1,4 @@
 import sqlglot
-from google.cloud import bigquery
-import mysql.connector
-from mysql.connector import errorcode
-import pyodbc
 import sqlite3
 import re
 import os
@@ -37,9 +33,7 @@ def fix_ddl_bigquery(translated_ddl):
     # translated_ddl = re.sub(
     #     r"DEFAULT\s+('[^']*'|\d+|[a-zA-Z_]+\(\))", "", translated_ddl
     # )
-    translated_ddl = re.sub(
-        r"SERIAL(PRIMARY KEY)?", "INT64", translated_ddl
-    )
+    translated_ddl = re.sub(r"SERIAL(PRIMARY KEY)?", "INT64", translated_ddl)
     translated_ddl = translated_ddl.replace("EXTRACT(EPOCH FROM ", "UNIX_SECONDS(")
     translated_ddl = re.sub(
         r", (TIMESTAMP_TRUNC\(CURRENT_DATE, (DAY|MIN|WEEK|MONTH|YEAR)\))",
@@ -197,9 +191,7 @@ def fix_ddl_tsql(translated_ddl):
     translated_ddl = translated_ddl.replace("(1 = 0))", "0)")
     translated_ddl = re.sub(r"VARCHAR(?!\()", "VARCHAR(255)", translated_ddl)
     # replace SERIAL datatype with INTEGER
-    translated_ddl = re.sub(
-        r"SERIAL(PRIMARY KEY)?", "INTEGER", translated_ddl
-    )
+    translated_ddl = re.sub(r"SERIAL(PRIMARY KEY)?", "INTEGER", translated_ddl)
     translated_ddl = re.sub(
         r"GETDATE\(\) (\+|-) INTERVAL '(\d+)' (YEARS?|DAYS?|MONTHS?|WEEKS?|MINS?)",
         lambda match: f"DATEADD({match.group(3).rstrip('S')}, {'-' if match.group(1) == '-' else ''}{match.group(2)}, GETDATE())",
@@ -339,6 +331,8 @@ def create_bq_db(bigquery_proj, db_name):
     """
     Create a BigQuery dataset and tables from the sql file
     """
+    from google.cloud import bigquery
+
     # Create a client
     client = bigquery.Client(project=bigquery_proj)
 
@@ -367,6 +361,9 @@ def create_mysql_db(db_name):
     """
     Create a MySQL database and tables from the sql file
     """
+    import mysql.connector
+    from mysql.connector import errorcode
+
     try:
         conn = mysql.connector.connect(**creds["mysql"])
         cursor = conn.cursor()
@@ -459,6 +456,8 @@ def create_tsql_db(db_name):
     """
     Create a T-SQL database and tables from the sql file
     """
+    import pyodbc
+
     try:
         with pyodbc.connect(
             f"DRIVER={creds['tsql']['driver']};SERVER={creds['tsql']['server']};UID={creds['tsql']['user']};PWD={creds['tsql']['password']}"
@@ -511,6 +510,8 @@ def test_query_db(db_name, dialect, test_queries):
     for db, table_name in test_queries:
         if db == db_name:
             if dialect == "bigquery":
+                from google.cloud import bigquery
+
                 tries = 0
                 table_name = table_name.split(".")[-1]
                 client = bigquery.Client(project=bigquery_proj)
@@ -531,6 +532,8 @@ def test_query_db(db_name, dialect, test_queries):
                         break
 
             elif dialect == "mysql":
+                import mysql.connector
+
                 table_name = table_name.split(".")[-1]
                 conn = mysql.connector.connect(**creds["mysql"], database=db_name)
                 cursor = conn.cursor()
@@ -547,6 +550,8 @@ def test_query_db(db_name, dialect, test_queries):
                 if not query_job:
                     print(f"WARNING: No values found for `{db_name}`")
             elif dialect == "tsql":
+                import pyodbc
+
                 with pyodbc.connect(
                     f"DRIVER={creds['tsql']['driver']};SERVER={creds['tsql']['server']};DATABASE={db_name};UID={creds['tsql']['user']};PWD={creds['tsql']['password']}"
                 ) as conn:
