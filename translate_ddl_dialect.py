@@ -5,13 +5,14 @@
 import os
 import time
 from tqdm import tqdm
+import argparse
 from utils_dialects import (
     create_bq_db,
     create_mysql_db,
     create_sqlite_db,
     create_tsql_db,
     test_query_db,
-    conv_ddl_to_dialect
+    conv_ddl_to_dialect,
 )
 
 # List of databases to create
@@ -28,12 +29,6 @@ db_names = [
     "scholar",
     "yelp",
 ]
-dialects = [
-    "bigquery",
-    "mysql",
-    "sqlite",
-    "tsql",
-]  # Supported dialects: bigquery, mysql, sqlite, tsql
 bigquery_proj = os.getenv("BIGQUERY_PROJ")
 
 # For testing that values were inserted into tables, format: (db_name, table_name)
@@ -51,8 +46,9 @@ test_queries = [
     ("yelp", "users"),
 ]
 
+
 # Run the main function
-def main():
+def translate(dialects):
     for dialect in tqdm(dialects):
         print(f"Translating DDL to {dialect} dialect...")
         for db_name in tqdm(db_names):
@@ -81,4 +77,21 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    dialects = [
+        "bigquery",
+        "mysql",
+        "sqlite",
+        "tsql",
+    ]  # Supported dialects: bigquery, mysql, sqlite, tsql
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--dialects",
+        nargs="+",
+        default=dialects,
+        help="List of dialects to translate the DDL statements to",
+    )
+    args = parser.parse_args()
+    if args.dialects:
+        translate(args.dialects)
+    else:
+        translate(dialects)
