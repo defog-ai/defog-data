@@ -272,5 +272,9 @@ INSERT INTO public.student_record (student_id, course_id, semester, grade, how, 
 (2, 2, 1, 'C', 'in-person', NULL, 'Yes', NULL, '1', 2),
 (2, 1, 1, 'B', 'online', NULL, 'Yes', NULL, '1', 1),
 (3, 2, 1, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 2),
-(3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 4)
+(3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 4),
+(4, 2, 1, 'C', 'in-person', NULL, 'Yes', NULL, '1', 2),
+(4, 1, 1, 'B', 'online', NULL, 'Yes', NULL, '1', 1),
+(5, 2, 1, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 2),
+(5, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 4)
 ;
