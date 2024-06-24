@@ -72,7 +72,6 @@ def fix_ddl_mysql(translated_ddl):
     )
     reserved_keywords = [
         "long",
-        "rank",
     ]
     for keyword in reserved_keywords:
         translated_ddl = re.sub(
@@ -178,6 +177,32 @@ def fix_ddl_sqlite(translated_ddl):
         lambda match: f"{int(match.group(1)) * 7} days",
         translated_ddl,
     )
+    # replace EXTRACT(YEAR FROM with STRFTIME('%Y',
+    translated_ddl = re.sub(
+        r"EXTRACT\(YEAR FROM ([^)]+)\)",
+        lambda match: f"STRFTIME('%Y', {match.group(1)})",
+        translated_ddl,
+    )
+    # replace STRFTIME('%m', DATE('now', '-x months')) with calculated month using python
+    # SQLite cannot extract name of month
+    def replace_strftime_month(translated_ddl):
+        pattern = r"STRFTIME\('Month', DATE\('now', '-(\d+) months'\)\)"
+        # get the digits as a list
+        matches = re.findall(pattern, translated_ddl)
+        import datetime
+        from dateutil.relativedelta import relativedelta
+        current_date = datetime.datetime.now()
+        current_month_name = current_date.strftime('%B')
+        for x in matches:
+            new_current_date = current_date - relativedelta(months=int(x))
+            new_current_month_name = new_current_date.strftime('%B')
+            # replace whole pattern with month name
+            translated_ddl = translated_ddl.replace(
+                f"STRFTIME('Month', DATE('now', '-{x} months'))", f"'{new_current_month_name}'"
+            )
+        return translated_ddl
+    translated_ddl = replace_strftime_month(translated_ddl)
+
     return translated_ddl
 
 
@@ -239,6 +264,12 @@ def fix_ddl_tsql(translated_ddl):
     translated_ddl = re.sub(
         r"DATEPART\(EPOCH, ([^)]+)\)",
         r"DATEDIFF(SECOND, '1970-01-01', \1)",
+        translated_ddl,
+    )
+    # replace 'Month' with 'MMMM' for full month name
+    translated_ddl = re.sub(
+        r"'Month'",
+        r"'MMMM'",
         translated_ddl,
     )
     return translated_ddl
