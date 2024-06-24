@@ -101,21 +101,21 @@ VALUES
   (21, 'Cadillac', 'Escalade', 2023, 'Black', '1GYS4HKJ3MR123456', 'V8', 'Automatic', 85000.00);
 
 -- salespersons
-INSERT INTO salespersons (id, first_name, last_name, email, phone, hire_date)
+INSERT INTO salespersons (id, first_name, last_name, email, phone, hire_date, termination_date)
 VALUES
-  (1, 'John', 'Doe', 'john.doe@autonation.com', '(555)-123-4567', CURRENT_DATE - INTERVAL '2 years'),
-  (2, 'Jane', 'Smith', 'jane.smith@autonation.com', '(415)-987-6543', CURRENT_DATE - INTERVAL '3 years'),
-  (3, 'Michael', 'Johnson', 'michael.johnson@autonation.com', '(555)-456-7890', CURRENT_DATE - INTERVAL '1 year'),
-  (4, 'Emily', 'Brown', 'emily.brown@sonicauto.com', '(444)-111-2222', CURRENT_DATE - INTERVAL '1 year'),
-  (5, 'David', 'Wilson', 'david.wilson@sonicauto.com', '(444)-333-4444', CURRENT_DATE - INTERVAL '2 years'),
-  (6, 'Sarah', 'Taylor', 'sarah.taylor@sonicauto.com', '(123)-555-6666', '2018-09-01'),
-  (7, 'Daniel', 'Anderson', 'daniel.anderson@sonicauto.com', '(555)-777-8888', '2021-07-12'),
-  (8, 'Olivia', 'Thomas', 'olivia.thomas@pensake.com', '(333)-415-0000', '2023-01-25'),
-  (9, 'James', 'Jackson', 'james.jackson@pensake.com', '(555)-212-3333', '2019-04-30'),
-  (10, 'Sophia', 'White', 'sophia.white@pensake.com', '(555)-444-5555', '2022-08-18'),
-  (11, 'Robert', 'Johnson', 'robert.johnson@pensake.com', '(001)-415-5678', CURRENT_DATE - INTERVAL '15 days'),
-  (12, 'Jennifer', 'Davis', 'jennifer.davis@directauto.com', '(555)-345-6789', CURRENT_DATE - INTERVAL '20 days'),
-  (13, 'Jessica', 'Rodriguez', 'jessica.rodriguez@directauto.com', '(555)-789-0123', '2022-06-01');
+  (1, 'John', 'Doe', 'john.doe@autonation.com', '(555)-123-4567', CURRENT_DATE - INTERVAL '2 years', NULL),
+  (2, 'Jane', 'Smith', 'jane.smith@autonation.com', '(415)-987-6543', CURRENT_DATE - INTERVAL '3 years', NULL),
+  (3, 'Michael', 'Johnson', 'michael.johnson@autonation.com', '(555)-456-7890', CURRENT_DATE - INTERVAL '1 year', NULL),
+  (4, 'Emily', 'Brown', 'emily.brown@sonicauto.com', '(444)-111-2222', CURRENT_DATE - INTERVAL '1 year', CURRENT_DATE - INTERVAL '1 month'),
+  (5, 'David', 'Wilson', 'david.wilson@sonicauto.com', '(444)-333-4444', CURRENT_DATE - INTERVAL '2 years', NULL),
+  (6, 'Sarah', 'Taylor', 'sarah.taylor@sonicauto.com', '(123)-555-6666', '2018-09-01', '2022-09-01'),
+  (7, 'Daniel', 'Anderson', 'daniel.anderson@sonicauto.com', '(555)-777-8888', '2021-07-12', NULL),
+  (8, 'Olivia', 'Thomas', 'olivia.thomas@pensake.com', '(333)-415-0000', '2023-01-25', '2023-07-25'),
+  (9, 'James', 'Jackson', 'james.jackson@pensake.com', '(555)-212-3333', '2019-04-30', NULL),
+  (10, 'Sophia', 'White', 'sophia.white@pensake.com', '(555)-444-5555', '2022-08-18', NULL),
+  (11, 'Robert', 'Johnson', 'robert.johnson@pensake.com', '(001)-415-5678', CURRENT_DATE - INTERVAL '15 days', NULL),
+  (12, 'Jennifer', 'Davis', 'jennifer.davis@directauto.com', '(555)-345-6789', CURRENT_DATE - INTERVAL '20 days', NULL),
+  (13, 'Jessica', 'Rodriguez', 'jessica.rodriguez@directauto.com', '(555)-789-0123', '2022-06-01', NULL);
 
 -- customers
 INSERT INTO customers (id, first_name, last_name, email, phone, address, city, state, zip_code, crtd_ts)
@@ -183,7 +183,10 @@ VALUES
   (17, '2023-04-05', 5, FALSE),
   (18, '2023-04-10', 7, FALSE),
   (19, '2023-04-12', 4, FALSE),
-  (20, '2023-04-15', 9, FALSE);
+  (20, '2023-04-15', 9, FALSE),
+  (21, '2023-03-28', 1, TRUE),
+  (22, '2023-03-28', 3, TRUE),
+  (23, '2023-03-28', 4, FALSE);
 
 -- payments_received
 INSERT INTO payments_received (id, sale_id, payment_date, payment_amount, payment_method)
