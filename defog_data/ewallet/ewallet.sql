@@ -244,8 +244,18 @@ VALUES
   (7, 172.98, '2023-06-07 23:59:59'), 
   (8, 0.00, '2023-06-07 23:59:59'),
   (9, 125.00, '2023-06-07 23:59:59'),
-  (10, 219.98, '2023-06-07 23:59:59');
-
+  (10, 219.98, '2023-06-07 23:59:59'),
+  (1, 82.10, CURRENT_DATE - INTERVAL '8 days'),
+  (2, 82.12, CURRENT_DATE - INTERVAL '8 days'),
+  (1, 82.92, CURRENT_DATE - INTERVAL '7 days'),
+  (2, 55.24, CURRENT_DATE - INTERVAL '7 days'),
+  (3, 75.25, CURRENT_DATE - INTERVAL '7 days'),
+  (1, 50.00, CURRENT_DATE),
+  (2, 55.99, CURRENT_DATE),
+  (3, 29.95, CURRENT_DATE),
+  (4, 89.99, CURRENT_DATE),
+  (5, 599.99, CURRENT_DATE);
+  
 -- notifications
 INSERT INTO consumer_div.notifications (id, user_id, message, type, status, created_at, device_type, device_id, action_url)
 VALUES
@@ -307,5 +317,5 @@ VALUES
 (8, '2023-06-07', 200.00, 1000.00, 0, 'bcryptHash(K1dzPlay!&Rt8)', NULL, 'web_d8180kaf, mobile_q3mz8n', '8.26.53.165, 68.85.32.201', false, false, '2023-06-07 00:00:00'),
 (9, '2023-06-07', 150.00, 1000.00, 2, 'bcryptHash(Gl0wUp7!9zy)', NULL, 'mobile_g3mjfz', '203.96.81.36', true, true, '2023-06-07 00:00:00'),
 (10, '2023-06-07', 300.00, 2000.00, 1, 'bcryptHash(GamzRu1ez*&99!)', NULL, 'web_d8180kaf', '8.26.53.165', false, true, '2023-06-07 00:00:00'),
-(1, '2023-06-01', 500.00, 1000.00, 2, 'bcryptHash($2yz9!&ka1)', '9d61c49b-8977-4914-a36b-80d1445e38fa', 'mobile_8fh2k1', '192.168.0.1', false, true, '2023-06-01 06:00:00'),
+(1, '2023-06-01', 502.00, 1000.00, 2, 'bcryptHash($2yz9!&ka1)', '9d61c49b-8977-4914-a36b-80d1445e38fa', 'mobile_8fh2k1', '192.168.0.1', false, true, '2023-06-01 06:00:00'),
 (2, '2023-06-01', 500.00, 2500.00, 1, 'bcryptHash(qpwo9874zyGk!)', NULL, 'mobile_yjp08q', '198.51.100.233, 70.121.39.25', true, false, '2023-06-01 09:00:00');

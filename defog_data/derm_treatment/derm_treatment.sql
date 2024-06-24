@@ -113,15 +113,15 @@ CREATE TABLE concomitant_meds (
 
 INSERT INTO doctors (doc_id, first_name, last_name, specialty, year_reg, med_school_name, loc_city, loc_state, loc_zip, bd_cert_num) 
 VALUES
-(1, 'John', 'Doe', 'dermatology', 2005, 'Johns Hopkins University', 'Baltimore', 'MD', '21201', 'ABC123'),
-(2,'Jane', 'Smith', 'immunology', 2010, 'Harvard Medical School', 'Boston', 'MA', '02115', 'XYZ789'),
+(1, 'John', 'Doe', 'dermatology', EXTRACT(YEAR FROM CURRENT_DATE) - 2, 'Johns Hopkins University', 'Baltimore', 'MD', '21201', 'ABC123'),
+(2,'Jane', 'Smith', 'immunology', EXTRACT(YEAR FROM CURRENT_DATE) - 2, 'Harvard Medical School', 'Boston', 'MA', '02115', 'XYZ789'),
 (3, 'David', 'Johnson', 'general', 1998, 'University of Pennsylvania', 'Philadelphia', 'PA', '19104', 'DEF456'),
 (4, 'Emily', 'Brown', 'dermatology', 2015, 'Stanford University', 'Palo Alto', 'CA', '94304', 'GHI012'),
 (5, 'Michael', 'Davis', 'immunology', 2008, 'Duke University', 'Durham', 'NC', '27708', 'JKL345'),
-(6, 'Sarah', 'Wilson', 'oncology', 2003, 'University of California, San Francisco', 'San Francisco', 'CA', '94143', 'MNO678'),
+(6, 'Sarah', 'Wilson', 'oncology', EXTRACT(YEAR FROM CURRENT_DATE) - 1, 'University of California, San Francisco', 'San Francisco', 'CA', '94143', 'MNO678'),
 (7, 'Robert', 'Taylor', 'dermatology', 2012, 'Yale University', 'New Haven', 'CT', '06510', 'PQR901'),
 (8, 'Laura', 'Martinez', 'immunology', 2006, 'University of Michigan', 'Ann Arbor', 'MI', '48109', 'STU234'),
-(9, 'Daniel', 'Garcia', 'general', 2000, 'University of Chicago', 'Chicago', 'IL', '60637', 'VWX567'),
+(9, 'Daniel', 'Garcia', 'general', EXTRACT(YEAR FROM CURRENT_DATE) - 3, 'University of Chicago', 'Chicago', 'IL', '60637', 'VWX567'),
 (10, 'Olivia', 'Anderson', 'dermatology', 2018, 'Columbia University', 'New York', 'NY', '10027', 'YZA890');
 
 INSERT INTO patients (patient_id, first_name, last_name, date_of_birth, date_of_registration, gender, email, phone, addr_street, addr_city, addr_state, addr_zip, ins_type, ins_policy_num, height_cm, weight_kg)
@@ -228,8 +228,8 @@ VALUES
 (4, 5, '2022-05-20', 'Upper respiratory infection'),
 (5, 7, '2022-07-22', 'Mild injection site reaction'), 
 (6, 9, '2022-09-18', 'Diarrhea'),
-(7, 11, '2022-11-30', 'Elevated liver enzymes'),
-(8, 14, '2023-02-25', 'Mild skin rash');
+(7, 11, '2022-11-12', 'Elevated liver enzymes'),
+(8, 14, '2023-02-05', 'Mild skin rash');
 
 INSERT INTO concomitant_meds (id, treatment_id, med_name, start_dt, end_dt, dose_amt, dose_unit, freq_hrs)
 VALUES
