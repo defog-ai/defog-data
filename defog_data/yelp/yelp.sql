@@ -128,7 +128,10 @@ INSERT INTO public.review (rid, business_id, user_id, rating, text, year, month)
 (17, 'mno345', '2', 4.6, 'Superb.', 2022, 'July'),
 (18, 'jkl012', '3', 5.0, 'WOwowow.', 2022, 'August'),
 (19, 'jkl012', '4', 4.8, 'Lovin it.', 2022, 'September'),
-(20, 'ghi789', '5', 1.5, 'Worst experience ever.', 2022, 'October')
+(20, 'ghi789', '5', 1.5, 'Worst experience ever.', EXTRACT(YEAR FROM CURRENT_DATE - INTERVAL '15 months'), TO_CHAR(CURRENT_DATE - INTERVAL '15 months', 'Month')),
+(21, 'abc123', '1', 4.6, 'Very goody.', EXTRACT(YEAR FROM CURRENT_DATE - INTERVAL '9 months'), TO_CHAR(CURRENT_DATE - INTERVAL '9 months', 'Month')),
+(22, 'def456', '2', 3.0, 'Average', EXTRACT(YEAR FROM CURRENT_DATE - INTERVAL '8 months'), TO_CHAR(CURRENT_DATE - INTERVAL '8 months', 'Month')),
+(23, 'ghi789', '3', 4.0, 'Not bad.', EXTRACT(YEAR FROM CURRENT_DATE - INTERVAL '7 months'), TO_CHAR(CURRENT_DATE - INTERVAL '7 months', 'Month'))
 ;
 
 INSERT INTO public.tip (tip_id, business_id, text, user_id, likes, year, month) VALUES
