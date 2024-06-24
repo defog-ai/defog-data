@@ -259,7 +259,9 @@ INSERT INTO public.semester (semester_id, semester, year) VALUES
 INSERT INTO public.student (student_id, lastname, firstname, program_id, declare_major, total_credit, total_gpa, entered_as, admit_term, predicted_graduation_semester, degree, minor, internship) VALUES
 (1, 'Smith', 'John', 1, 'Computer Science', 13, 3.5, 'Freshman','2018-01-01', '2022-05-01', 'Bachelor of Science', NULL, NULL),
 (2, 'Doe', 'Jane', 1, 'Computer Science', 7, 3.2, 'Freshman', '2018-01-01', '2022-05-01', 'Bachelor of Science', NULL, NULL),
-(3, 'Johnson', 'David', 2, 'Mathematics', 7, 3.6, 'Freshman', '2019-01-01', '2022-05-01', 'Bachelor of Arts', 'Mathematics', NULL)
+(3, 'Johnson', 'David', 2, 'Mathematics', 7, 3.6, 'Freshman', '2019-01-01', '2022-05-01', 'Bachelor of Arts', 'Mathematics', NULL),
+(4, 'Brown', 'Sarah', 3, 'Physics', 7, 3.8, 'Freshman', CURRENT_DATE - INTERVAL '15 years', CURRENT_DATE - INTERVAL '11 years', 'Bachelor of Science', 'Physics', NULL),
+(5, 'Wilson', 'Michael', 1, 'Computer Science', 7, 3.2, 'Freshman', CURRENT_DATE - INTERVAL '13 years', CURRENT_DATE - INTERVAL '9 years', 'Bachelor of Science', NULL, NULL)
 ;
 
 INSERT INTO public.student_record (student_id, course_id, semester, grade, how, transfer_source, earn_credit, repeat_term, test_id, offering_id) VALUES
