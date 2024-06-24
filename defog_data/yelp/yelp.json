@@ -95,7 +95,7 @@
             {
                 "data_type": "bigint",
                 "column_name": "count",
-                "column_description": "Number of check-ins on the given day"
+                "column_description": "Total number of check-ins at a business on a given day"
             },
             {
                 "data_type": "text",
