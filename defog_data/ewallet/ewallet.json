@@ -163,12 +163,12 @@
         {
           "data_type": "BIGINT",
           "column_name": "cid",
-          "column_description": ""
+          "column_description": "Unique identifier for the coupon"
         },
         {
           "data_type": "BIGINT",
           "column_name": "merchant_id",
-          "column_description": ""
+          "column_description": "ID of merchant that issued the coupon"
         },
         {
           "data_type": "VARCHAR(20)",
