@@ -64,9 +64,9 @@ CREATE TABLE public.users (
 
 
 INSERT INTO public.business (bid, business_id, name, full_address, city, latitude, longitude, review_count, is_open, state) VALUES
-(1, 'abc123', 'Joe’s Pizza', '123 Main St', 'San Francisco', '37.7749295', '-122.4194155', 2, 0, 'CA'),
-(2, 'def456', 'Peter’s Cafe', '456 Elm St', 'New York', '40.712776', '-74.005974', 3, 1, 'NY'),
-(3, 'ghi789', 'Anna’s Diner', '789 Oak St', 'Los Angeles', '34.052235', '-118.243683', 4, 0, 'CA'),
+(1, 'abc123', 'Joe’s Pizza', '123 Main St', 'San Francisco', '37.7749295', '-122.4194155', 3, 0, 'CA'),
+(2, 'def456', 'Peter’s Cafe', '456 Elm St', 'New York', '40.712776', '-74.005974', 4, 1, 'NY'),
+(3, 'ghi789', 'Anna’s Diner', '789 Oak St', 'Los Angeles', '34.052235', '-118.243683', 5, 0, 'CA'),
 (4, 'jkl012', 'Mark’s Bistro', '012 Maple St', 'San Francisco', '37.7749295', '-122.4194155', 4, 1, 'CA'),
 (5, 'mno345', 'Lily’s Bakery', '345 Walnut St', 'New York', '40.712776', '-74.005974', 3, 1, 'NY'),
 (6, 'xyz123', 'Izza’s Pizza', '83 Main St', 'San Francisco', '37.8749295', '-122.5194155', 2, 1, 'CA'),

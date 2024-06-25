@@ -176,10 +176,10 @@ INSERT INTO public.comment_instructor (instructor_id, student_id, score, comment
 ;
 
 INSERT INTO public.course (course_id, name, department, number, credits, advisory_requirement, enforced_requirement, description, num_semesters, num_enrolled, has_discussion, has_lab, has_projects, has_exams, num_reviews, clarity_score, easiness_score, helpfulness_score) VALUES
-(1, 'Introduction to Computer Science', 'Computer Science', 'CS101', '3', NULL, NULL, 'This course introduces the basics of computer science.', 2, 2, true, false, true, false, 10, 5, 3, 4),
-(2, 'Advanced Calculus', 'Mathematics', 'MATH201', '4', 'CS101', NULL, 'This course covers advanced topics in calculus.', 1, 3, false, false, true, true, 5, 4, 2, 3),
+(1, 'Introduction to Computer Science', 'Computer Science', 'CS101', '3', NULL, NULL, 'This course introduces the basics of computer science.', 2, 3, true, false, true, false, 10, 5, 3, 4),
+(2, 'Advanced Calculus', 'Mathematics', 'MATH201', '4', 'CS101', NULL, 'This course covers advanced topics in calculus.', 1, 5, false, false, true, true, 5, 4, 2, 3),
 (3, 'Introduction to Physics', 'Physics', 'PHYS101', '3', NULL, 'MATH201', 'This course provides an introduction to physics principles.', 2, 1, true, true, true, true, 8, 4, 3, 5),
-(4, 'Distributed Databases', 'Computer Science', 'CS302', '3', NULL, 'CS101', 'This course provides an introduction to distributed databases.', 2, 2, true, true, false, true, 4, 2, 1, 5)
+(4, 'Distributed Databases', 'Computer Science', 'CS302', '3', NULL, 'CS101', 'This course provides an introduction to distributed databases.', 2, 3, true, true, false, true, 4, 2, 1, 5)
 ;
 
 INSERT INTO public.course_offering (offering_id, course_id, semester, section_number, start_time, end_time, monday, tuesday, wednesday, thursday, friday, saturday, sunday, has_final_project, has_final_exam, textbook, class_address, allow_audit) VALUES
@@ -272,5 +272,9 @@ INSERT INTO public.student_record (student_id, course_id, semester, grade, how, 
 (2, 2, 1, 'C', 'in-person', NULL, 'Yes', NULL, '1', 2),
 (2, 1, 1, 'B', 'online', NULL, 'Yes', NULL, '1', 1),
 (3, 2, 1, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 2),
-(3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 4)
+(3, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 4),
+(4, 2, 1, 'C', 'in-person', NULL, 'Yes', NULL, '1', 2),
+(4, 1, 1, 'B', 'online', NULL, 'Yes', NULL, '1', 1),
+(5, 2, 1, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 2),
+(5, 4, 2, 'B+', 'in-person', NULL, 'Yes', NULL, '1', 4)
 ;
