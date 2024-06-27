@@ -203,6 +203,8 @@ def fix_ddl_sqlite(translated_ddl):
         return translated_ddl
     translated_ddl = replace_strftime_month(translated_ddl)
 
+    # replace CURRENT_DATE with DATE('now')
+    translated_ddl = translated_ddl.replace("CURRENT_DATE", "DATE('now')")
     return translated_ddl
 
 
