@@ -467,7 +467,9 @@ INSERT INTO public.month (month_number, month_name) VALUES
 (7, 'July'),
 (8, 'August'),
 (9, 'September'),
-(10, 'October')
+(10, 'October'),
+(11, 'November'),
+(12, 'December')
 ;
 
 INSERT INTO public.restriction (restriction_code, advance_purchase, stopovers, saturday_stay_required, minimum_stay, maximum_stay, application, no_discounts) VALUES
