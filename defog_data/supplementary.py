@@ -228,19 +228,10 @@ columns_ner = {
             "journal.journalname,text,Name or title of the journal",
         ],
     },
-    "broker": {
-        "GPE": []
-    },
-    "car_dealership": {
-        "GPE": []
-    },
-    "derm_treatment": {
-        "GPE": []
-    },
-    "ewallet": {
-        "GPE": []
-
-    },
+    "broker": {"GPE": []},
+    "car_dealership": {"GPE": []},
+    "derm_treatment": {"GPE": []},
+    "ewallet": {"GPE": []},
 }
 
 # (pair of tables): list of (column1, column2) tuples that can be joined
@@ -554,38 +545,20 @@ columns_join = {
         ],
         ("sbTicker", "sbTransaction"): [
             ("sbTicker.sbTickerId", "sbTransaction.sbTxTickerId")
-        ]
+        ],
     },
     "car_dealership": {
-        ("cars", "sales"): [
-            ("cars.id", "sales.car_id")
-        ],
-        ("salespersons", "sales"): [
-            ("salespersons.id", "sales.salesperson_id")
-        ],
-        ("customers", "sales"): [
-            ("customers.id", "sales.customer_id")
-        ],
-        ("cars", "inventory_snapshots"): [
-            ("cars.id", "inventory_snapshots.car_id")
-        ],
-        ("sales", "payments_received"): [
-            ("sales.id", "payments_received.sale_id")
-        ]
+        ("cars", "sales"): [("cars.id", "sales.car_id")],
+        ("salespersons", "sales"): [("salespersons.id", "sales.salesperson_id")],
+        ("customers", "sales"): [("customers.id", "sales.customer_id")],
+        ("cars", "inventory_snapshots"): [("cars.id", "inventory_snapshots.car_id")],
+        ("sales", "payments_received"): [("sales.id", "payments_received.sale_id")],
     },
     "derm_treatment": {
-        ("patients", "treatments"): [
-            ("patients.patient_id", "treatments.patient_id")
-        ],
-        ("doctors", "treatments"): [
-            ("doctors.doc_id", "treatments.doc_id")
-        ],
-        ("drugs", "treatments"): [
-            ("drugs.drug_id", "treatments.drug_id")
-        ],
-        ("diagnoses", "treatments"): [
-            ("diagnoses.diag_id", "treatments.diag_id")
-        ],
+        ("patients", "treatments"): [("patients.patient_id", "treatments.patient_id")],
+        ("doctors", "treatments"): [("doctors.doc_id", "treatments.doc_id")],
+        ("drugs", "treatments"): [("drugs.drug_id", "treatments.drug_id")],
+        ("diagnoses", "treatments"): [("diagnoses.diag_id", "treatments.diag_id")],
         ("treatments", "outcomes"): [
             ("treatments.treatment_id", "outcomes.treatment_id")
         ],
@@ -594,7 +567,7 @@ columns_join = {
         ],
         ("treatments", "concomitant_meds"): [
             ("treatments.treatment_id", "concomitant_meds.treatment_id")
-        ]
+        ],
     },
     "ewallet": {
         ("consumer_div.users", "consumer_div.notifications"): [
@@ -610,21 +583,47 @@ columns_join = {
             ("consumer_div.users.uid", "consumer_div.wallet_user_balance_daily.user_id")
         ],
         ("consumer_div.users", "consumer_div.wallet_transactions_daily"): [
-            ("consumer_div.users.uid", "consumer_div.wallet_transactions_daily.sender_id"),
-            ("consumer_div.users.uid", "consumer_div.wallet_transactions_daily.receiver_id")
+            (
+                "consumer_div.users.uid",
+                "consumer_div.wallet_transactions_daily.sender_id",
+            ),
+            (
+                "consumer_div.users.uid",
+                "consumer_div.wallet_transactions_daily.receiver_id",
+            ),
         ],
         ("consumer_div.merchants", "consumer_div.wallet_transactions_daily"): [
-            ("consumer_div.merchants.mid", "consumer_div.wallet_transactions_daily.sender_id"),
-            ("consumer_div.merchants.mid", "consumer_div.wallet_transactions_daily.receiver_id")
+            (
+                "consumer_div.merchants.mid",
+                "consumer_div.wallet_transactions_daily.sender_id",
+            ),
+            (
+                "consumer_div.merchants.mid",
+                "consumer_div.wallet_transactions_daily.receiver_id",
+            ),
         ],
         ("consumer_div.merchants", "consumer_div.coupons"): [
             ("consumer_div.merchants.mid", "consumer_div.coupons.merchant_id")
         ],
         ("consumer_div.merchants", "consumer_div.wallet_merchant_balance_daily"): [
-            ("consumer_div.merchants.mid", "consumer_div.wallet_merchant_balance_daily.merchant_id")
+            (
+                "consumer_div.merchants.mid",
+                "consumer_div.wallet_merchant_balance_daily.merchant_id",
+            )
         ],
         ("consumer_div.coupons", "consumer_div.wallet_transactions_daily"): [
-            ("consumer_div.coupons.cid", "consumer_div.wallet_transactions_daily.coupon_id")
-        ]
+            (
+                "consumer_div.coupons.cid",
+                "consumer_div.wallet_transactions_daily.coupon_id",
+            ),
+            (
+                "consumer_div.coupons.merchant_id",
+                "consumer_div.wallet_transactions_daily.sender_id",
+            ),
+            (
+                "consumer_div.coupons.merchant_id",
+                "consumer_div.wallet_transactions_daily.receiver_id",
+            ),
+        ],
     },
 }
