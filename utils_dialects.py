@@ -274,6 +274,12 @@ def fix_ddl_tsql(translated_ddl):
         r"'MMMM'",
         translated_ddl,
     )
+    # replace DATEDIFF(SECOND, '1970-01-01'...* 1000 with CAST(DATEDIFF(SECOND, '1970-01-01'... as BIGINT) * 1000
+    translated_ddl = re.sub(
+        r"DATEDIFF\(SECOND, '1970-01-01', (.+?)\) \* 1000",
+        r"CAST(DATEDIFF(SECOND, '1970-01-01', \1) AS BIGINT) * 1000",
+        translated_ddl,
+    )
     return translated_ddl
 
 
