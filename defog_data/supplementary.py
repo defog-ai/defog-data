@@ -84,17 +84,17 @@ def clean_glossary(glossary: str) -> list[str]:
     return glossary
 
 
-def load_embeddings(emb_path: str) -> tuple[dict, dict]:
+def load_embeddings(emb_path: str, update: bool = False) -> tuple[dict, dict]:
     """
     Load embeddings from file if they exist, otherwise generate them and save them.
     """
-    if os.path.isfile(emb_path):
+    if os.path.isfile(emb_path) and update == False:
         logging.info(f"Loading embeddings from file {emb_path}")
         with open(emb_path, "rb") as f:
             emb, csv_descriptions, glossary_emb = pickle.load(f)
         return emb, csv_descriptions, glossary_emb
     else:
-        logging.info(f"Embeddings file {emb_path} does not exist.")
+        logging.info(f"Embeddings file {emb_path} does not exist or it needs to be updated.")
         emb, csv_descriptions, glossary_emb = generate_embeddings(emb_path)
         return emb, csv_descriptions, glossary_emb
 
