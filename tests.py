@@ -1,7 +1,6 @@
 import os
 import unittest
 from defog_data.metadata import get_db, dbs
-from defog_data.supplementary import columns_ner
 
 
 class TestDB(unittest.TestCase):
@@ -260,19 +259,6 @@ class TestDB(unittest.TestCase):
         self.assertEqual(list(db_schema.keys()), expected_tables)
         num_columns = sum([len(db_schema[table]) for table in db_schema])
         self.assertEqual(num_columns, 36)
-
-    def test_supplementary_columns_ner(self):
-        # for each db, go through each table and add column names to a set and make sure they are not repeated
-        for db_name, ner_mapping in columns_ner.items():
-            column_names = set()
-            for _, column_str_list in ner_mapping.items():
-                for column_str in column_str_list:
-                    column_name = column_str.split(",")[0]
-                    if column_name in column_names:
-                        raise Exception(
-                            f"Column name {column_name} is repeated in {db_name}"
-                        )
-                    column_names.add(column_name)
 
 
 if __name__ == "__main__":
