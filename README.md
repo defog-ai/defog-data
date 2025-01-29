@@ -75,20 +75,14 @@ md.academic
 
 #### Supplementary
 
-We also have column embeddings, joinable columns and special columns with named entities, split by database in [supplementary.py](defog_data/supplementary.py). To access them, use the following code:
+We also have joinable columns, split by database in [supplementary.py](defog_data/supplementary.py). To access them, use the following code:
 
 ```python
 import defog_data.supplementary as sup
 
-# embeddings and accompanying column info in csv format
-embeddings, csv_info = sup.load_embeddings("<your path of choice>")
 # columns that can be joined on
 sup.columns_join
-# columns with named entities
-sup.columns_ner
 ```
-
-Note that the embeddings need to be regenerated should the underlying data get updated (eg new columns added, major version bumps). To regenerate the embeddings, the previous ones should be deleted first, which can be done automatically by setting the update parameter to `True` when running the `load_embeddings` function.
 
 ## Organization
 
